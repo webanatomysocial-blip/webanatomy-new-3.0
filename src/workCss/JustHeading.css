@@ -1,0 +1,19 @@
+.JustHeading-section {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  background-color: var(--white-color);
+  padding: 100px 350px;
+  flex-direction: column;
+}
+
+.JustHeading-section .head-text {
+  font-size: 35px;
+}
+
+@media (max-width: 768px) {
+  .JustHeading-section {
+    padding: 60px 20px;
+  }
+}

@@ -1,0 +1,19 @@
+import React from "react";
+import "../../workCss/ToggleNowCss/TnowSeo.css";
+
+const TnowSeo = ({ tittle, para, src }) => {
+  const imageSrc = src && typeof src === "object" ? src.src : src;
+  return (
+    <section className="tnow-seo-section">
+      <div className="tnow-seo-content">
+        <h1 className="head-text ">{tittle}</h1>
+        <p className="paragraph-text">{para}</p>
+      </div>
+      <div className="tnow-seo-image-container">
+        <img src={imageSrc} alt={tittle} className="tnow-seo-image" />
+      </div>
+    </section>
+  );
+};
+
+export default TnowSeo;

@@ -1,0 +1,5 @@
+RewriteEngine On
+
+# Serve uploaded images directly
+RewriteCond %{REQUEST_URI} ^/uploads/ [NC]
+RewriteRule .* - [L]

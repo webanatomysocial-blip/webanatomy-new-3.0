@@ -1,0 +1,56 @@
+.black-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 9999px; /* Pill shape */
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  height: 54px; /* Fixed height for translation reference */
+  font-family: var(--font-inter), sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.black-button:hover {
+  background-color: transparent;
+  color: #000000;
+}
+
+.black-button-text-wrapper {
+  position: relative;
+  height: 24px; /* Height matching text line-height */
+  overflow: hidden;
+  display: block;
+}
+
+.black-button-text-primary {
+  display: block;
+  line-height: 24px;
+  transform: translateY(0);
+  transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.black-button-text-secondary {
+  display: block;
+  line-height: 24px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(50px); /* 50px below the center line */
+  transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.black-button:hover .black-button-text-primary {
+  transform: translateY(-50px); /* Primary text goes up -50px */
+}
+
+.black-button:hover .black-button-text-secondary {
+  transform: translateY(0); /* Secondary text moves up to original position */
+}

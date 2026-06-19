@@ -1,0 +1,128 @@
+.UpDownImages-whole-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  background-color: var(--white-color);
+  padding-bottom: 100px;
+}
+
+.UpDownImages-stick-img {
+  width: 85%;
+  height: 100vh;
+  position: sticky;
+  top: 0px;
+  left: 0;
+  z-index: 0;
+  margin-bottom: 0px;
+  overflow: hidden;
+}
+
+.UpDownImages-stick-img img {
+  width: 100%;
+  scale: 1;
+  object-fit: cover;
+  height: 100%;
+}
+
+.UpDownImages-stick-container {
+  height: 100vh;
+  width: 100%;
+  background-color: var(--black-color);
+  z-index: 1;
+  position: sticky;
+  top: 0px;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.UpDownImages-inner-img1 {
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  transform: translateY(-700px);
+  opacity: 0;
+}
+
+.UpDownImages-inner-img1 img {
+  height: auto;
+  width: 400px;
+}
+
+.UpDownImages-inner-img2 {
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  transform: translateY(700px);
+  opacity: 0;
+}
+
+.UpDownImages-inner-img2 img {
+  height: auto;
+  width: 400px;
+}
+
+@media (min-width: 769px) {
+  .UpDownImages-whole-container.up-down-200vh {
+    height: 200vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .UpDownImages-whole-container {
+    padding-bottom: 40px;
+    height: auto !important;
+  }
+  .UpDownImages-stick-img {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    margin-bottom: 0;
+  }
+  .UpDownImages-stick-container {
+    position: relative !important;
+    height: 280px !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    padding: 0;
+    background-color: #fff !important;
+    overflow: hidden;
+  }
+  .UpDownImages-inner-img1, .UpDownImages-inner-img2 {
+    transform: none !important;
+    opacity: 1 !important;
+    width: 50%; 
+    display: flex;
+  }
+  .UpDownImages-inner-img1 {
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  .UpDownImages-inner-img2 {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .UpDownImages-inner-img2 img {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    min-width: 160px;
+    transform: translateY(100px);
+  }
+  .UpDownImages-inner-img1 img{
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    min-width: 160px;
+    transform: translateY(-100px);
+  }
+}

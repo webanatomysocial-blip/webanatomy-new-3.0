@@ -1,0 +1,367 @@
+/* src/css/blog-post.css */
+
+.pod-post-page {
+  background-color: #fff;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+}
+
+/* 1. Hero Section */
+.pod-hero-section {
+  max-width: 1400px; /* Wider for hero */
+  margin: 0 auto;
+  padding: 120px 40px 60px 40px; /* Top padding clears the Fixed Main Navbar */
+}
+
+.blog-go-back {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  color: #666;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.blog-go-back:hover {
+  color: #000;
+}
+
+.blog-breadcrumbs {
+  font-size: 14px;
+  color: #666;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.blog-breadcrumbs a {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.blog-breadcrumbs a:hover {
+  color: #000;
+}
+
+.breadcrumb-separator {
+  color: #ccc;
+}
+
+.breadcrumb-current {
+  color: #000;
+  font-weight: 400;
+}
+
+.pod-split-header {
+  display: flex;
+  gap: 60px;
+  align-items: center; /* Center vertically align title and image */
+  justify-content: space-between;
+}
+
+.pod-title-section {
+  flex: 1;
+}
+.social-link-header {
+  color: #000;
+  margin: 0 10px;
+}
+
+.pod-hero-img-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pod-hero-img-container img {
+  width: 60%;
+  border-radius: 0; /* Sharp edges typically looked better in screenshot, user wants 'just like image' */
+  display: block;
+}
+
+/* 2. Sticky Header Bar */
+.pod-sticky-header-container {
+  position: sticky;
+  top: 0px; /* Stick below the main fixed navbar */
+  z-index: 800;
+  background-color: #fff; /* Ensure it covers content */
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.pod-sticky-header {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.pod-header-content {
+  padding: 15px 40px;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  align-items: center;
+}
+
+.pod-header-title {
+  font-size: 14px;
+  font-weight: 300;
+  color: #000;
+  text-transform: uppercase;
+}
+
+.pod-header-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.detail-share-btn {
+  background: #000;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 300;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s;
+}
+
+.detail-share-btn:hover {
+  background: #333;
+}
+
+.share-menu-container {
+  position: relative;
+  display: inline-block;
+}
+
+.share-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: #fff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  padding: 10px;
+  width: 180px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: 1px solid #eee;
+  animation: fadeInScale 0.2s ease-out;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.share-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 15px;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 8px;
+  color: #333;
+  font-size: 14px;
+  font-weight: 300;
+  transition: background 0.2s;
+}
+
+.share-menu-item:hover {
+  background: #f5f5f5;
+}
+
+.share-menu-item span {
+  flex: 1;
+}
+
+/* Progress Bar */
+.scroll-progress-bar {
+  height: 3px;
+  background-color: #000;
+  width: 0%; /* Updates via GSAP */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* 3. Three-Column Content Layout */
+.pod-container.three-column-layout {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  display: grid;
+  grid-template-columns: 280px 1fr 340px; /* Left: 280px, Mid: Flex, Right: 340px */
+  gap: 60px;
+  position: relative;
+  align-items: start; /* Ensure sticky columns work */
+}
+
+/* Left Sidebar (Recent Posts) */
+.pod-sidebar-left {
+  position: sticky;
+  top: 200px; /* 80px Nav + ~60px Sticky Bar + padding */
+}
+
+.recent-posts {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.recent-posts h3 {
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: 30px;
+  padding-left: 10px;
+  line-height: 1;
+  color: #000;
+}
+
+.recent-post-item {
+  display: block;
+  font-size: 14px;
+  font-weight: 300;
+  color: #555;
+  text-decoration: none;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  transition: color 0.2s;
+}
+
+.recent-post-item:hover {
+  color: #000;
+}
+
+.recent-post-item hr {
+  margin-top: 15px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+/* Middle Column (Main Content) */
+.pod-main-content {
+  min-width: 0; /* Prevents overflow */
+}
+
+.pod-body {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #333;
+}
+
+.pod-body h2 {
+  font-size: 32px;
+  font-weight: 300;
+  margin-top: 50px;
+  margin-bottom: 25px;
+  color: #000;
+}
+
+.pod-body p {
+  margin-bottom: 24px;
+}
+
+.pod-body ul {
+  margin-bottom: 24px;
+  padding-left: 20px;
+}
+
+
+/* Right Sidebar (Sponsored) */
+.pod-sidebar-right {
+  position: sticky;
+  top: 200px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .pod-container.three-column-layout {
+    grid-template-columns: 240px 1fr 300px;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 900px) {
+  .pod-container.three-column-layout {
+    grid-template-columns: 1fr; /* Stack everything on mobile */
+    padding: 40px 20px;
+  }
+  .pod-body h2 {
+    font-size: 24px;
+    font-weight: 300;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    color: #000;
+  }
+  .pod-body {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+  }
+
+  .pod-sidebar-left,
+  .pod-sidebar-right {
+    display: none; /* User said 'remove the side bar for mobile' */
+  }
+  .pod-main-content {
+    order: 1;
+  }
+  .pod-sticky-header-container {
+    top: 60px; /* Match mobile header height */
+  }
+  .pod-header-content {
+    padding: 10px 20px;
+    gap: 20px;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .pod-header-title {
+    font-size: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .pod-hero-section {
+    padding: 100px 20px 40px 20px;
+  }
+  .pod-split-header {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+  .pod-hero-img-container img {
+    width: 100%;
+  }
+}

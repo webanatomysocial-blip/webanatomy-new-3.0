@@ -1,0 +1,299 @@
+/* ==========================================================
+   Footer Component Styles - WebAnatomy (Redesigned)
+   ========================================================== */
+
+.wa-footer {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 100px;
+}
+
+/* ── 1. Top Section (Pill Marquee) ── */
+.footer-top-marquee {
+  width: 100%;
+  padding: 40px 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  gap: 24px;
+}
+
+.marquee-left {
+  animation: scroll-left 30s linear infinite;
+}
+
+.marquee-right {
+  animation: scroll-right 40s linear infinite;
+}
+
+.marquee-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+ width: fit-content;
+ padding: 0px 20px;
+    height: 102px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  font-size: 40px;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  background-color: transparent;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.marquee-pill:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* ── 2. Middle Section ── */
+.footer-middle {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  padding: 80px 80px 120px 80px;
+}
+
+/* Left Column */
+.footer-middle-left {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.footer-marketing-tech {
+  font-size: 16px;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+}
+
+.footer-links-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-nav-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  font-size: 15px;
+  font-weight: 300;
+  color: #ffffff;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.footer-link-icon {
+  font-size: 18px;
+  color: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.footer-nav-link:hover .footer-link-icon {
+  transform: translate(2px, -2px);
+}
+
+/* Hover underline effect from 0 to 100% */
+.footer-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.4);
+  transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 2;
+}
+
+.footer-nav-link:hover::after {
+  width: 100%;
+}
+
+/* Base muted separator line for links */
+.footer-nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+}
+
+/* Right Column */
+.footer-middle-right {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  justify-content: flex-end;
+}
+
+.footer-info-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.top-info-row {
+  justify-content: flex-start;
+}
+
+.footer-info-link {
+  font-size: 14px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  transition: opacity 0.3s ease;
+}
+
+.footer-info-link:hover {
+  opacity: 0.7;
+}
+
+.footer-info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-info-row > *:nth-child(2) {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.footer-info-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 500;
+}
+
+.footer-info-value {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ffffff;
+  font-weight: 300;
+  text-decoration: none;
+}
+
+a.footer-info-value {
+  transition: opacity 0.3s ease;
+}
+
+a.footer-info-value:hover {
+  opacity: 0.7;
+}
+
+/* ── 3. Bottom Section (Massive Marquee) ── */
+.footer-bottom-marquee {
+  width: 100%;
+  overflow: hidden;
+  padding: 0 0 20px 0;
+  display: flex;
+  align-items: center;
+}
+
+.massive-marquee-text {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(80px, 15vw, 240px);
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  padding-right: 40px; /* Space between repeated words */
+  white-space: nowrap;
+}
+
+/* ── 4. Bottom Horizontal Span Lines ── */
+.footer-bottom-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.footer-line {
+  display: block;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.line-1 { height: 8px; opacity: 1; }
+.line-2 { height: 6px; opacity: 1; }
+.line-3 { height: 4px; opacity: 1; }
+.line-4 { height: 2px; opacity: 1; }
+.line-5 { height: 2px; opacity: 1; }
+.line-6 { height: 1px; opacity: 1; }
+.line-7 { height: 1px; opacity: 1; }
+.line-8 { height: 1px; opacity: 1; }
+
+
+/* ── Keyframes for Marquee ── */
+@keyframes scroll-left {
+
+
+
+    0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes scroll-right {
+
+    0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+
+}
+
+/* ── Responsive Styling ── */
+@media (max-width: 992px) {
+  .footer-middle {
+    grid-template-columns: 1fr;
+    gap: 80px;
+    padding: 60px 40px 80px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .marquee-pill {
+    padding: 10px 24px;
+    font-size: 16px;
+  }
+
+  .footer-middle {
+    padding: 40px 20px 60px 20px;
+    gap: 60px;
+  }
+
+  .footer-info-row {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .massive-marquee-text {
+    font-size: 100px;
+  }
+}
