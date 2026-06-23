@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import '@/css/AboutComponentsCss/KnowUs.css';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import bannerImg from '@/assets/images/about/group.webp';
+import bannerImg from '@/assets/images/careers/gallery/8.JPG';
 
 export default function KnowUs() {
   const sectionRef = useRef(null);

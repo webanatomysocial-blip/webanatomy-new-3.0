@@ -3,6 +3,7 @@
   color: #000000;
   padding: 120px 0;
   width: 100%;
+  overflow: hidden;
 }
 
 .who-we-are-container {
@@ -66,6 +67,7 @@
   position: relative;
   height: 380px;
   width: 100%;
+  overflow: hidden;
 }
 
 .who-we-are-curve-overlay {

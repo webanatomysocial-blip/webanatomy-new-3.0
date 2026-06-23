@@ -4,6 +4,7 @@
   background-color: #fff;
   min-height: 100vh;
   font-family: "Inter", sans-serif;
+  /* NOTE: do NOT add overflow:hidden here — it breaks position:sticky */
 }
 
 /* 1. Hero Section */
@@ -89,11 +90,25 @@
 /* 2. Sticky Header Bar */
 .pod-sticky-header-container {
   position: sticky;
-  top: 0px; /* Stick below the main fixed navbar */
+  top: 0;
   z-index: 800;
-  background-color: #fff; /* Ensure it covers content */
+  background-color: #fff;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
+  transition: top 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pod-sticky-header-container.pod-sticky--down {
+  top: 0;
+}
+
+.pod-sticky-header-container.pod-sticky--up {
+  top: 90px;
+}
+
+.pod-sticky-header-container.pod-sticky--at-top {
+  top: 0;
+  transition: none;
 }
 
 .pod-sticky-header {
@@ -214,13 +229,13 @@
   left: 0;
 }
 
-/* 3. Three-Column Content Layout */
-.pod-container.three-column-layout {
+/* 3. Two-Column Content Layout */
+.pod-container.two-column-layout {
   max-width: 1400px;
   margin: 0 auto;
   padding: 60px 40px;
   display: grid;
-  grid-template-columns: 280px 1fr 340px; /* Left: 280px, Mid: Flex, Right: 340px */
+  grid-template-columns: 280px 1fr; /* Left: 280px, Mid: Flex */
   gap: 60px;
   position: relative;
   align-items: start; /* Ensure sticky columns work */
@@ -270,16 +285,50 @@
 
 /* Middle Column (Main Content) */
 .pod-main-content {
-  min-width: 0; /* Prevents overflow */
+  min-width: 0; /* Prevents overflow in grid */
+  overflow-x: hidden;
 }
 
 .pod-body {
   font-size: 18px;
   line-height: 1.8;
   color: #333;
+  word-break: normal;
+  overflow-wrap: break-word;
+  overflow-x: hidden;
 }
 
-.pod-body h2 {
+/* Prevent images, videos, iframes, code blocks from overflowing */
+.pod-body img,
+.pod-body video,
+.pod-body iframe,
+.pod-body table {
+  max-width: 100%;
+  height: auto;
+}
+
+.pod-body pre,
+.pod-body code {
+  max-width: 100%;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-x: auto;
+}
+
+
+.pod-body h1 {
+  font-size: 38px;
+  font-weight: 300;
+  margin-top: 50px;
+  margin-bottom: 25px;
+  color: #000;
+}
+
+.pod-body h2,
+.pod-body h3,
+.pod-body h4,
+.pod-body h5,
+.pod-body h6 {
   font-size: 32px;
   font-weight: 300;
   margin-top: 50px;
@@ -288,35 +337,42 @@
 }
 
 .pod-body p {
-  margin-bottom: 24px;
+  margin-bottom: 15px;
 }
 
-.pod-body ul {
+.pod-body ul, .pod-body ol {
   margin-bottom: 24px;
   padding-left: 20px;
 }
 
+/* Right Sidebar removed */
 
-/* Right Sidebar (Sponsored) */
-.pod-sidebar-right {
-  position: sticky;
-  top: 200px;
-}
 
 /* Responsive adjustments */
 @media (max-width: 1200px) {
-  .pod-container.three-column-layout {
-    grid-template-columns: 240px 1fr 300px;
+  .pod-container.two-column-layout {
+    grid-template-columns: 240px 1fr;
     gap: 30px;
   }
 }
 
 @media (max-width: 900px) {
-  .pod-container.three-column-layout {
+  .pod-container.two-column-layout {
     grid-template-columns: 1fr; /* Stack everything on mobile */
     padding: 40px 20px;
   }
-  .pod-body h2 {
+  .pod-body h1 {
+    font-size: 28px;
+    font-weight: 300;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    color: #000;
+  }
+  .pod-body h2,
+  .pod-body h3,
+  .pod-body h4,
+  .pod-body h5,
+  .pod-body h6 {
     font-size: 24px;
     font-weight: 300;
     margin-top: 30px;
@@ -337,7 +393,31 @@
     order: 1;
   }
   .pod-sticky-header-container {
-    top: 60px; /* Match mobile header height */
+    position: fixed;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    transition: top 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .pod-sticky-header-container.pod-sticky--down {
+    top: 0;
+    bottom: auto;
+    border-top: none;
+    border-bottom: 1px solid #eee;
+  }
+  .pod-sticky-header-container.pod-sticky--up {
+    top: 70px;
+    bottom: auto;
+    border-top: none;
+    border-bottom: 1px solid #eee;
+  }
+  .pod-sticky-header-container.pod-sticky--at-top {
+    position: sticky;
+    top: 0;
+    bottom: auto;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    transition: none;
   }
   .pod-header-content {
     padding: 10px 20px;

@@ -13,7 +13,7 @@ import WorkCta from "../workComponents/WorkCta";
 import BothImages from "../workComponents/threatsenseaicomponents/BothImages";
 
 // exxpand image
-import expand from "../WorkImages/ToggleNow/expand.jpeg";
+import expand from "../WorkImages/ToggleNow/expand.png";
 
 // cta image
 import ctaimage from "../WorkImages/ToggleNow/cta.jpeg";

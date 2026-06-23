@@ -53,7 +53,11 @@ export default function LearningPostClient({ slug }) {
     );
   }
 
-  const content = <div dangerouslySetInnerHTML={{ __html: post.content || "" }} />;
+  const sanitizedContent = (post.content || "")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/\u00a0/g, " ");
+
+  const content = <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />;
 
   return (
     <BlogLayout

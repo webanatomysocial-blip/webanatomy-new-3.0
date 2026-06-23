@@ -53,7 +53,14 @@ export default function BlogPostClient({ slug }) {
     );
   }
 
-  const content = <div dangerouslySetInnerHTML={{ __html: post.content || "" }} />;
+  // Quill editor inserts &nbsp; between words which prevents natural line wrapping
+  // causing mid-word breaks. Replace them with regular spaces.
+  const sanitizedContent = (post.content || "")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/\u00a0/g, " "); // also replace actual non-breaking space characters
+
+  const content = <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />;
+
 
   return (
     <BlogLayout

@@ -1,55 +1,46 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "@/css/blog-post.css";
 import { FiFacebook, FiLinkedin } from "react-icons/fi";
 import ShareButton from "./ShareButton";
 import Link from "next/link";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const BlogLayout = ({ category = "BLOG", title, content, image, recentPosts }) => {
   const progressBarRef = useRef(null);
   const headerRef = useRef(null);
   const [currentUrl, setCurrentUrl] = useState("");
-  const [isScrollingUp, setIsScrollingUp] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [scrollDir, setScrollDir] = useState("up"); // "up" | "down"
+  const [isAtTop, setIsAtTop] = useState(true);
 
   useEffect(() => {
     setCurrentUrl(window.location.href);
-    
-    // Animate Progress Bar width based on scroll
-    gsap.to(progressBarRef.current, {
-      width: "100%",
-      ease: "none",
-      scrollTrigger: {
-        trigger: document.body,
-        start: "top top",
-        end: "bottom bottom",
-        scrub: 0.3,
-      },
-    });
 
-    // Track scroll direction for sticky header
+    let lastScrollY = window.scrollY;
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      if (currentScrollY < lastScrollY && currentScrollY > 80) {
-        // Scrolling up and past the top header
-        setIsScrollingUp(true);
-      } else if (currentScrollY > lastScrollY) {
-        // Scrolling down
-        setIsScrollingUp(false);
-      } else if (currentScrollY <= 80) {
-        // At the very top, main header is visible
-        setIsScrollingUp(true);
+
+      // Progress bar
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (currentScrollY / docHeight) * 100 : 0;
+      if (progressBarRef.current) {
+        progressBarRef.current.style.width = progress + "%";
       }
-      setLastScrollY(currentScrollY);
+
+      setIsAtTop(currentScrollY < 10);
+
+      // Scroll direction (only update if moved more than 4px to avoid jitter)
+      if (Math.abs(currentScrollY - lastScrollY) > 4) {
+        setScrollDir(currentScrollY > lastScrollY ? "down" : "up");
+        lastScrollY = currentScrollY;
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // set initial values
+
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   return (
     <div className="pod-post-page">
@@ -71,14 +62,10 @@ const BlogLayout = ({ category = "BLOG", title, content, image, recentPosts }) =
         </div>
       </div>
 
-      {/* Sticky Header */}
-      <div 
-        className="pod-sticky-header-container" 
+      {/* Sticky / Fixed Header — class switches based on scroll direction */}
+      <div
+        className={`pod-sticky-header-container pod-sticky--${scrollDir} ${isAtTop ? "pod-sticky--at-top" : ""}`}
         ref={headerRef}
-        style={{
-          top: isScrollingUp ? '80px' : '0px',
-          transition: 'top 0.3s ease-in-out'
-        }}
       >
         <div className="pod-sticky-header">
           <div className="pod-header-content">
@@ -115,14 +102,14 @@ const BlogLayout = ({ category = "BLOG", title, content, image, recentPosts }) =
         </div>
       </div>
 
-      {/* Three-Column Layout */}
-      <div className="pod-container three-column-layout">
+      {/* Two-Column Layout */}
+      <div className="pod-container two-column-layout">
         <aside className="pod-sidebar-left">
           <div className="recent-posts">
             <h3>Recent posts</h3>
             {recentPosts &&
               recentPosts.map((post, index) => (
-                <Link key={index} href={post.link} className="recent-post-item" style={{display: 'block'}}>
+                <Link key={index} href={post.link} className="recent-post-item" style={{ display: "block" }}>
                   {post.title}
                   <hr />
                 </Link>
@@ -133,16 +120,6 @@ const BlogLayout = ({ category = "BLOG", title, content, image, recentPosts }) =
         <div className="pod-main-content">
           <div className="pod-body">{content}</div>
         </div>
-
-        <aside className="pod-sidebar-right">
-          <div className="sponsored-card">
-             <span className="sponsored-label">Featured</span>
-             <div className="sponsored-text">
-               <h4>Do you run your entire marketing department as one person?</h4>
-               <p>Call the marketing hotline at MarketingHotline.com</p>
-             </div>
-          </div>
-        </aside>
       </div>
     </div>
   );

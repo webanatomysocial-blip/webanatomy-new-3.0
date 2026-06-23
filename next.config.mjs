@@ -5,13 +5,14 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  allowedDevOrigins: ['192.168.1.3', '192.168.1.3:3000'],
   async rewrites() {
     return [
       {
         source: '/api/:path*',
         destination: process.env.NODE_ENV === 'production' 
           ? 'https://webanatomy.mosol9.in/api/:path*' 
-          : 'http://localhost:8000/api/:path*',
+          : 'http://187.127.182.107/api/:path*',
       },
     ];
   },

@@ -16,7 +16,7 @@ class CustomLink extends LinkFormat {
 Quill.register(CustomLink, true);
 
 const TOOLBAR = [
-  [{ header: [1, 2, 3, false] }],
+  [{ header: [2, 3, 4, 5, 6, false] }],
   ["bold", "italic", "underline", "strike"],
   [{ list: "ordered" }, { list: "bullet" }],
   ["blockquote", "code-block"],

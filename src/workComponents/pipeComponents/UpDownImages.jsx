@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import "../../workCss/pipeCss/UpDownImages.css";
-import img1 from "../../WorkImages/piedpipper/last.jpg";
+import img1 from "../../WorkImages/piedpipper/last.png";
 // import img2 from "../../WorkImages/pipe/2.png";
 gsap.registerPlugin(ScrollTrigger);
 
