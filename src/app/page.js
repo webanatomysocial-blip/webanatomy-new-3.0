@@ -65,7 +65,7 @@ export default function Home() {
       <IntegrationsSection />
        <ClientsImg />
       {/* <ClientTestimonials /> */}
-      <BlogsSection limit={3} />
+      {/* <BlogsSection limit={3} /> */}
       
       <MultiImagesCTA />
     </>
