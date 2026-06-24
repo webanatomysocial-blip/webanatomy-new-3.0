@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from "react";
 import BlogLayout from "@/components/BlogComponents/BlogLayout";
 
+const API = process.env.NEXT_PUBLIC_API_URL || "";
+
 export default function LearningPostClient({ slug }) {
   const [post, setPost] = useState(null);
   const [recentPosts, setRecentPosts] = useState([]);
@@ -11,7 +13,7 @@ export default function LearningPostClient({ slug }) {
   useEffect(() => {
     if (!slug) return;
 
-    fetch(`/api/posts.php?slug=${encodeURIComponent(slug)}`)
+    fetch(`${API}/api/posts.php?slug=${encodeURIComponent(slug)}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.status === "success" && data.data) {
@@ -22,7 +24,7 @@ export default function LearningPostClient({ slug }) {
       })
       .catch(() => setNotFound(true));
 
-    fetch("/api/posts.php?type=learning")
+    fetch(`${API}/api/posts.php?type=learning`)
       .then((res) => res.json())
       .then((data) => {
         if (data.status === "success" && Array.isArray(data.data)) {

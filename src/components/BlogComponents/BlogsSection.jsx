@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import "@/css/Blog.css";
 
+const API = process.env.NEXT_PUBLIC_API_URL || "";
+
 function formatDate(dateStr) {
   if (!dateStr) return "";
   const d = new Date(dateStr);
@@ -16,7 +18,7 @@ const BlogsSection = ({ backgroundColor = "#f8f8f8", limit = 3 }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/posts.php?type=blog")
+    fetch(`${API}/api/posts.php?type=blog`)
       .then((res) => res.json())
       .then((data) => {
         if (data.status === "success" && Array.isArray(data.data)) {

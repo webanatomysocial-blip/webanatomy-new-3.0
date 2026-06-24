@@ -41,6 +41,7 @@ function EditorInner() {
   });
 
   const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState("");
   const [saving, setSaving] = useState(false);
   const [authorized, setAuthorized] = useState(false);
 
@@ -81,29 +82,28 @@ function EditorInner() {
     const file = e.target.files[0];
     if (!file) return;
 
-    const img = new window.Image();
-    img.onload = async () => {
-      URL.revokeObjectURL(img.src);
-      const ratio = img.width / img.height;
-      if (Math.abs(ratio - 4/3) > 0.02) {
-        alert(`The featured image must have a 4:3 aspect ratio. Your image is ${img.width}x${img.height}. Please crop it before uploading.`);
-        if (fileInputRef.current) fileInputRef.current.value = "";
+    setUploading(true);
+    const body = new FormData();
+    body.append("image", file);
+    body.append("type", "featured");
+    try {
+      const res = await fetch(`${API}/api/upload_blog_image.php`, { method: "POST", credentials: "include", body });
+      const text = await res.text();
+      let data;
+      try { data = JSON.parse(text); } catch {
+        setUploadError("PHP error: " + text.slice(0, 200));
         return;
       }
-
-      setUploading(true);
-      const body = new FormData();
-      body.append("image", file);
-      body.append("type", "featured");
-      try {
-        const res = await fetch(`${API}/api/upload_blog_image.php`, { method: "POST", credentials: "include", body });
-        const data = await res.json();
-        if (data.status === "success") set("image_url", data.path);
-        else alert(data.message || "Upload failed");
-      } catch { alert("Upload error"); }
-      finally { setUploading(false); }
-    };
-    img.src = URL.createObjectURL(file);
+      if (data.status === "success") {
+        set("image_url", data.path);
+      } else {
+        setUploadError(data.message || "Upload failed");
+      }
+    } catch {
+      setUploadError("Could not reach the PHP server at " + (API || "localhost:3000/api") + ". Make sure PHP is running on port 8000.");
+    } finally {
+      setUploading(false);
+    }
   };
 
   const handleContentImageUpload = async (e) => {
@@ -118,9 +118,14 @@ function EditorInner() {
       if (data.status === "success") {
         const tag = `<br/><img src="${data.path}" alt="Content Image" style="max-width:100%;height:auto;" /><br/>`;
         set("content", formData.content + tag);
-      } else alert(data.message || "Upload failed");
-    } catch { alert("Upload error"); }
-    finally { e.target.value = null; }
+      } else {
+        setUploadError(data.message || "Content image upload failed");
+      }
+    } catch {
+      setUploadError("Could not reach the server.");
+    } finally {
+      e.target.value = null;
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -280,21 +285,52 @@ function EditorInner() {
 
         {/* Featured image */}
         <label className="admin-label">Featured Image</label>
-        {formData.image_url && (
+        {formData.image_url ? (
           <div className="admin-image-preview">
-            <img src={formData.image_url} alt="Preview" className="admin-image-preview-img" />
-            <button
-              type="button"
-              className="admin-btn admin-btn-danger"
-              onClick={() => { set("image_url", ""); if (fileInputRef.current) fileInputRef.current.value = ""; }}
-              style={{ padding: "6px 12px", fontSize: "13px", marginTop: "8px" }}
-            >
-              Remove Image
-            </button>
+            <img src={formData.image_url} alt="Featured" className="admin-image-preview-img" />
+            <div style={{ display: "flex", gap: "10px", marginTop: "10px", alignItems: "center" }}>
+              <button
+                type="button"
+                className="admin-btn admin-btn-danger"
+                onClick={() => {
+                  set("image_url", "");
+                  setUploadError("");
+                  if (fileInputRef.current) fileInputRef.current.value = "";
+                }}
+                style={{ padding: "6px 14px", fontSize: "13px" }}
+              >
+                Remove Image
+              </button>
+              <label style={{ fontSize: "13px", color: "#007BFF", cursor: "pointer", fontWeight: 600 }}>
+                Replace Image
+                <input
+                  type="file"
+                  accept="image/*"
+                  style={{ display: "none" }}
+                  onChange={(e) => { setUploadError(""); handleFeaturedUpload(e); }}
+                />
+              </label>
+            </div>
+          </div>
+        ) : (
+          <div>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => { setUploadError(""); handleFeaturedUpload(e); }}
+              ref={fileInputRef}
+            />
+            <span className="admin-help-text" style={{ marginTop: "6px" }}>
+              Min 1024×768px. JPG, PNG, WEBP or AVIF. Max 5MB.
+            </span>
           </div>
         )}
-        <input type="file" accept="image/*" onChange={handleFeaturedUpload} ref={fileInputRef} />
-        {uploading && <span style={{ fontSize: "13px", color: "#888" }}>Uploading...</span>}
+        {uploading && <span style={{ fontSize: "13px", color: "#888" }}>Uploading image...</span>}
+        {uploadError && (
+          <div style={{ color: "#c53030", fontSize: "13px", background: "#fff5f5", border: "1px solid #fed7d7", padding: "10px 14px", borderRadius: "6px" }}>
+            {uploadError}
+          </div>
+        )}
 
 
         {/* Rich text content */}

@@ -71,7 +71,6 @@ switch ($method) {
                 if ($post) {
                     echo json_encode(['status' => 'success', 'data' => $post]);
                 } else {
-                    http_response_code(404);
                     echo json_encode(['status' => 'error', 'message' => 'Post not found']);
                 }
             } elseif ($post_id) {
@@ -79,11 +78,10 @@ switch ($method) {
                 $stmt = $pdo->prepare("SELECT p.*, (SELECT COUNT(*) FROM likes l WHERE l.post_id = p.slug OR l.post_id = p.title) as likes_count FROM posts p WHERE p.id = ?");
                 $stmt->execute([(int)$post_id]);
                 $post = $stmt->fetch(PDO::FETCH_ASSOC);
-                
+
                 if ($post) {
                     echo json_encode(['status' => 'success', 'data' => $post]);
                 } else {
-                    http_response_code(404);
                     echo json_encode(['status' => 'error', 'message' => 'Post not found']);
                 }
             } else {

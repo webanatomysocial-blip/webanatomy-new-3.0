@@ -151,7 +151,6 @@ export default function AdminDashboard() {
                     <th style={{ width: "8%" }}>Image</th>
                     <th>Title</th>
                     {activeTab === "all" && <th style={{ width: "10%" }}>Type</th>}
-                    <th style={{ width: "10%", textAlign: "center" }}>Likes</th>
                     <th style={{ width: "10%" }}>Status</th>
                     <th style={{ width: "10%" }}>Date</th>
                     <th style={{ width: "18%", textAlign: "right" }}>Actions</th>
@@ -175,14 +174,6 @@ export default function AdminDashboard() {
                           </span>
                         </td>
                       )}
-                      <td style={{ textAlign: "center", fontSize: "13px" }}>
-                        <div style={{ color: "#38a169", fontWeight: 600 }}>
-                          {Math.max(0, (post.likes_count || 0) - (post.initial_likes || 0))} genuine
-                        </div>
-                        <div style={{ color: "#e53e3e", fontWeight: 700 }}>
-                          {post.likes_count || 0} total
-                        </div>
-                      </td>
                       <td>
                         <span className={`admin-status-badge ${parseInt(post.is_published) === 1 ? "admin-status-live" : "admin-status-draft"}`}>
                           {parseInt(post.is_published) === 1 ? "• LIVE" : "• DRAFT"}
@@ -216,7 +207,7 @@ export default function AdminDashboard() {
                   ))}
                   {filteredPosts.length === 0 && (
                     <tr>
-                      <td colSpan={activeTab === "all" ? 7 : 6} style={{ padding: "40px", textAlign: "center", color: "#999" }}>
+                      <td colSpan={activeTab === "all" ? 6 : 5} style={{ padding: "40px", textAlign: "center", color: "#999" }}>
                         No posts found in this category.
                       </td>
                     </tr>

@@ -1,7 +1,8 @@
 <?php
 // api/db.php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+// Send PHP errors to server log, not into the HTTP response body (would break JSON)
+ini_set('display_errors', 0);
+ini_set('log_errors', 1);
 error_reporting(E_ALL);
 // Setup headers for CORS if needed during local dev (if React and PHP are on different ports)
 if (isset($_SERVER['HTTP_ORIGIN'])) {
@@ -167,7 +168,10 @@ try {
     )");
 
 } catch (PDOException $e) {
-    die("Database connection failed: " . $e->getMessage());
+    header('Content-Type: application/json');
+    http_response_code(500);
+    echo json_encode(['status' => 'error', 'message' => 'Database error: ' . $e->getMessage()]);
+    exit;
 }
 
 // Add youtube_link migration safely outside the main blocks

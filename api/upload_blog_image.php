@@ -1,4 +1,6 @@
 <?php
+ini_set('display_errors', 0);
+ini_set('log_errors', 1);
 require_once 'db.php';
 header('Content-Type: application/json');
 
@@ -27,8 +29,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $file = $_FILES['image'];
-    $isLocal = (getenv('DB_CONNECTION') === 'sqlite' || !isset($_ENV['DB_CONNECTION']) || $_ENV['DB_CONNECTION'] === 'sqlite');
-    $uploadDir = $isLocal ? __DIR__ . '/../public/uploads/blogs/' : __DIR__ . '/../uploads/blogs/';
+    $isLocal = ($_ENV['DB_CONNECTION'] ?? 'sqlite') === 'sqlite';
+
+    // __DIR__ is the folder containing this PHP file.
+    // Local dev:   api/ is a subfolder of the project root → go up to public/uploads/
+    // Production:  PHP files sit directly at the web root   → write into uploads/ here
+    $isApiSubdir = basename(__DIR__) === 'api';
+    if ($isApiSubdir) {
+        $uploadDir   = $isLocal
+            ? __DIR__ . '/../public/uploads/blogs/'   // Next.js public/
+            : __DIR__ . '/../uploads/blogs/';          // web root when api/ is a subdir
+    } else {
+        $uploadDir = __DIR__ . '/uploads/blogs/';      // web root when PHP is at root
+    }
     
     // Create directory if it doesn't exist
     if (!is_dir($uploadDir)) {
