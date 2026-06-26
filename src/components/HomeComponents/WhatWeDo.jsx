@@ -3,12 +3,9 @@ import React from 'react';
 import '../../css/HomeComponentsCss/WhatWeDo.css';
 import Image from 'next/image';
 
-import image1 from "../../assets/images/home/whatwedo/1.png";
-import image2 from "../../assets/images/home/whatwedo/2.png";
-import image3 from "../../assets/images/home/whatwedo/3.png";
-import image4 from "../../assets/images/home/whatwedo/4.png";
-import image5 from "../../assets/images/home/whatwedo/5.png";
-import image6 from "../../assets/images/home/whatwedo/6.png";
+import image1 from "../../assets/images/home/whatwedo/meta.png";
+import image2 from "../../assets/images/home/whatwedo/meta2.png";
+import image3 from "../../assets/images/home/whatwedo/meta3.avif";
 
 const cardsData = [
   {
@@ -36,21 +33,21 @@ const cardsData = [
     id: 4,
     title: "Engineering That Scales",
     desc: "From the first line of code to the final deployment, we build with the architecture that grows alongside your business without needing to be rebuilt from scratch.",
-    img: image4,
+    img: image3,
     layout: "text-top"
   },
   {
     id: 5,
     title: "Design That Converts",
     desc: "Every screen, every interaction and every user journey is designed with one goal, turning visitors into customers and customers into advocates.",
-    img: image5,
+    img: image1,
     layout: "image-top"
   },
   {
     id: 6,
     title: "Marketing That Performs",
     desc: "Data-driven campaigns across every major platform, built to find the right audience, earn their attention and convert it into measurable business growth.",
-    img: image6,
+    img: image2,
     layout: "text-top"
   }
 ];
