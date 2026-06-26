@@ -21,13 +21,12 @@ export default function NotFound() {
           <Image
             src={img}
             alt="404"
-            width={500}
-            height={500}
+            
             className="notFound__image"
           />
         </span>
 
-        <span className="notFound__digit">4</span>
+        <span className="notFound__digit-2">4</span>
       </div>
 
       <h2 className="notFound__heading">Oops! Page Not Found</h2>

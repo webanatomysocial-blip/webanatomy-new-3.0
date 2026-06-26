@@ -26,6 +26,16 @@ body.is-404 .bottom-blur-container {
   text-align: center;
 }
 
+.notFound__digit-2 {
+  display: inline-block;
+  vertical-align: middle;
+  color: #fff;
+  font-size: clamp(8rem, 20vw, 20rem);
+  font-weight: 300;
+  line-height: 1;
+  margin-left:-160px
+}
+
 .notFound__digit {
   display: inline-block;
   vertical-align: middle;
@@ -33,17 +43,19 @@ body.is-404 .bottom-blur-container {
   font-size: clamp(8rem, 20vw, 20rem);
   font-weight: 300;
   line-height: 1;
+  margin-right:-160px
 }
 
 .notFound__image-wrap {
   display: inline-block;
   vertical-align: middle;
+
 }
 
 .notFound__image {
   display: block;
-  width: clamp(14rem, 24vw, 26rem);
-  height: clamp(14rem, 24vw, 26rem);
+  height: auto;
+  width: 600px;
   object-fit: contain;
   animation: spin-cw 20s linear infinite;
 }
