@@ -2,8 +2,8 @@ import React from "react";
 import BlogsSection from "@/components/BlogComponents/BlogsSection";
 
 export const metadata = {
-  title: "All Blogs | Webanatomy",
-  description: "Read all the latest insights, strategies, and news from Webanatomy.",
+  title: "All Blogs | Web anatomy",
+  description: "Read all the latest insights, strategies, and news from Web anatomy.",
 };
 
 export default function BlogsPage() {

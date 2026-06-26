@@ -74,7 +74,7 @@ switch ($method) {
                     echo json_encode(['status' => 'error', 'message' => 'Post not found']);
                 }
             } elseif ($post_id) {
-                // Get single post by numeric ID — used by admin editor (drafts always returned)
+                // Get single post by numeric ID - used by admin editor (drafts always returned)
                 $stmt = $pdo->prepare("SELECT p.*, (SELECT COUNT(*) FROM likes l WHERE l.post_id = p.slug OR l.post_id = p.title) as likes_count FROM posts p WHERE p.id = ?");
                 $stmt->execute([(int)$post_id]);
                 $post = $stmt->fetch(PDO::FETCH_ASSOC);

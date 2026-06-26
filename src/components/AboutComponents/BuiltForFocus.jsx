@@ -42,7 +42,7 @@ const milestoneSlides = [
     body: (
       <>
         Every pixel has a purpose. We design from{" "}
-        <strong>first principles,</strong> not templates — so your product{" "}
+        <strong>first principles,</strong> not templates, so your product{" "}
         <strong>actually converts.</strong>
       </>
     ),
@@ -52,8 +52,8 @@ const milestoneSlides = [
     eyebrow: "Our Growth",
     body: (
       <>
-        From <strong>20 projects</strong> to complex SaaS products —{" "}
-        we scale with you, never losing sight of{" "}
+        From <strong>20 projects</strong> to complex SaaS products.{" "}
+        We scale with you, never losing sight of{" "}
         <strong>craft and clarity.</strong>
       </>
     ),
@@ -96,7 +96,7 @@ export default function BuiltForFocus() {
                 Your Business
               </p>
               <p className="sub-heading bff-caption-desc">
-                Seven years of building products, designing experiences and growing businesses — and we are still as hungry as day one.
+                Seven years of building products, designing experiences and growing businesses, and we are still as hungry as day one.
               </p>
             </div>
           </div>

@@ -33,7 +33,7 @@ export default function Footer() {
         <div className="footer-middle-left">
           <p className="footer-marketing-tech">Marketing Tech based in Hyderabad.</p>
           <div className="footer-links-list">
-            <Link href="/about-us" className="footer-nav-link">
+            <Link href="/about" className="footer-nav-link">
               <span>About us</span>
               <FiArrowUpRight className="footer-link-icon" />
             </Link>

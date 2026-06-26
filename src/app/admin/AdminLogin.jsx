@@ -44,7 +44,7 @@ export default function AdminLogin() {
   return (
     <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "#f7f7f7" }}>
       <div style={{ background: "#fff", padding: "48px 40px", borderRadius: "12px", boxShadow: "0 4px 24px rgba(0,0,0,0.08)", width: "100%", maxWidth: "400px" }}>
-        <h1 style={{ fontSize: "24px", fontWeight: "700", marginBottom: "8px", color: "#1a1a1a" }}>Webanatomy Admin</h1>
+        <h1 style={{ fontSize: "24px", fontWeight: "700", marginBottom: "8px", color: "#1a1a1a" }}>Web anatomy Admin</h1>
         <p style={{ color: "#888", fontSize: "14px", marginBottom: "32px" }}>Sign in to manage posts</p>
 
         {error && (

@@ -58,7 +58,7 @@ export default function Home() {
      
        <ClientsRecognition 
                     tag="✦ Clients & Recognition" 
-                    title="Businesses That Trust WebAnatomy to Get It Right." 
+                    title="Businesses That Trust Web Anatomy to Get It Right." 
                     statNum="100+"
                   />
 

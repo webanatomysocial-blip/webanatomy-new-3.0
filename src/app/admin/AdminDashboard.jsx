@@ -106,7 +106,7 @@ export default function AdminDashboard() {
     <div className="admin-layout-container">
       {/* Sidebar */}
       <div className="admin-sidebar">
-        <div className="admin-sidebar-brand">Webanatomy Admin</div>
+        <div className="admin-sidebar-brand">Web anatomy Admin</div>
         <div className="admin-sidebar-nav">
           <button className="admin-nav-item admin-nav-item-active">Posts</button>
         </div>

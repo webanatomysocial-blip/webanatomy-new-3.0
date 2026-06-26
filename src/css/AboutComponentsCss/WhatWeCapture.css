@@ -7,7 +7,7 @@
   overflow: hidden;
   background-color: #ffffff;
   padding: 0 0 100px 0;
-  /* no horizontal padding — cards bleed edge-to-edge */
+  /* no horizontal padding - cards bleed edge-to-edge */
   cursor: grab;
   user-select: none;
 }

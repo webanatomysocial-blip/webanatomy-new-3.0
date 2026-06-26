@@ -8,7 +8,7 @@ const JOBS = [
     id: 1,
     title: "SEO Executive",
     tags: ["On-site · Hyderabad", "Full-time · 6 months – 1 year"],
-    desc: "Drive organic growth for WebAnatomy and our clients through smart keyword strategy, on-page optimisation and measurable performance."
+    desc: "Drive organic growth for Web Anatomy and our clients through smart keyword strategy, on-page optimisation and measurable performance."
   },
   {
     id: 2,
@@ -20,31 +20,31 @@ const JOBS = [
     id: 3,
     title: "Sales Executive",
     tags: ["On-site · Hyderabad", "Full-time · Fresher"],
-    desc: "Connect with businesses across India and beyond, understand their digital goals and help them discover what WebAnatomy can build for them."
+    desc: "Connect with businesses across India and beyond, understand their digital goals and help them discover what Web Anatomy can build for them."
   },
   {
     id: 4,
     title: "Account Manager",
     tags: ["On-site · Hyderabad", "Full-time · 0–1 Year"],
-    desc: "Be the bridge between our clients and our team — managing relationships, timelines and expectations with clarity and confidence."
+    desc: "Be the bridge between our clients and our team, managing relationships, timelines and expectations with clarity and confidence."
   },
   {
     id: 5,
     title: "Content Creator",
     tags: ["On-site · Hyderabad", "Full-time · 0–1 Year"],
-    desc: "Write and create content that is sharp, purposeful and built for the right audience — across social media, campaigns and brand communication."
+    desc: "Write and create content that is sharp, purposeful and built for the right audience, across social media, campaigns and brand communication."
   },
   {
     id: 6,
     title: "Social Media Manager",
     tags: ["On-site · Hyderabad", "Full-time · 0–1 Year"],
-    desc: "Own WebAnatomy's social presence — creating content that reflects the quality of our work and builds a community around the brand."
+    desc: "Own Web Anatomy's social presence, creating content that reflects the quality of our work and builds a community around the brand."
   },
   {
     id: 7,
     title: "Founder's Office",
     tags: ["On-site · Hyderabad", "Full-time · 0–6 Months"],
-    desc: "Work directly alongside the founders across strategy, operations and growth initiatives. For someone who wants to understand how a premium agency is built — from the inside."
+    desc: "Work directly alongside the founders across strategy, operations and growth initiatives. For someone who wants to understand how a premium agency is built from the inside."
   }
 ];
 

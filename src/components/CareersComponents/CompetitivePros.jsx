@@ -33,7 +33,7 @@ export default function CompetitivePros() {
             </div>
             <h3 className="cpros-card-title">Grow With Us</h3>
             <p className="cpros-card-desc">
-              Every project at WebAnatomy is an opportunity to push what you know further. You will work across disciplines, industries and global clients, building a body of work that grows with you.
+              Every project at Web Anatomy is an opportunity to push what you know further. You will work across disciplines, industries and global clients, building a body of work that grows with you.
 
             </p>
           </div>

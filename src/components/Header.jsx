@@ -132,7 +132,7 @@ export default function Header() {
             <div className="menu-content">
               {/* Left Column: Navigation Links */}
               <nav className="menu-links-list">
-                <Link href="/about-us" className="menu-item-link">
+                <Link href="/about" className="menu-item-link">
                   About us
                 </Link>
                 <Link href="/services" className="menu-item-link">

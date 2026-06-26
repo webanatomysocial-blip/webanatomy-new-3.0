@@ -58,7 +58,7 @@ export default function ThreatSenseAI() {
       <ServicesSecondSec
         services={services}
         title="Building a Brand and Digital Presence Worthy of the Enterprise Security Market"
-        description="ThreatSenseAI is an AI-powered cybersecurity platform purpose-built for the enterprise, detecting insider threats, preventing data leaks and ensuring compliance across systems, browsers and AI tools in real time. WebAnatomy was entrusted with building its complete brand identity and digital presence from the ground up. The mandate was to position ThreatSenseAI as a credible, enterprise-grade player from the moment it entered the market."
+        description="ThreatSenseAI is an AI-powered cybersecurity platform purpose-built for the enterprise, detecting insider threats, preventing data leaks and ensuring compliance across systems, browsers and AI tools in real time. Web Anatomy was entrusted with building its complete brand identity and digital presence from the ground up. The mandate was to position ThreatSenseAI as a credible, enterprise-grade player from the moment it entered the market."
         stats={stats}
         liveLink="https://threatsenseai.com"
       />
@@ -92,9 +92,9 @@ export default function ThreatSenseAI() {
       <JustHeading
         paddingTop={100}
         tittle={
-          ' "WebAnatomy understood the weight of what we were building and the market we were entering. The brand and website they delivered became our strongest asset in every enterprise conversation from day one." '
+          ' "Web Anatomy understood the weight of what we were building and the market we were entering. The brand and website they delivered became our strongest asset in every enterprise conversation from day one." '
         }
-        subtitle="— Founder, ThreatSenseAI"
+        subtitle="Founder, ThreatSenseAI"
       />
       <BothImages src1={both1} src2={both2} />
       

@@ -39,7 +39,7 @@ const HomeTextFade = ({ triggerRef }) => {
     };
   }, []);
 
-  const text = `At WebAnatomy, we believe that every business
+  const text = `At Web Anatomy, we believe that every business
 deserves a digital presence that is as ambitious
 as the vision behind it, and we have built
 our entire practice around making that a reality.`;

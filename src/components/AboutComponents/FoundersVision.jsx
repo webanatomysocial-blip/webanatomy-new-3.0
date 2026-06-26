@@ -33,7 +33,7 @@ export default function FoundersVision() {
             {/* Top info section */}
             <div className="fv-right-top">
               <h3 className="fv-name">Hi, We Are Srujan & Supraja</h3>
-              <p className="fv-role">Co-Founders, WebAnatomy</p>
+              <p className="fv-role">Co-Founders, Web Anatomy</p>
               <div className="fv-divider"></div>
             </div>
 
@@ -43,7 +43,7 @@ export default function FoundersVision() {
                 marginBottom : '20px'
               }}>Bio</h4>
               <p className="paragraph-text-white">
-                Srujan and Supraja started WebAnatomy with one belief that businesses deserve a technology and marketing partner that is as invested in their growth as they are. Over the years, that belief has shaped everything about how WebAnatomy works, the questions we ask, the standards we hold and the relationships we build with every client we work with. Today, Web Anatomy is a 25-person team delivering products, brands and marketing strategies for businesses across three continents and the ambition that started it all has never been stronger.
+                Srujan and Supraja started Web Anatomy with one belief that businesses deserve a technology and marketing partner that is as invested in their growth as they are. Over the years, that belief has shaped everything about how Web Anatomy works, the questions we ask, the standards we hold and the relationships we build with every client we work with. Today, Web Anatomy is a 25-person team delivering products, brands and marketing strategies for businesses across three continents and the ambition that started it all has never been stronger.
               </p>
             </div>
 

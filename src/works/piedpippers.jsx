@@ -39,7 +39,7 @@ export default function PiedPippers() {
       <ServicesSecondSec
         services={services}
         title="One Platform, Three User Roles and a Biometric Payment System"
-        description="The Pied Piper is a premium kids activity club in Hyderabad where children develop real skills in music, dance, art, baking and public speaking. Running an operation of this ambition requires more than a well-designed website; it requires a complete digital infrastructure. WebAnatomy designed and built both the public-facing marketing website and a full web application powering every function of the business, from parent enrolment to teacher management to a UV eye scan cafeteria payment system, and delivered the entire platform in twelve weeks."
+        description="The Pied Piper is a premium kids activity club in Hyderabad where children develop real skills in music, dance, art, baking and public speaking. Running an operation of this ambition requires more than a well-designed website; it requires a complete digital infrastructure. Web Anatomy designed and built both the public-facing marketing website and a full web application powering every function of the business, from parent enrolment to teacher management to a UV eye scan cafeteria payment system, and delivered the entire platform in twelve weeks."
         stats={stats}
         liveLink="#"
       />
@@ -48,7 +48,7 @@ export default function PiedPippers() {
         subheading="Context"
         tittle="Pied Piper"
         description="The Pied Piper is not a typical after-school club. It is a structured, premium activity centre where children explore and develop real skills and where parents expect the same level of polish in the experience as they see in the programming itself. Managing enrolments, sessions, attendance, payments and cafeteria operations manually was no longer viable at the scale they were growing."
-        description2="The brief that came to WebAnatomy was one of the most technically layered we have worked on. Build a marketing website that reflects the brand's warmth and premium positioning. Then build an entire operational platform underneath it one that serves three completely different types of users, integrates with biometric hardware, handles real-time data across every function, and does all of it within a single cohesive product."
+        description2="The brief that came to Web Anatomy was one of the most technically layered we have worked on. Build a marketing website that reflects the brand's warmth and premium positioning. Then build an entire operational platform underneath it one that serves three completely different types of users, integrates with biometric hardware, handles real-time data across every function, and does all of it within a single cohesive product."
       />
       <UpDownImages />
       <Context
@@ -70,9 +70,9 @@ export default function PiedPippers() {
       <JustHeading
         paddingTop={100}
         tittle={
-          ' "WebAnatomy took one of the most complex briefs we could have presented and delivered a platform that our parents, teachers and operations team rely on every single day. The biometric payment system alone transformed how we run the centre." '
+          ' "Web Anatomy took one of the most complex briefs we could have presented and delivered a platform that our parents, teachers and operations team rely on every single day. The biometric payment system alone transformed how we run the centre." '
         }
-        subtitle="— Founder, The Pied Piper"
+        subtitle="Founder, The Pied Piper"
       />
 
       <Context

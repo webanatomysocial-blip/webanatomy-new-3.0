@@ -4,7 +4,7 @@
   background-color: #fff;
   min-height: 100vh;
   font-family: "Inter", sans-serif;
-  /* NOTE: do NOT add overflow:hidden here — it breaks position:sticky */
+  /* NOTE: do NOT add overflow:hidden here - it breaks position:sticky */
 }
 
 /* 1. Hero Section */

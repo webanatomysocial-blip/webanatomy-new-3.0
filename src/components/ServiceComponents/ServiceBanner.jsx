@@ -17,7 +17,7 @@ export default function ServiceBanner() {
           The Experience to Build It Right.
         </>
       }
-      desc="At WebAnatomy, we have spent years building products, designing experiences and growing businesses for clients who expect the best — and we have never once lowered that standard."
+      desc="At Web Anatomy, we have spent years building products, designing experiences and growing businesses for clients who expect the best, and we have never once lowered that standard."
       image={bannerImg}
       buttons={[
         { text: "Explore Our Work →", onClick: () => router.push("/works") },

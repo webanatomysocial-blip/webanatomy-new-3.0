@@ -131,7 +131,7 @@ export default function TheSase() {
       <ServicesSecondSec
         services={services}
         title="Transforming a Smart Locker System Into a World-Class Digital Product Experience"
-        description="SASE is a sophisticated smart locker solution built for modern properties and enterprises. With a product this technically nuanced, the digital experience had to do more than inform, it had to demonstrate. WebAnatomy designed and engineered a scroll-driven, animation-rich website in React that unfolds the product story with the precision and elegance the brand deserves."
+        description="SASE is a sophisticated smart locker solution built for modern properties and enterprises. With a product this technically nuanced, the digital experience had to do more than inform, it had to demonstrate. Web Anatomy designed and engineered a scroll-driven, animation-rich website in React that unfolds the product story with the precision and elegance the brand deserves."
         stats={stats}
         liveLink="#"
       />
@@ -148,12 +148,12 @@ export default function TheSase() {
         subheading="Context"
         tittle="SASE"
         description="SASE redefines how modern properties and enterprises manage deliveries, control access, and secure their logistics infrastructure through intelligent smart locker systems. It is a product built at the intersection of hardware precision and software intelligence, and it demanded a digital presence that could communicate that depth with equal sophistication."
-        description2="The brief was clear and ambitious. Build a website that does not just describe the product but demonstrates it. A website where every scroll reveals a new dimension of the product, where motion and interaction replace paragraphs of explanation, and where the visitor arrives at the end of the page with complete clarity and confidence. WebAnatomy took that brief and built an experience that sets a new benchmark for how hardware-software products present themselves online."
+        description2="The brief was clear and ambitious. Build a website that does not just describe the product but demonstrates it. A website where every scroll reveals a new dimension of the product, where motion and interaction replace paragraphs of explanation, and where the visitor arrives at the end of the page with complete clarity and confidence. Web Anatomy took that brief and built an experience that sets a new benchmark for how hardware-software products present themselves online."
       />
       <FullWidthImage src={bannerimage} alt="Expandable Image" />
       <JustHeading
         tittle={
-          ' "The most powerful product experiences don\'t ask visitors to imagine the product — they put it right in front of them. That was the standard we held ourselves to on every decision in this project." '
+          ' "The most powerful product experiences don\'t ask visitors to imagine the product - they put it right in front of them. That was the standard we held ourselves to on every decision in this project." '
         }
       />
       <UpImageAnimation />
@@ -174,9 +174,9 @@ export default function TheSase() {
       <JustHeading
         paddingTop={100}
         tittle={
-          ' "WebAnatomy brought strategic thinking to the table from day one. They built our most powerful sales asset." '
+          ' "Web Anatomy brought strategic thinking to the table from day one. They built our most powerful sales asset." '
         }
-        subtitle="— Keerthana, Founder, SASE"
+        subtitle="Keerthana, Founder, SASE"
       />
 {/* 
       <Context

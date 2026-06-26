@@ -107,7 +107,7 @@ export default function Contact() {
         <div className="contact-header">
           <h2 className="head-text-white">Contact Us</h2>
           <p className="paragraph-text-white">
-            Have a project in mind? Let's talk — we'll get back to you promptly.
+            Have a project in mind? Let's talk. We'll get back to you promptly.
           </p>
         </div>
 

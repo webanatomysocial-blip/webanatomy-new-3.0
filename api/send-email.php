@@ -29,7 +29,7 @@ $email   = filter_var(trim($input['email'] ?? ''), FILTER_SANITIZE_EMAIL);
 $phone   = htmlspecialchars(trim($input['phone'] ?? 'Not provided'), ENT_QUOTES, 'UTF-8');
 $message = htmlspecialchars(trim($input['message'] ?? 'No message'), ENT_QUOTES, 'UTF-8');
 
-// Recipient is always taken from server env — never from form input
+// Recipient is always taken from server env - never from form input
 $toEmail = $_ENV['CONTACT_TO'] ?? 'reddydheeraj2109@gmail.com';
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -39,7 +39,7 @@ require __DIR__ . '/PHPMailer/Exception.php';
 require __DIR__ . '/PHPMailer/PHPMailer.php';
 require __DIR__ . '/PHPMailer/SMTP.php';
 
-$subject  = "New Contact Form Submission — Webanatomy";
+$subject  = "New Contact Form Submission - Webanatomy";
 $htmlBody = "
 <div style=\"font-family: Arial, sans-serif; max-width: 600px;\">
   <h2 style=\"color: #1a1a1a;\">New Contact Form Submission</h2>

@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     ];
                 }
             } catch (Exception $e) {
-                // user_permissions table may not exist yet — safe fallback
+                // user_permissions table may not exist yet - safe fallback
                 $permissions = [];
             }
             $_SESSION['permissions'] = $permissions;

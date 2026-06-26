@@ -155,7 +155,7 @@ $podMetadata = [
         "title" => "Singara Mohan on Crafting Memories Into Cinema",
         "slug" => "singara-mohan-kaalamega-karigindhi",
         "categorySlug" => "stage-behind-the-story",
-        "metaDescription" => "Singara Mohan shares how memories, poetry, and Telugu language shaped his debut film Kaalamega Karigindhi — a poetic indie film about childhood and emotion.",
+        "metaDescription" => "Singara Mohan shares how memories, poetry, and Telugu language shaped his debut film Kaalamega Karigindhi - a poetic indie film about childhood and emotion.",
         "image" => "/assets/The-stage-behind-the-story/Sinagara-Mohan.jpeg",
         "category" => "The stage behind the story",
     ],

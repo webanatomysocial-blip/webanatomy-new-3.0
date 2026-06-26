@@ -246,7 +246,7 @@ function EditorInner() {
         />
 
         {/* Slug */}
-        <label className="admin-label">Slug (URL) — auto-generated from title</label>
+        <label className="admin-label">Slug (URL) - auto-generated from title</label>
         <input
           type="text"
           value={formData.slug}

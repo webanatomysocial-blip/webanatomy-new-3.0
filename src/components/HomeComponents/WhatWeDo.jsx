@@ -1,51 +1,56 @@
 "use client";
 import React from 'react';
 import '../../css/HomeComponentsCss/WhatWeDo.css';
+import Image from 'next/image';
 
-import metaImg from "../../assets/images/home/whatwedo/meta.png";
-import meta2Img from "../../assets/images/home/whatwedo/meta2.png";
+import image1 from "../../assets/images/home/whatwedo/1.png";
+import image2 from "../../assets/images/home/whatwedo/2.png";
+import image3 from "../../assets/images/home/whatwedo/3.png";
+import image4 from "../../assets/images/home/whatwedo/4.png";
+import image5 from "../../assets/images/home/whatwedo/5.png";
+import image6 from "../../assets/images/home/whatwedo/6.png";
 
 const cardsData = [
   {
     id: 1,
     title: "24/7 Priority Care",
     desc: "Every client has a dedicated team that is reachable when it matters. Urgent timelines, critical updates and important decisions never wait until Monday morning.",
-    img: metaImg.src,
+    img: image1,
     layout: "image-top"
   },
   {
     id: 2,
     title: "Built on Strategy",
     desc: "Every product we build starts with a strategic foundation because the best engineering in the world means nothing if it is solving the wrong problem.",
-    img: meta2Img.src,
+    img: image2,
     layout: "text-top"
   },
   {
     id: 3,
     title: "Brand at Your Fingertips",
     desc: "We build brand systems that travel consistently across every platform, every campaign and every customer touchpoint your business will ever need.",
-    img: metaImg.src,
+    img: image3,
     layout: "image-top"
   },
   {
     id: 4,
     title: "Engineering That Scales",
     desc: "From the first line of code to the final deployment, we build with the architecture that grows alongside your business without needing to be rebuilt from scratch.",
-    img: meta2Img.src,
+    img: image4,
     layout: "text-top"
   },
   {
     id: 5,
     title: "Design That Converts",
     desc: "Every screen, every interaction and every user journey is designed with one goal, turning visitors into customers and customers into advocates.",
-    img: metaImg.src,
+    img: image5,
     layout: "image-top"
   },
   {
     id: 6,
     title: "Marketing That Performs",
     desc: "Data-driven campaigns across every major platform, built to find the right audience, earn their attention and convert it into measurable business growth.",
-    img: meta2Img.src,
+    img: image6,
     layout: "text-top"
   }
 ];
@@ -73,7 +78,7 @@ const WhatWeDo = () => {
                 {isImageTop ? (
                   <>
                     <div className="card-image-container">
-                      <img src={card.img} alt={card.title} className="card-logo-image" />
+                      <Image src={card.img} alt={card.title} className="card-logo-image" style={{ width: '100%', height: 'auto', maxHeight: '180px', objectFit: 'contain' }} />
                     </div>
                     <div className="card-text-box">
                       <h3>{card.title}</h3>
@@ -87,7 +92,7 @@ const WhatWeDo = () => {
                       <p>{card.desc}</p>
                     </div>
                     <div className="card-image-container">
-                      <img src={card.img} alt={card.title} className="card-logo-image" />
+                      <Image src={card.img} alt={card.title} className="card-logo-image" style={{ width: '100%', height: 'auto', maxHeight: '180px', objectFit: 'contain' }} />
                     </div>
                   </>
                 )}

@@ -53,7 +53,7 @@ export default function ToggleNow() {
       <ServicesSecondSec
         services={services}
         title="Redesigning the Digital Presence of an Enterprise SAP Platform"
-        description="ToggleNow is one of India's leading SAP Digital Innovation Partners, operating across the US, UK, Singapore and India with a portfolio of 12+ enterprise solutions spanning SAP security, GRC compliance and intelligent automation. WebAnatomy was engaged to restructure their digital presence from the ground up, transforming a fragmented, difficult-to-navigate website into a coherent, conversion-focused platform backed by a targeted SEO strategy that put ToggleNow in front of the right buyers."
+        description="ToggleNow is one of India's leading SAP Digital Innovation Partners, operating across the US, UK, Singapore and India with a portfolio of 12+ enterprise solutions spanning SAP security, GRC compliance and intelligent automation. Web Anatomy was engaged to restructure their digital presence from the ground up, transforming a fragmented, difficult-to-navigate website into a coherent, conversion-focused platform backed by a targeted SEO strategy that put ToggleNow in front of the right buyers."
         stats={stats}
         liveLink="https://togglenow.com"
       />
@@ -77,7 +77,7 @@ export default function ToggleNow() {
 
       <TnowSeo
         tittle="Putting ToggleNow in Front of the Buyers Who Matter Most"
-        para="Enterprise SAP buyers do not browse, they search for exactly what they need. SAP GRC services. Access governance solutions. Compliance automation. These are high-intent, low-volume search terms with significant commercial value. WebAnatomy built a targeted SEO strategy around ToggleNow's highest-value service lines — restructuring page content around purchase intent, establishing topical authority across their core solution areas and ensuring that every page the right buyer landed on gave them an immediate reason to stay. The results were unambiguous. ToggleNow now ranks on page one of Google for competitive enterprise search terms including SAP GRC Services — directly in front of the decision-makers who need what they offer."
+        para="Enterprise SAP buyers do not browse, they search for exactly what they need. SAP GRC services. Access governance solutions. Compliance automation. These are high-intent, low-volume search terms with significant commercial value. Web Anatomy built a targeted SEO strategy around ToggleNow's highest-value service lines, restructuring page content around purchase intent, establishing topical authority across their core solution areas and ensuring that every page the right buyer landed on gave them an immediate reason to stay. The results were unambiguous. ToggleNow now ranks on page one of Google for competitive enterprise search terms including SAP GRC Services - directly in front of the decision-makers who need what they offer."
         src={img3}
       />
       <BothImages src1={Tnow1} src2={Tnow2} />
@@ -85,9 +85,9 @@ export default function ToggleNow() {
       <JustHeading
         paddingTop={100}
         tittle={
-          ' "Our website was complex and visitors couldn\'t find what they needed. WebAnatomy understood the problem and they restructured everything, and within months we were ranking for keywords our enterprise clients actually search for." '
+          ' "Our website was complex and visitors couldn\'t find what they needed. Web Anatomy understood the problem and they restructured everything, and within months we were ranking for keywords our enterprise clients actually search for." '
         }
-        subtitle="— CEO, ToggleNow"
+        subtitle="CEO, ToggleNow"
       />
       <TnowResults
         videoSrc={video}

@@ -62,7 +62,7 @@ const BlogLayout = ({ category = "BLOG", title, content, image, recentPosts }) =
         </div>
       </div>
 
-      {/* Sticky / Fixed Header — class switches based on scroll direction */}
+      {/* Sticky / Fixed Header - class switches based on scroll direction */}
       <div
         className={`pod-sticky-header-container pod-sticky--${scrollDir} ${isAtTop ? "pod-sticky--at-top" : ""}`}
         ref={headerRef}

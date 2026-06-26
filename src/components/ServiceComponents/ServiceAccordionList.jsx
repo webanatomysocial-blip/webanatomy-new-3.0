@@ -99,7 +99,7 @@ export default function ServiceAccordionList() {
   const serviceCategories = [
     {
       categoryTitle: "Product Engineering",
-      categoryDesc: "We place engineering at the heart of everything we build. Whether it is a SaaS platform, a mobile application or a custom software solution, our teams bring the technical depth and product thinking to deliver something that works — reliably, scalably and exactly as intended.",
+      categoryDesc: "We place engineering at the heart of everything we build. Whether it is a SaaS platform, a mobile application or a custom software solution, our teams bring the technical depth and product thinking to deliver something that works - reliably, scalably and exactly as intended.",
       videoSrc: "/videos/services-page/Teachnology - Website.mp4",
       items: [
         {
@@ -108,7 +108,7 @@ export default function ServiceAccordionList() {
         },
         {
           title: "Mobile App Development",
-          description: "Native and cross-platform mobile applications built around how your users actually behave — on Android and iOS alike."
+          description: "Native and cross-platform mobile applications built around how your users actually behave - on Android and iOS alike."
         },
         {
           title: "SaaS Product Development",
@@ -116,7 +116,7 @@ export default function ServiceAccordionList() {
         },
         {
           title: "Custom Software Development",
-          description: "Bespoke software built around the specific operational demands of your business — not adapted from a generic template."
+          description: "Bespoke software built around the specific operational demands of your business - not adapted from a generic template."
         },
         {
           title: "API Development & Integration",
@@ -124,13 +124,13 @@ export default function ServiceAccordionList() {
         },
         {
           title: "E-commerce Development",
-          description: "Commerce platforms built for conversion — fast, intuitive and engineered to handle the demands of modern online retail."
+          description: "Commerce platforms built for conversion - fast, intuitive and engineered to handle the demands of modern online retail."
         }
       ]
     },
     {
       categoryTitle: "Experience Design",
-      categoryDesc: "Design is not decoration. It is the difference between a product people use and a product people love. Our experience design practice begins with a deep understanding of your users — their needs, their behaviour and their expectations — and builds from that foundation to create digital experiences that feel effortless.",
+      categoryDesc: "Design is not decoration. It is the difference between a product people use and a product people love. Our experience design practice begins with a deep understanding of your users - their needs, their behaviour and their expectations - and builds from that foundation to create digital experiences that feel effortless.",
       videoSrc: "/videos/services-page/Experience-Design.mp4",
       items: [
         {
@@ -139,19 +139,19 @@ export default function ServiceAccordionList() {
         },
         {
           title: "Website Design",
-          description: "Websites that communicate the right things to the right people — designed to earn trust and drive action from the very first visit."
+          description: "Websites that communicate the right things to the right people - designed to earn trust and drive action from the very first visit."
         },
         {
           title: "Mobile Experience Design",
-          description: "Mobile experiences that feel native to the device and natural to the user — across every screen size and interaction."
+          description: "Mobile experiences that feel native to the device and natural to the user - across every screen size and interaction."
         },
         {
           title: "Commerce Experience",
-          description: "Shopping experiences designed to reduce friction and increase conversion — from first browse to completed purchase."
+          description: "Shopping experiences designed to reduce friction and increase conversion - from first browse to completed purchase."
         },
         {
           title: "Prototyping & User Testing",
-          description: "Ideas validated before they are built — through high-fidelity prototypes and real user feedback that shapes every design decision."
+          description: "Ideas validated before they are built - through high-fidelity prototypes and real user feedback that shapes every design decision."
         },
         {
           title: "Design Systems & Component Libraries",
@@ -161,12 +161,12 @@ export default function ServiceAccordionList() {
     },
     {
       categoryTitle: "Brand & Identity",
-      categoryDesc: "A brand is the first impression your business makes — before a product is used, before a meeting is held, before a word is spoken. We build brand identities that are grounded in strategy and distinctive in their execution, designed to hold their own in any room and scale across every medium.",
+      categoryDesc: "A brand is the first impression your business makes - before a product is used, before a meeting is held, before a word is spoken. We build brand identities that are grounded in strategy and distinctive in their execution, designed to hold their own in any room and scale across every medium.",
       videoSrc: "/videos/services-page/Branding - Website.mp4",
       items: [
         {
           title: "Logo Design",
-          description: "Logomarks built around the strategy of the brand — designed to be distinctive, memorable and built to last."
+          description: "Logomarks built around the strategy of the brand - designed to be distinctive, memorable and built to last."
         },
         {
           title: "Visual Identity & Guidelines",
@@ -174,30 +174,30 @@ export default function ServiceAccordionList() {
         },
         {
           title: "Brand Strategy & Positioning",
-          description: "Clarity on who you are, who you are for and why it matters — the strategic foundation every brand decision is built on."
+          description: "Clarity on who you are, who you are for and why it matters - the strategic foundation every brand decision is built on."
         },
         {
           title: "Motion Branding & Video Identity",
-          description: "Brand identities brought to life through motion — for digital platforms, product interfaces and video content."
+          description: "Brand identities brought to life through motion - for digital platforms, product interfaces and video content."
         },
         {
           title: "Rebranding & Brand Refresh",
-          description: "When a brand has outgrown its identity, we rebuild it — honouring what has been established while positioning the business for where it is going."
+          description: "When a brand has outgrown its identity, we rebuild it - honouring what has been established while positioning the business for where it is going."
         },
         {
           title: "Graphic Design",
-          description: "Design across print and digital — from campaign visuals to corporate collateral — executed at the standard your brand deserves."
+          description: "Design across print and digital - from campaign visuals to corporate collateral - executed at the standard your brand deserves."
         }
       ]
     },
     {
       categoryTitle: "Digital Marketing",
-      categoryDesc: "Building a great product is only half the equation. Getting the right people to find it, understand it and choose it is the other half. Our digital marketing practice is built around measurable performance — every channel, every campaign and every piece of content is held accountable to what it delivers for your business.",
+      categoryDesc: "Building a great product is only half the equation. Getting the right people to find it, understand it and choose it is the other half. Our digital marketing practice is built around measurable performance - every channel, every campaign and every piece of content is held accountable to what it delivers for your business.",
       videoSrc: "/videos/services-page/Digital-Marketing.mp4",
       items: [
         {
           title: "Search Engine Optimisation",
-          description: "Organic visibility built on keyword strategy, technical SEO and content that earns rankings — and holds them over time."
+          description: "Organic visibility built on keyword strategy, technical SEO and content that earns rankings - and holds them over time."
         },
         {
           title: "Performance Marketing",
@@ -205,7 +205,7 @@ export default function ServiceAccordionList() {
         },
         {
           title: "Social Media Management",
-          description: "Social presence managed with consistency and strategic intent — building an audience that engages and a brand that is recognised."
+          description: "Social presence managed with consistency and strategic intent - building an audience that engages and a brand that is recognised."
         },
         {
           title: "Content Marketing",
@@ -213,11 +213,11 @@ export default function ServiceAccordionList() {
         },
         {
           title: "Pay-Per-Click Advertising",
-          description: "PPC campaigns built for efficiency — precise targeting, rigorous testing and continuous optimisation on every rupee spent."
+          description: "PPC campaigns built for efficiency - precise targeting, rigorous testing and continuous optimisation on every rupee spent."
         },
         {
           title: "Marketing Automation",
-          description: "Systems that keep your marketing working around the clock — nurturing leads, personalising journeys and converting at scale."
+          description: "Systems that keep your marketing working around the clock - nurturing leads, personalising journeys and converting at scale."
         }
       ]
     }

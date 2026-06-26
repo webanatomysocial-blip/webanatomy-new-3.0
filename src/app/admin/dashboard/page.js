@@ -1,7 +1,7 @@
 import AdminDashboard from "../AdminDashboard";
 
 export const metadata = {
-  title: "Dashboard | Webanatomy Admin",
+  title: "Dashboard | Web anatomy Admin",
 };
 
 export default function DashboardPage() {

@@ -6,7 +6,7 @@ import "@/css/AboutComponentsCss/FaqSection.css";
 const FAQ_DATA = [
   {
     id: 1,
-    question: "What services does WebAnatomy offer?",
+    question: "What services does Web Anatomy offer?",
     answer: "We offer product engineering, experience design, brand identity and digital marketing, everything a business needs to build, grow and be taken seriously in the digital world.",
     defaultOpen: false,
   },
@@ -36,7 +36,7 @@ const FAQ_DATA = [
   },
   {
     id: 6,
-    question: "Can WebAnatomy customise a strategy for my business?",
+    question: "Can Web Anatomy customise a strategy for my business?",
     answer: "Every client we work with gets a strategy built specifically for them. We do not apply templates; we ask the right questions first and build from there.",
     defaultOpen: false,
   },

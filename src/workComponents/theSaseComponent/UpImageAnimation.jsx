@@ -28,7 +28,7 @@ const UpImageAnimation = () => {
     () => {
       let mm = gsap.matchMedia();
       mm.add("(min-width: 769px)", () => {
-        // Column 1 — scroll up
+        // Column 1 - scroll up
         gsap.to(".UpImageAnimation-col-1", {
           y: -120,
           ease: "none",
@@ -40,7 +40,7 @@ const UpImageAnimation = () => {
           },
         });
 
-        // Column 2 — scroll down (opposite direction)
+        // Column 2 - scroll down (opposite direction)
         gsap.to(".UpImageAnimation-col-2", {
           y: 120,
           ease: "none",
@@ -52,7 +52,7 @@ const UpImageAnimation = () => {
           },
         });
 
-        // Column 3 — scroll up (same as col 1)
+        // Column 3 - scroll up (same as col 1)
         gsap.to(".UpImageAnimation-col-3", {
           y: -120,
           ease: "none",
