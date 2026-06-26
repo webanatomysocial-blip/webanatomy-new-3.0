@@ -5,24 +5,26 @@ import BlogLayout from "@/components/BlogComponents/BlogLayout";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "";
 
-export default function LearningPostClient({ slug }) {
-  const [post, setPost] = useState(null);
+export default function LearningPostClient({ slug, initialPost = null }) {
+  const [post, setPost] = useState(initialPost);
   const [recentPosts, setRecentPosts] = useState([]);
   const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
     if (!slug) return;
 
-    fetch(`${API}/api/posts.php?slug=${encodeURIComponent(slug)}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status === "success" && data.data) {
-          setPost(data.data);
-        } else {
-          setNotFound(true);
-        }
-      })
-      .catch(() => setNotFound(true));
+    if (!initialPost) {
+      fetch(`${API}/api/posts.php?slug=${encodeURIComponent(slug)}`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.status === "success" && data.data) {
+            setPost(data.data);
+          } else {
+            setNotFound(true);
+          }
+        })
+        .catch(() => setNotFound(true));
+    }
 
     fetch(`${API}/api/posts.php?type=learning`)
       .then((res) => res.json())
@@ -57,7 +59,7 @@ export default function LearningPostClient({ slug }) {
 
   const sanitizedContent = (post.content || "")
     .replace(/&nbsp;/gi, " ")
-    .replace(/\u00a0/g, " ");
+    .replace(/ /g, " ");
 
   const content = <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />;
 

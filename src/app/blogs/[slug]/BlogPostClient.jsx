@@ -5,24 +5,26 @@ import BlogLayout from "@/components/BlogComponents/BlogLayout";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "";
 
-export default function BlogPostClient({ slug }) {
-  const [post, setPost] = useState(null);
+export default function BlogPostClient({ slug, initialPost = null }) {
+  const [post, setPost] = useState(initialPost);
   const [recentPosts, setRecentPosts] = useState([]);
   const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
     if (!slug) return;
 
-    fetch(`${API}/api/posts.php?slug=${encodeURIComponent(slug)}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status === "success" && data.data) {
-          setPost(data.data);
-        } else {
-          setNotFound(true);
-        }
-      })
-      .catch(() => setNotFound(true));
+    if (!initialPost) {
+      fetch(`${API}/api/posts.php?slug=${encodeURIComponent(slug)}`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.status === "success" && data.data) {
+            setPost(data.data);
+          } else {
+            setNotFound(true);
+          }
+        })
+        .catch(() => setNotFound(true));
+    }
 
     fetch(`${API}/api/posts.php?type=blog`)
       .then((res) => res.json())
@@ -55,14 +57,11 @@ export default function BlogPostClient({ slug }) {
     );
   }
 
-  // Quill editor inserts &nbsp; between words which prevents natural line wrapping
-  // causing mid-word breaks. Replace them with regular spaces.
   const sanitizedContent = (post.content || "")
     .replace(/&nbsp;/gi, " ")
-    .replace(/\u00a0/g, " "); // also replace actual non-breaking space characters
+    .replace(/ /g, " ");
 
   const content = <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />;
-
 
   return (
     <BlogLayout

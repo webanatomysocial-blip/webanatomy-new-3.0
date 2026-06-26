@@ -11,7 +11,7 @@ const nextConfig = {
       {
         source: '/api/:path*',
         destination: process.env.NODE_ENV === 'production' 
-          ? 'https://webanatomy.mosol9.in/api/:path*' 
+          ? 'https://webanatomy.in/api/:path*' 
           : 'http://187.127.182.107/api/:path*',
       },
     ];

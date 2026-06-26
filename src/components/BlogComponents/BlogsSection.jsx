@@ -12,12 +12,13 @@ function formatDate(dateStr) {
   return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
 }
 
-const BlogsSection = ({ backgroundColor = "#f8f8f8", limit = 3 }) => {
-  const [blogs, setBlogs] = useState([]);
+const BlogsSection = ({ backgroundColor = "#f8f8f8", limit = 3, initialBlogs = null }) => {
+  const [blogs, setBlogs] = useState(initialBlogs ?? []);
   const [visibleCount, setVisibleCount] = useState(typeof limit === "number" ? limit : 9999);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(initialBlogs === null);
 
   useEffect(() => {
+    if (initialBlogs !== null) return;
     fetch(`${API}/api/posts.php?type=blog`)
       .then((res) => res.json())
       .then((data) => {

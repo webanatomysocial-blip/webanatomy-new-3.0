@@ -1,9 +1,31 @@
 import React from "react";
 import BlogPostClient from "./BlogPostClient";
 
-export default async function BlogPostPage({ params }) {
-  // Await the params object in Next.js 15 App Router
-  const { slug } = await params;
+async function fetchPost(slug) {
+  try {
+    const res = await fetch(
+      `${process.env.API_URL}/api/posts.php?slug=${encodeURIComponent(slug)}`,
+      { next: { revalidate: 60 } }
+    );
+    const data = await res.json();
+    return data.status === "success" ? data.data : null;
+  } catch {
+    return null;
+  }
+}
 
-  return <BlogPostClient slug={slug} />;
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const post = await fetchPost(slug);
+  if (!post) return { title: "Blog | Webanatomy" };
+  return {
+    title: `${post.title} | Webanatomy`,
+    description: post.meta_description || post.excerpt || "",
+  };
+}
+
+export default async function BlogPostPage({ params }) {
+  const { slug } = await params;
+  const initialPost = await fetchPost(slug);
+  return <BlogPostClient slug={slug} initialPost={initialPost} />;
 }
