@@ -1,5 +1,6 @@
 <?php
 require_once 'db.php';
+
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
@@ -24,13 +25,49 @@ if (empty($input)) {
     exit();
 }
 
-$name    = htmlspecialchars(trim($input['name'] ?? 'No Name'), ENT_QUOTES, 'UTF-8');
+// Form fields: name (firstName + lastName), email, phone (countryCode + phone number), message
+$name    = htmlspecialchars(trim($input['name'] ?? ''), ENT_QUOTES, 'UTF-8');
 $email   = filter_var(trim($input['email'] ?? ''), FILTER_SANITIZE_EMAIL);
-$phone   = htmlspecialchars(trim($input['phone'] ?? 'Not provided'), ENT_QUOTES, 'UTF-8');
-$message = htmlspecialchars(trim($input['message'] ?? 'No message'), ENT_QUOTES, 'UTF-8');
+$phone   = htmlspecialchars(trim($input['phone'] ?? ''), ENT_QUOTES, 'UTF-8');
+$message = htmlspecialchars(trim($input['message'] ?? ''), ENT_QUOTES, 'UTF-8');
+
+if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo json_encode(["success" => false, "message" => "A valid email address is required."]);
+    exit();
+}
+
+if (empty($message)) {
+    echo json_encode(["success" => false, "message" => "Message is required."]);
+    exit();
+}
+
+if (empty($name)) {
+    $name = 'Anonymous';
+}
 
 // Recipient is always taken from server env - never from form input
-$toEmail = $_ENV['CONTACT_TO'] ?? 'reddydheeraj2109@gmail.com';
+$toEmail = $_ENV['CONTACT_TO'] ?? 'webanatomysocial@gmail.com';
+
+// Save submission to DB (optional/graceful check for table)
+try {
+    if (isset($pdo)) {
+        $auto_inc_val = isset($auto_inc) ? $auto_inc : (($db_connection ?? 'sqlite') === 'mysql' ? 'AUTO_INCREMENT' : 'AUTOINCREMENT');
+        
+        $pdo->exec("CREATE TABLE IF NOT EXISTS contact_submissions (
+            id INTEGER PRIMARY KEY $auto_inc_val,
+            name VARCHAR(255),
+            email VARCHAR(255),
+            phone VARCHAR(100),
+            message TEXT,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        )");
+        
+        $stmt = $pdo->prepare("INSERT INTO contact_submissions (name, email, phone, message) VALUES (?, ?, ?, ?)");
+        $stmt->execute([$name, $email, $phone, $message]);
+    }
+} catch (Exception $e) {
+    error_log("DB storage failed: " . $e->getMessage());
+}
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
