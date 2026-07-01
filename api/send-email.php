@@ -94,14 +94,15 @@ try {
     $mail->isSMTP();
     $mail->Host       = $_ENV['SMTP_HOST'] ?? 'smtp.gmail.com';
     $mail->SMTPAuth   = true;
-    $mail->Username   = $_ENV['SMTP_USER'] ?? 'reddydheeraj2109@gmail.com';
+    $mail->Username   = $_ENV['SMTP_USER'] ?? 'webanatomysocial@gmail.com';
     $mail->Password   = $_ENV['SMTP_PASS'] ?? '';
     $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port       = (int)($_ENV['SMTP_PORT'] ?? 465);
     $mail->CharSet    = 'UTF-8';
 
-    $mail->setFrom($_ENV['SMTP_FROM'] ?? 'reddydheeraj2109@gmail.com', $_ENV['SMTP_FROM_NAME'] ?? 'Webanatomy');
+    $mail->setFrom($_ENV['SMTP_FROM'] ?? 'webanatomysocial@gmail.com', $_ENV['SMTP_FROM_NAME'] ?? 'Webanatomy');
     $mail->addAddress($toEmail);
+    $mail->addAddress('Moumita@Thewebanatomy.com');
     if ($email) {
         $mail->addReplyTo($email, $name);
     }
@@ -118,13 +119,14 @@ try {
 
     $headers  = "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-    $from     = $_ENV['SMTP_FROM'] ?? 'reddydheeraj2109@gmail.com';
+    $from     = $_ENV['SMTP_FROM'] ?? 'webanatomysocial@gmail.com';
     $headers .= "From: {$from}\r\n";
     if ($email) {
         $headers .= "Reply-To: {$email}\r\n";
     }
 
-    if (mail($toEmail, $subject, $htmlBody, $headers)) {
+    $allRecipients = $toEmail . ', Moumita@Thewebanatomy.com';
+    if (mail($allRecipients, $subject, $htmlBody, $headers)) {
         echo json_encode(["success" => true, "message" => "Message sent successfully."]);
     } else {
         echo json_encode(["success" => false, "message" => "Failed to send message. Please try again later."]);

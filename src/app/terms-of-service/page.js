@@ -163,10 +163,10 @@ export default function TermsOfServicePage() {
               If you have any questions about these Terms of Service, please
               contact us at{" "}
               <a
-                href="mailto:reddydheeraj2109@gmail.com"
+                href="mailto:webanatomysocial@gmail.com"
                 style={{ color: "rgba(255,255,255,0.6)", textDecoration: "underline" }}
               >
-                reddydheeraj2109@gmail.com
+                webanatomysocial@gmail.com
               </a>{" "}
               or write to us at: Web Anatomy, Vision Arcade, Jai Hind Gandhi Rd,
               Cyber Hills Colony, VIP Hills, Silicon Valley, Madhapur, Hyderabad,
