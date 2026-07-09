@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "Privacy Policy",
+  description: "Read Webanatomy's privacy policy — how we collect, use, and protect your data.",
+};
+
 import { PiSparkleFill } from "react-icons/pi";
 import "@/css/privacy-policy.css";
 

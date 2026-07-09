@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "About Us",
+  description:
+    "Learn about Webanatomy — our story, team, and the thinking behind 100+ brand and digital projects across India, the UK and Europe.",
+};
+
 import AboutBanner from "@/components/AboutComponents/AboutBanner";
 import WhoWeAre from "@/components/AboutComponents/WhoWeAre";
 import KnowUs from "@/components/AboutComponents/KnowUs";

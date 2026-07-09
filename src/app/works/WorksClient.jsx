@@ -1,0 +1,58 @@
+"use client";
+
+import React from "react";
+import { useRouter } from "next/navigation";
+import Banner from "@/components/Banner";
+import CaseStudyCard from "@/components/CaseStudyCard";
+import MultiImagesCTA from "@/components/MultiImagesCTA";
+import { worksMetadata } from "@/works/metadata";
+import bannerImg from "@/assets/images/works-banner.jpeg";
+import { PiSparkleFill } from "react-icons/pi";
+import "@/css/CaseStudiesSection.css";
+import GloballyConnected from "@/components/AboutComponents/GloballyConnected";
+
+export default function WorksClient() {
+  const router = useRouter();
+
+  return (
+    <>
+      <Banner
+        title={
+          <>
+            Works We Are <br />Proud of
+          </>
+        }
+        desc="Over 100 projects across India, the UK and Europe. Each one was built with the same level of thinking, care and craft."
+        image={bannerImg}
+        buttons={[
+          { text: "Book a Free Call", onClick: () => router.push("/contact") }
+        ]}
+      />
+
+      <section className="case-studies-section">
+        <div className="case-studies-header">
+          <h2 className="head-text">Portfolio</h2>
+          <div className="case-studies-highlights">
+            <PiSparkleFill size={16} color="#000" /> All Projects
+          </div>
+        </div>
+        <div className="case-studies-grid">
+          {worksMetadata.map((work) => (
+            <CaseStudyCard
+              key={work.id}
+              study={{
+                title: work.title,
+                subtitle: work.category,
+                image: work.image,
+                imageAlt: work.title,
+                id: work.id
+              }}
+            />
+          ))}
+        </div>
+      </section>
+      <GloballyConnected />
+      <MultiImagesCTA />
+    </>
+  );
+}

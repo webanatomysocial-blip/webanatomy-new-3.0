@@ -1,14 +1,6 @@
-"use client";
-
 import localFont from "next/font/local";
-import { usePathname } from "next/navigation";
-import LenisProvider from "@/components/LenisProvider";
+import LayoutShell from "@/components/LayoutShell";
 import "@/app/globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import BottomBlur from "@/components/BottomBlur";
-import CursorFollower from "@/components/CursorFollower";
-
 
 const inter = localFont({
   src: "../assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf",
@@ -17,27 +9,29 @@ const inter = localFont({
   display: "swap",
 });
 
-export default function RootLayout({ children }) {
-  const pathname = usePathname();
-  const isAdmin = pathname?.startsWith("/admin");
+export const metadata = {
+  title: {
+    default: "Webanatomy — Design, Engineering & Growth Agency",
+    template: "%s | Webanatomy",
+  },
+  description:
+    "Webanatomy is a design and engineering agency that builds digital experiences for brands — driving real growth across India, the UK and Europe.",
+  metadataBase: new URL("https://webanatomy.in"),
+  openGraph: {
+    siteName: "Webanatomy",
+    type: "website",
+    locale: "en_IN",
+  },
+};
 
+export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.variable}>
       <head>
         <link rel="icon" href="/fav.png" />
       </head>
       <body className={inter.className} suppressHydrationWarning>
-        {isAdmin ? (
-          children
-        ) : (
-          <LenisProvider>
-            <Header />
-            {children}
-            <Footer />
-            <CursorFollower />
-          </LenisProvider>
-        )}
-        {!isAdmin && <BottomBlur />}
+        <LayoutShell>{children}</LayoutShell>
       </body>
     </html>
   );

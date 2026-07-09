@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "Services",
+  description:
+    "From brand strategy and UI/UX design to full-stack engineering and growth marketing — explore what Webanatomy can build for you.",
+};
+
 import ServiceBanner from "@/components/ServiceComponents/ServiceBanner";
 import ServiceAccordionList from "@/components/ServiceComponents/ServiceAccordionList";
 import ClientsRecognition from "@/components/AboutComponents/ClientsRecognition";

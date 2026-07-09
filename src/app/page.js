@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "Design, Engineering & Growth Agency",
+  description:
+    "Webanatomy engineers digital experiences that define brands and drive growth — 100+ brands served across India, the UK and Europe.",
+};
+
 import HomeBanner from "@/components/HomeComponents/HomeBanner";
 import VideoBanner from "@/components/HomeComponents/VideoBanner";
 import TextFadeSection from "@/components/HomeComponents/TextFadeSection";
@@ -7,13 +13,11 @@ import FeaturesSection from "@/components/HomeComponents/FeaturesSection";
 import WhatWeDo from "@/components/HomeComponents/WhatWeDo";
 import IntegrationsSection from "@/components/HomeComponents/IntegrationsSection";
 import ClientsImg from "@/components/Clients-img";
-import ClientTestimonials from "@/components/HomeComponents/ClientTestimonials";
 import OurServices from "@/components/OurServices";
 import CaseStudyCard from "@/components/CaseStudyCard";
 import MultiImagesCTA from "@/components/MultiImagesCTA";
 import { worksMetadata } from "@/works/metadata";
 import { PiSparkleFill } from "react-icons/pi";
-import BlogsSection from "@/components/BlogComponents/BlogsSection";
 import "@/css/CaseStudiesSection.css";
 import ClientsRecognition from "@/components/AboutComponents/ClientsRecognition";
 
@@ -65,7 +69,7 @@ export default function Home() {
       <IntegrationsSection />
        <ClientsImg />
       {/* <ClientTestimonials /> */}
-      {/* <BlogsSection limit={3} /> */}
+      <BlogsSection limit={3} />
       
       <MultiImagesCTA />
     </>
