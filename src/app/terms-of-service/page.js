@@ -2,8 +2,8 @@ import { PiSparkleFill } from "react-icons/pi";
 import "@/css/privacy-policy.css";
 
 export const metadata = {
-  title: "Terms of Service | Webanatomy",
-  description: "Read the Terms of Service for Webanatomy — your agreement when using our website and services.",
+  title: "Terms of Service | Web Anatomy Website & Services",
+  description: "Read Web Anatomy's Terms of Service to understand the rules, conditions, user responsibilities, and legal terms governing the use of our website and services.",
 };
 
 function SectionLabel({ text }) {

@@ -92,6 +92,8 @@ try {
     $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
 
     $mail->isSMTP();
+    $mail->SMTPDebug  = 2;
+    $mail->Debugoutput = 'error_log';
     $mail->Host       = $_ENV['SMTP_HOST'] ?? 'smtp.gmail.com';
     $mail->SMTPAuth   = true;
     $mail->Username   = $_ENV['SMTP_USER'] ?? 'webanatomysocial@gmail.com';
@@ -129,7 +131,7 @@ try {
     if (mail($allRecipients, $subject, $htmlBody, $headers)) {
         echo json_encode(["success" => true, "message" => "Message sent successfully."]);
     } else {
-        echo json_encode(["success" => false, "message" => "Failed to send message. Please try again later."]);
+        echo json_encode(["success" => false, "message" => isset($mail) ? $mail->ErrorInfo : $e->getMessage()]);
     }
 }
 ?>

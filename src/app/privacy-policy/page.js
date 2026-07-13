@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Privacy Policy",
-  description: "Read Webanatomy's privacy policy — how we collect, use, and protect your data.",
+  title: "Privacy Policy | Web Anatomy Digital Solutions",
+  description: "Learn how Web Anatomy collects, uses, stores, and protects your personal information. Read our Privacy Policy to understand your rights and our data practices.",
 };
 
 import { PiSparkleFill } from "react-icons/pi";

@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "Services",
+  title: "Best Digital Marketing Services in Hyderabad | Web Anatomy",
   description:
-    "From brand strategy and UI/UX design to full-stack engineering and growth marketing — explore what Webanatomy can build for you.",
+    "Reimagine Your World In Digital With Web Anatomy. We offer all top Digital Marketing Services like search engine marketing, social media marketing etc",
 };
 
 import ServiceBanner from "@/components/ServiceComponents/ServiceBanner";

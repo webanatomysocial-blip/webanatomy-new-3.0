@@ -5,7 +5,7 @@ async function fetchPost(slug) {
   try {
     const res = await fetch(
       `${process.env.API_URL}/api/posts.php?slug=${encodeURIComponent(slug)}`,
-      { next: { revalidate: 60 } }
+      { next: { revalidate: 60 }, signal: AbortSignal.timeout(5000) }
     );
     const data = await res.json();
     return data.status === "success" ? data.data : null;

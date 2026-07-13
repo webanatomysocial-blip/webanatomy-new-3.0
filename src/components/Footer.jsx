@@ -45,8 +45,8 @@ export default function Footer() {
               <span>Services</span>
               <FiArrowUpRight className="footer-link-icon" />
             </Link>
-            <Link href="/blog" className="footer-nav-link">
-              <span>Blog</span>
+            <Link href="/blogs" className="footer-nav-link">
+              <span>Blogs</span>
               <FiArrowUpRight className="footer-link-icon" />
             </Link>
           </div>

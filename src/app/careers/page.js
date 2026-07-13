@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "Careers",
+  title: "Careers at Web Anatomy | Join Our Creative Team",
   description:
-    "Join the Webanatomy team. We're looking for designers, engineers, and growth thinkers who care deeply about craft.",
+    "Join Web Anatomy and build your career in web development, UI/UX, branding, SEO, digital marketing, content, and sales. Explore our current job openings.",
 };
 
 import CareersBanner from "@/components/CareersComponents/CareersBanner";

@@ -1,9 +1,9 @@
 import WorksClient from "./WorksClient";
 
 export const metadata = {
-  title: "Our Works — Portfolio",
+  title: "Client Success Stories | Web Anatomy Case Studies",
   description:
-    "100+ projects across India, the UK and Europe. Explore Webanatomy's portfolio of brand, design, and engineering work.",
+    "Discover real client success stories and case studies from Web Anatomy featuring website development, branding, SEO, UI/UX design, and performance marketing results.",
 };
 
 export default function WorksPage() {

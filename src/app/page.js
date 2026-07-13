@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "Design, Engineering & Growth Agency",
+  title: "Best Digital Marketing company in Hyderabad | Web Anatomy",
   description:
-    "Webanatomy engineers digital experiences that define brands and drive growth — 100+ brands served across India, the UK and Europe.",
+    "Web Anatomy is a leading B2B digital marketing & transformation company in India. We help startups, IT & SaaS companies with SEO, UI/UX, rebranding & app development",
 };
 
 import HomeBanner from "@/components/HomeComponents/HomeBanner";
@@ -18,7 +18,9 @@ import CaseStudyCard from "@/components/CaseStudyCard";
 import MultiImagesCTA from "@/components/MultiImagesCTA";
 import { worksMetadata } from "@/works/metadata";
 import { PiSparkleFill } from "react-icons/pi";
-import "@/css/CaseStudiesSection.css";
+import "@/css/CaseStudiesSection.css";  
+import BlogsSection from "@/components/BlogComponents/BlogsSection";
+
 import ClientsRecognition from "@/components/AboutComponents/ClientsRecognition";
 
 export default function Home() {

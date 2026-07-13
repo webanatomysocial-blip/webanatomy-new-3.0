@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "About Us",
+  title: "About Web Anatomy | Web Design & Digital Solutions",
   description:
-    "Learn about Webanatomy — our story, team, and the thinking behind 100+ brand and digital projects across India, the UK and Europe.",
+    "Learn about Web Anatomy, experts in web development, UI/UX design, branding, SEO, and digital marketing, helping businesses build impactful digital experiences.",
 };
 
 import AboutBanner from "@/components/AboutComponents/AboutBanner";

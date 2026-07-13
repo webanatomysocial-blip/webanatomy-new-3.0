@@ -1,9 +1,9 @@
 import ContactClient from "./ContactClient";
 
 export const metadata = {
-  title: "Contact Us",
+  title: "Contact Web Anatomy | Let's Build Something Great",
   description:
-    "Have a project in mind? Get in touch with Webanatomy — we'll get back to you promptly.",
+    "Get in touch with Web Anatomy for web development, UI/UX, branding, SEO, and digital marketing services. Let's discuss your next project today.",
 };
 
 export default function ContactPage() {

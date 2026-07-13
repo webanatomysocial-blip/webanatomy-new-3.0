@@ -63,19 +63,19 @@ switch ($method) {
 
         try {
             if ($slug) {
-                // Get single post by slug (Allow viewing drafts for preview links)
-                $stmt = $pdo->prepare("SELECT p.*, (SELECT COUNT(*) FROM likes l WHERE l.post_id = p.slug OR l.post_id = p.title) as likes_count FROM posts p WHERE p.slug = ? AND p.deleted_at IS NULL");
+                // Get single post by slug — full data including content
+                $stmt = $pdo->prepare("SELECT p.*, (SELECT COUNT(*) FROM likes l WHERE l.post_id = p.slug) as likes_count FROM posts p WHERE p.slug = ? AND p.deleted_at IS NULL");
                 $stmt->execute([$slug]);
                 $post = $stmt->fetch(PDO::FETCH_ASSOC);
-                
+
                 if ($post) {
                     echo json_encode(['status' => 'success', 'data' => $post]);
                 } else {
                     echo json_encode(['status' => 'error', 'message' => 'Post not found']);
                 }
             } elseif ($post_id) {
-                // Get single post by numeric ID - used by admin editor (drafts always returned)
-                $stmt = $pdo->prepare("SELECT p.*, (SELECT COUNT(*) FROM likes l WHERE l.post_id = p.slug OR l.post_id = p.title) as likes_count FROM posts p WHERE p.id = ?");
+                // Get single post by numeric ID - used by admin editor
+                $stmt = $pdo->prepare("SELECT p.*, (SELECT COUNT(*) FROM likes l WHERE l.post_id = p.slug) as likes_count FROM posts p WHERE p.id = ?");
                 $stmt->execute([(int)$post_id]);
                 $post = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -97,8 +97,13 @@ switch ($method) {
                     } catch (PDOException $e) {}
                 }
 
-                $query = "SELECT p.*, (SELECT COUNT(*) FROM likes l WHERE l.post_id = p.slug OR l.post_id = p.title) as likes_count FROM posts p WHERE 1=1";
-                
+                // Listing query: omit heavy `content` column to keep payload small
+                $select = $is_admin
+                    ? "p.id, p.post_type, p.title, p.slug, p.meta_description, p.excerpt, p.image_url, p.category, p.published_date, p.is_published, p.initial_likes, p.outer_heading, p.inner_heading, p.deleted_at, p.created_at, p.updated_at"
+                    : "p.id, p.post_type, p.title, p.slug, p.excerpt, p.image_url, p.category, p.published_date";
+
+                $query = "SELECT {$select} FROM posts p WHERE 1=1";
+
                 if ($include_trash && $is_admin) {
                     $query .= " AND deleted_at IS NOT NULL";
                 } else {
@@ -112,13 +117,12 @@ switch ($method) {
                     $params[] = $type;
                 }
 
-                // If not admin or not specifically requesting drafts, only show published
                 if (!$is_admin || !$include_drafts) {
                     $query .= " AND is_published = 1";
                 }
 
                 $query .= " ORDER BY published_date DESC";
-                
+
                 $stmt = $pdo->prepare($query);
                 $stmt->execute($params);
                 $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
