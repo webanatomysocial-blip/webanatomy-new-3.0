@@ -30,32 +30,50 @@ export default function MultiImagesCTA() {
     const container = containerRef.current;
     if (!container) return;
 
+    let screenMousePos = { x: -9999, y: -9999 };
     let mousePos = { x: 0, y: 0 };
     let lastMousePos = { x: 0, y: 0 };
     let cacheMousePos = { x: 0, y: 0 };
     let isHovering = false;
+    let wasHovering = false;
 
     const handleMouseMove = (ev) => {
-      mousePos = { x: ev.clientX, y: ev.clientY };
+      screenMousePos = { x: ev.clientX, y: ev.clientY };
     };
     
-    const handleMouseEnter = () => { 
-        isHovering = true; 
-        cacheMousePos = { x: mousePos.x, y: mousePos.y };
-        lastMousePos = { x: mousePos.x, y: mousePos.y };
-    };
-    const handleMouseLeave = () => { isHovering = false; };
-
     window.addEventListener("mousemove", handleMouseMove);
-    container.addEventListener("mouseenter", handleMouseEnter);
-    container.addEventListener("mouseleave", handleMouseLeave);
 
     let imgPosition = 0;
     let zIndexVal = 1;
-    let threshold = 150; // Increased threshold to create a wider gap between images
+    let threshold = 150; 
     let animationFrameId;
 
     const render = () => {
+      if (screenMousePos.x !== -9999) {
+        const rect = container.getBoundingClientRect();
+        isHovering = (
+          screenMousePos.x >= rect.left &&
+          screenMousePos.x <= rect.right &&
+          screenMousePos.y >= rect.top &&
+          screenMousePos.y <= rect.bottom
+        );
+
+        if (isHovering) {
+          mousePos = { 
+            x: screenMousePos.x - rect.left, 
+            y: screenMousePos.y - rect.top 
+          };
+          
+          if (!wasHovering) {
+            // Just entered the container, initialize positions to prevent huge initial distance jump
+            lastMousePos = { x: mousePos.x, y: mousePos.y };
+            cacheMousePos = { x: mousePos.x, y: mousePos.y };
+          }
+        }
+      }
+
+      wasHovering = isHovering;
+
       let distance = MathUtils.distance(mousePos.x, mousePos.y, lastMousePos.x, lastMousePos.y);
       cacheMousePos.x = MathUtils.lerp(cacheMousePos.x || mousePos.x, mousePos.x, 0.1);
       cacheMousePos.y = MathUtils.lerp(cacheMousePos.y || mousePos.y, mousePos.y, 0.1);
@@ -86,12 +104,6 @@ export default function MultiImagesCTA() {
       const img = imagesRef.current[imgPosition];
       if (!img) return;
 
-      const rect = container.getBoundingClientRect();
-      const localCacheX = cacheMousePos.x - rect.left;
-      const localCacheY = cacheMousePos.y - rect.top;
-      const localMouseX = mousePos.x - rect.left;
-      const localMouseY = mousePos.y - rect.top;
-
       const imgWidth = img.offsetWidth || 400;
       const imgHeight = img.offsetHeight || 200;
 
@@ -103,16 +115,16 @@ export default function MultiImagesCTA() {
         scale: 0.5,
         filter: "blur(5px)",
         zIndex: zIndexVal,
-        x: localCacheX - imgWidth / 2,
-        y: localCacheY - imgHeight / 2
+        x: cacheMousePos.x - imgWidth / 2,
+        y: cacheMousePos.y - imgHeight / 2
       }, 0)
       .to(img, {
         duration: 0.9,
         ease: "expo.out",
         scale: 1,
         filter: "blur(0px)",
-        x: localMouseX - imgWidth / 2,
-        y: localMouseY - imgHeight / 2
+        x: mousePos.x - imgWidth / 2,
+        y: mousePos.y - imgHeight / 2
       }, 0)
       .to(img, {
         duration: 1,
@@ -130,8 +142,6 @@ export default function MultiImagesCTA() {
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
-      container.removeEventListener("mouseenter", handleMouseEnter);
-      container.removeEventListener("mouseleave", handleMouseLeave);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);

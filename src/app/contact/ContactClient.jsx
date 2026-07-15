@@ -3,71 +3,22 @@
 import React, { useState } from "react";
 import "../../css/contact.css";
 import fullBg from "@/assets/images/contact-page.avif";
+import { FiMail, FiCopy, FiCheck } from "react-icons/fi";
 
 export default function ContactClient() {
-  const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    countryCode: "IN",
-    phone: "",
-    message: "",
-    privacy: false,
-  });
-  const [status, setStatus] = useState("idle");
-  const [errorMsg, setErrorMsg] = useState("");
+  const [copiedText, setCopiedText] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setForm((prev) => ({ ...prev, [name]: type === "checkbox" ? checked : value }));
+  const handleCopyEmail = (e, email) => {
+    e.stopPropagation();
+    navigator.clipboard.writeText(email);
+    setCopiedText(email);
+    setTimeout(() => {
+      setCopiedText("");
+    }, 2000);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (!form.privacy) {
-      setErrorMsg("Please agree to the privacy policy before submitting.");
-      return;
-    }
-    if (!form.email || !form.message) {
-      setErrorMsg("Email and message are required.");
-      return;
-    }
-
-    setStatus("sending");
-    setErrorMsg("");
-
-    const data = new FormData();
-    data.append("name", `${form.firstName} ${form.lastName}`.trim());
-    data.append("email", form.email);
-    data.append("phone", `${form.countryCode} ${form.phone}`.trim());
-    data.append("message", form.message);
-
-    try {
-      const res = await fetch("/api/send-email.php", {
-        method: "POST",
-        body: data,
-      });
-      const json = await res.json();
-      if (json.success) {
-        setStatus("success");
-        setForm({
-          firstName: "",
-          lastName: "",
-          email: "",
-          countryCode: "IN",
-          phone: "",
-          message: "",
-          privacy: false,
-        });
-      } else {
-        setStatus("error");
-        setErrorMsg(json.message || "Something went wrong. Please try again.");
-      }
-    } catch {
-      setStatus("error");
-      setErrorMsg("Could not reach the server. Please try again later.");
-    }
+  const handleEmailClick = (email) => {
+    window.location.href = `mailto:${email}?subject=Project Inquiry - Web Anatomy`;
   };
 
   return (
@@ -111,128 +62,95 @@ export default function ContactClient() {
           </p>
         </div>
 
-        {status === "success" ? (
-          <div className="contact-success">
-            <h3 className="sub-head-text-white">Message Sent!</h3>
-            <p className="paragraph-text-white">
-              Thank you for reaching out. We'll be in touch soon.
-            </p>
-            <button
-              className="white-bg-btn"
-              style={{ marginTop: "20px" }}
-              onClick={() => setStatus("idle")}
-            >
-              Send Another Message
-            </button>
+        <div className="contact-email-container">
+          <p className="paragraph-text-white email-lead-text">
+            Skip the form. Connect with our team directly. Click the button below to draft an email to our leadership team.
+          </p>
+          
+          <a
+            href="mailto:Srujan@mosol9.com,Moumita@Thewebanatomy.com?subject=Project Inquiry - Web Anatomy&body=Hello Web Anatomy Team,%0D%0A%0D%0AI'm reaching out to discuss a project..."
+            className="white-bg-btn email-cta-btn"
+            style={{ textDecoration: "none" }}
+          >
+            <span>Send us an Email</span>
+            <div className="icon-btn">
+              <span className="icon-inside-btn-1">→</span>
+              <span className="icon-inside-btn-2">→</span>
+            </div>
+          </a>
+
+          <div className="email-divider">
+            <span className="divider-line"></span>
+            <span className="divider-text">OR REACH OUT INDIVIDUALLY</span>
+            <span className="divider-line"></span>
           </div>
-        ) : (
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <div className="form-row">
-              <div className="form-group">
-                <label>First name</label>
-                <input
-                  type="text"
-                  name="firstName"
-                  placeholder="Tony"
-                  value={form.firstName}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="form-group">
-                <label>Last name</label>
-                <input
-                  type="text"
-                  name="lastName"
-                  placeholder="Stark"
-                  value={form.lastName}
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
 
-            <div className="form-group">
-              <label>Email *</label>
-              <input
-                type="email"
-                name="email"
-                placeholder="tony@starkindustries.com"
-                value={form.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label>Phone number</label>
-              <div className="phone-input-wrapper">
-                <select
-                  className="country-select"
-                  name="countryCode"
-                  value={form.countryCode}
-                  onChange={handleChange}
-                >
-                  <option value="US">US</option>
-                  <option value="IN">IN</option>
-                  <option value="UK">UK</option>
-                </select>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="+1 (555) 020-3050"
-                  style={{ flex: 1 }}
-                  value={form.phone}
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-
-            <div className="form-group">
-              <label>Message *</label>
-              <textarea
-                rows="5"
-                name="message"
-                placeholder="Leave us a message..."
-                value={form.message}
-                onChange={handleChange}
-                required
-              ></textarea>
-            </div>
-
-            {errorMsg && (
-              <p style={{ color: "#ff6b6b", fontSize: "14px", marginBottom: "12px" }}>
-                {errorMsg}
-              </p>
-            )}
-
-            <div className="privacy-policy">
-              <input
-                type="checkbox"
-                id="privacy"
-                name="privacy"
-                checked={form.privacy}
-                onChange={handleChange}
-              />
-              <label htmlFor="privacy">
-                You agree to our friendly <a href="#">privacy policy</a>.
-              </label>
-            </div>
-
-            <button
-              type="submit"
-              className="white-bg-btn"
-              disabled={status === "sending"}
-            >
-              {status === "sending" ? "Sending..." : "Send Message"}
-              {status !== "sending" && (
-                <div className="icon-btn">
-                  <span className="icon-inside-btn-1">→</span>
-                  <span className="icon-inside-btn-2">→</span>
+          <div className="email-cards-grid">
+            <div className="email-card" onClick={() => handleEmailClick("Srujan@mosol9.com")}>
+              <div className="email-card-left">
+                <div className="email-icon-wrapper">
+                  <FiMail className="email-icon" size={20} />
                 </div>
-              )}
-            </button>
-          </form>
-        )}
+                <div className="email-card-info">
+                  <span className="email-card-label">Srujan</span>
+                  <span className="email-card-address">Srujan@mosol9.com</span>
+                </div>
+              </div>
+              <div className="email-card-action">
+                <button 
+                  className={`email-action-icon-btn ${copiedText === "Srujan@mosol9.com" ? "copied" : ""}`}
+                  onClick={(e) => handleCopyEmail(e, "Srujan@mosol9.com")}
+                  title="Copy email address"
+                >
+                  {copiedText === "Srujan@mosol9.com" ? (
+                    <>
+                      <FiCheck size={14} />
+                      <span>Copied</span>
+                    </>
+                  ) : (
+                    <>
+                      <FiCopy size={14} />
+                      <span>Copy</span>
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+
+            <div className="email-card" onClick={() => handleEmailClick("Moumita@Thewebanatomy.com")}>
+              <div className="email-card-left">
+                <div className="email-icon-wrapper">
+                  <FiMail className="email-icon" size={20} />
+                </div>
+                <div className="email-card-info">
+                  <span className="email-card-label">Moumita</span>
+                  <span className="email-card-address">Moumita@Thewebanatomy.com</span>
+                </div>
+              </div>
+              <div className="email-card-action">
+                <button 
+                  className={`email-action-icon-btn ${copiedText === "Moumita@Thewebanatomy.com" ? "copied" : ""}`}
+                  onClick={(e) => handleCopyEmail(e, "Moumita@Thewebanatomy.com")}
+                  title="Copy email address"
+                >
+                  {copiedText === "Moumita@Thewebanatomy.com" ? (
+                    <>
+                      <FiCheck size={14} />
+                      <span>Copied</span>
+                    </>
+                  ) : (
+                    <>
+                      <FiCopy size={14} />
+                      <span>Copy</span>
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
+

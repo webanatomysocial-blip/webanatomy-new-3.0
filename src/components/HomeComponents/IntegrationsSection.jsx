@@ -41,7 +41,7 @@ const IntegrationsSection = () => {
 
           <p className="integrations-subtitle">
             We connect every channel your audience uses search, social,
-            email, and beyond—into one strategy built around your goals
+            email, and beyond into one strategy built around your goals
             and refined by real results.
           </p>
 
