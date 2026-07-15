@@ -138,7 +138,7 @@ export default function Header() {
                 <Link href="/services" className="menu-item-link">
                   Services
                 </Link>
-                <Link href="/works" className="menu-item-link">
+                <Link href="https://webanatomy.in/success-stories/" className="menu-item-link" target="_blank" rel="noopener noreferrer">
                   Case Studies
                 </Link>
                 <Link href="/blogs" className="menu-item-link">

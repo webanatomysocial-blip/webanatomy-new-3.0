@@ -5,18 +5,15 @@ import "@/css/AboutComponentsCss/GloballyConnected.css";
 import mapImg from "@/assets/images/about/map.png";
 
 const PINS = [
-  { id: 1, name: "PROJECT 1", left: "92%", top: "87%" },
-  { id: 2, name: "PROJECT 2", left: "70%", top: "15%" },
-  { id: 3, name: "PROJECT 3", left: "51%", top: "59%" },
-  { id: 4, name: "PROJECT 4", left: "46%", top: "25%" },
-  { id: 5, name: "PROJECT 5", left: "15.5%", top: "28%" },
+  { id: 1, name: "Hyderabad", left: "66%", top: "52%" },
+  { id: 2, name: "UK", left: "46%", top: "22%" },
+  { id: 3, name: "South Africa", left: "51%", top: "78%" },
 ];
 
 export default function GloballyConnected() {
   return (
     <section className="gcon-section">
       <div className="gcon-container">
-        
         {/* Section Header */}
         <div className="gcon-header">
           <h2 className="head-text gcon-title"> We Work Without Borders</h2>
@@ -55,9 +52,9 @@ export default function GloballyConnected() {
 
         {/* Section Bottom Description */}
         <p className="gcon-desc">
-          We’re available across multiple locations worldwide, Delivering creativity without borders, Connected Globally. Designed Universally.
+          We’re available across multiple locations worldwide, Delivering
+          creativity without borders, Connected Globally. Designed Universally.
         </p>
-
       </div>
     </section>
   );

@@ -11,7 +11,7 @@ import Image from "next/image";
 import img1 from "@/assets/images/Clients-logos/1.png";
 import img2 from "@/assets/images/Clients-logos/2.png";
 import img3 from "@/assets/images/Clients-logos/3.png";
-import img4 from "@/assets/images/Clients-logos/4.png";
+import img4 from "@/assets/images/Clients-logos/zenith.png";
 import img5 from "@/assets/images/Clients-logos/5.png";
 import img6 from "@/assets/images/Clients-logos/6.png";
 import img7 from "@/assets/images/Clients-logos/7.png";
@@ -65,15 +65,65 @@ import img54 from "@/assets/images/Clients-logos/54.png";
 import img55 from "@/assets/images/Clients-logos/55.png";
 
 const allLogos = [
-   img2, img3, img4, img5, img6, img7,  img10,
-  img11, img12, img13, img14, img15, img16, img17, img18, img19, img20,
-  img21, img22, img23, img24, img25, img26, img27, img28, img29, img30,
-  img31, img32, img33, img34, img35,  img37, img38, img39, img40,
-  img41, img42, img43, img44, img45, img46, img47, img48, img49, img50,
-  img51, img52, img53, img54, img55
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+  img10,
+  img11,
+  img12,
+  img13,
+  img14,
+  img15,
+  img16,
+  img17,
+  img18,
+  img19,
+  img20,
+  img21,
+  img22,
+  img23,
+  img24,
+  img25,
+  img26,
+  img27,
+  img28,
+  img29,
+  img30,
+  img31,
+  img32,
+  img33,
+  img34,
+  img35,
+  img37,
+  img38,
+  img39,
+  img40,
+  img41,
+  img42,
+  img43,
+  img44,
+  img45,
+  img46,
+  img47,
+  img48,
+  img49,
+  img50,
+  img51,
+  img52,
+  img53,
+  img54,
+  img55,
 ];
 
-export default function ClientsRecognition({ scrollOverlayColor = "white", title, tag, statNum = "50+" }) {
+export default function ClientsRecognition({
+  scrollOverlayColor = "white",
+  title,
+  tag,
+  statNum = "50+",
+}) {
   const sectionRef = useRef(null);
   const floatingImgRef = useRef(null);
   useEffect(() => {
@@ -107,23 +157,27 @@ export default function ClientsRecognition({ scrollOverlayColor = "white", title
         scrollTrigger: {
           trigger: section,
           start: "top 80%", // starts when top of section enters 80% viewport
-          end: "top 20%",   // ends when top of section reaches 20% viewport
+          end: "top 20%", // ends when top of section reaches 20% viewport
           scrub: 1,
-        }
+        },
       });
 
       elements.forEach((el, index) => {
-        overlayTl.to(el, {
-          top: "-300px",
-          ease: "none",
-        }, index * 0.05);
+        overlayTl.to(
+          el,
+          {
+            top: "-300px",
+            ease: "none",
+          },
+          index * 0.05,
+        );
       });
 
       anims.push(overlayTl);
     }
 
     return () => {
-      anims.forEach(anim => anim.kill());
+      anims.forEach((anim) => anim.kill());
     };
   }, []);
 
@@ -160,7 +214,8 @@ export default function ClientsRecognition({ scrollOverlayColor = "white", title
           <h2 className="head-text-white cr-title">
             {title || (
               <>
-                Trusted By Clients,<br />
+                Trusted By Clients,
+                <br />
                 Recognized For Leads.
               </>
             )}
@@ -194,12 +249,15 @@ export default function ClientsRecognition({ scrollOverlayColor = "white", title
                       <span className="cr-stat-lbl">Clients</span>
                     </div>
                   ) : card.type === "image" && imageObj ? (
-                    <div className="cr-logo-content" style={{ padding: '24px' }}>
-                      <Image 
+                    <div
+                      className="cr-logo-content"
+                      style={{ padding: "24px" }}
+                    >
+                      <Image
                         key={imageObj.src || i}
-                        src={imageObj} 
+                        src={imageObj}
                         className="cr-logo-img"
-                        alt="Client Logo" 
+                        alt="Client Logo"
                       />
                     </div>
                   ) : card.type === "logo-text" ? (
