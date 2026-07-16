@@ -51,13 +51,14 @@ export const worksMetadata = [
   },
   {
     id: "eryntis-tech-forward-identity-with-a-minimal-touch",
-    title: "Erynits - Tech-Forward Identity",
+    title: "Eryntis - Tech-Forward Identity",
     category: "Branding",
     description: "A clean, minimalist brand that communicates innovation, reliability, and precision without unnecessary complexity.",
     image: erynitsBanner,
     slug: "eryntis-tech-forward-identity-with-a-minimal-touch",
     icon: FiHeart,
     logoImage: null,
+    hideInPortfolio: true,
   },
   {
     id: "mudra-yoga-crafting-a-yoga-studio-identity",
@@ -68,6 +69,7 @@ export const worksMetadata = [
     slug: "mudra-yoga-crafting-a-yoga-studio-identity",
     icon: FiActivity,
     logoImage: null,
+    hideInPortfolio: true,
   },
   {
     id: "prugens-consulting-crafting-distinctive-brand-stories",
@@ -78,6 +80,7 @@ export const worksMetadata = [
     slug: "prugens-consulting-crafting-distinctive-brand-stories",
     icon: FiBriefcase,
     logoImage: null,
+    hideInPortfolio: true,
   },
 
 

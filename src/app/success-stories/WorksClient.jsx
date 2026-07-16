@@ -37,7 +37,7 @@ export default function WorksClient() {
           </div>
         </div>
         <div className="case-studies-grid">
-          {worksMetadata.map((work) => (
+          {worksMetadata.filter(work => !work.hideInPortfolio).map((work) => (
             <CaseStudyCard
               key={work.id}
               study={{
