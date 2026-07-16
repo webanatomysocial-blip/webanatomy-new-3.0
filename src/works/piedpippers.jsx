@@ -25,7 +25,10 @@ export default function PiedPippers() {
       value: "PHP | React | Android | iOS | MySQL",
     },
     { label: "Timeline", value: "12 Weeks" },
-    { label: "Focus", value: "Multi-Role Web Application | Biometric Integration | E-commerce" },
+    {
+      label: "Focus",
+      value: "Multi-Role Web Application | Biometric Integration | E-commerce",
+    },
   ];
 
   return (

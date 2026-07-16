@@ -18,8 +18,11 @@ export default function CaseStudyCard({ study }) {
   };
 
   const hasId = safeStudy.id !== undefined && safeStudy.id !== null;
-  const CardWrapper = hasId ? Link : 'article';
-  const wrapperProps = hasId ? { href: `/work/${safeStudy.id}` } : {};
+  const CardWrapper = hasId || safeStudy.customUrl ? Link : 'article';
+  const wrapperProps = safeStudy.customUrl 
+    ? { href: safeStudy.customUrl } 
+    : (hasId ? { href: `/success-stories/${safeStudy.id}` } : {});
+
 
   return (
     <CardWrapper

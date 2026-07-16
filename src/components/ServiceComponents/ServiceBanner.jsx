@@ -20,7 +20,7 @@ export default function ServiceBanner() {
       desc="At Web Anatomy, we have spent years building products, designing experiences and growing businesses for clients who expect the best, and we have never once lowered that standard."
       image={bannerImg}
       buttons={[
-        { text: "Explore Our Work →", onClick: () => router.push("/works") },
+        { text: "Explore Our Work →", onClick: () => router.push("/success-stories") },
         { text: "Book a Call", onClick: () => router.push("/contact") }
       ]}
     />

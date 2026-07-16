@@ -37,7 +37,7 @@ export default function Footer() {
               <span>About us</span>
               <FiArrowUpRight className="footer-link-icon" />
             </Link>
-            <Link href="/works" className="footer-nav-link">
+            <Link href="/success-stories" className="footer-nav-link">
               <span>Projects</span>
               <FiArrowUpRight className="footer-link-icon" />
             </Link>

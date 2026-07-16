@@ -36,7 +36,7 @@ export default function HomeBanner() {
           </h1>
         </div>
         <div className="home-banner-bottom-right">
-          <WhiteButton text="Explore our Works" href="/works" style={{ textDecoration: 'none' }} />
+          <WhiteButton text="Explore our Works" href="/success-stories" style={{ textDecoration: 'none' }} />
           <WhiteButton text="Book a Free Call" href="/contact" style={{ textDecoration: 'none' }} />
         </div>
       </div>

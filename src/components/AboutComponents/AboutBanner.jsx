@@ -20,7 +20,7 @@ export default function AboutBanner() {
       desc="A technology and marketing company built on curiosity, craft and the belief that every business deserves a digital presence as ambitious as its vision."
       image={bannerImg}
       buttons={[
-        { text: "Explore Our Works", onClick: () => router.push("/works") },
+        { text: "Explore Our Works", onClick: () => router.push("/success-stories") },
         { text: "Book a Free Call", onClick: () => router.push("/contact") }
       ]}
     />

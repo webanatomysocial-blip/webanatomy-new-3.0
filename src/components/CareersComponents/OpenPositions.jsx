@@ -74,7 +74,7 @@ export default function OpenPositions() {
                 <button 
                   className="openpos-apply-btn"
                   onClick={() => {
-                    window.location.href = `mailto:Srujan@mosol9.com,Moumita@Thewebanatomy.com?subject=Job Application: ${job.title} - Web Anatomy&body=Hello Web Anatomy Team,%0D%0A%0D%0AI am writing to apply for the ${job.title} position.%0D%0A%0D%0A[Please attach your resume and portfolio links here]`;
+                    window.location.href = `mailto:Srujan@mosol9.com,supraja@mosol9.com?cc=priya.k@mosol9.com,udaya@mosol9.com&subject=Job Application: ${job.title} - Web Anatomy&body=Hello Web Anatomy Team,%0D%0A%0D%0AI am writing to apply for the ${job.title} position.%0D%0A%0D%0A[Please attach your resume and portfolio links here]`;
                   }}
                 >
                   <span className="openpos-apply-btn-text-wrapper">

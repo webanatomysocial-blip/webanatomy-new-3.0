@@ -23,7 +23,7 @@ export default function WorkBanner({
           </div>
 
           <div className="work-banner-bottom">
-            <p className="sub-head-text-white">{title2 || ""}</p>
+            {/* <p className="sub-head-text-white">{title2 || ""}</p> */}
             <p className="sub-paragraph-text-white">{category2 || ""}</p>
           </div>
         </div>

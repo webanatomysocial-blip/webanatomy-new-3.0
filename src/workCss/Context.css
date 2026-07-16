@@ -1,6 +1,6 @@
 .context-section {
   display: flex;
-  height: 100vh;
+  height: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: start;
@@ -23,5 +23,4 @@
   justify-content: center;
   align-items: start;
   gap: 20px;
-
 }

@@ -20,7 +20,7 @@ const CAROUSEL_IMAGES = [s1.src, s2.src, s3.src, s4.src];
 const Carousel = ({ currentIndex }) => {
   return (
     <div className="menu-carousel-box">
-      <div 
+      <div
         className="menu-carousel-track"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
@@ -43,7 +43,7 @@ export default function Header() {
   const [visible, setVisible] = useState(true);
   const [isTop, setIsTop] = useState(true);
   const [carouselIndex, setCarouselIndex] = useState(0);
-  
+
   const lastScrollY = useRef(0);
   const pathname = usePathname();
 
@@ -51,7 +51,7 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       setIsTop(currentScrollY === 0);
 
       if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
@@ -100,11 +100,20 @@ export default function Header() {
       {/* Header Container */}
       <header
         className={`header-container ${!visible && !isOpen ? "header-hidden" : ""} ${
-          !isTop || isOpen || pathname === "/blogs" || pathname.startsWith("/blogs/") ? "header-scrolled" : ""
+          !isTop ||
+          isOpen ||
+          pathname === "/blogs" ||
+          pathname.startsWith("/blogs/")
+            ? "header-scrolled"
+            : ""
         }`}
       >
         <Link href="/" className="header-logo-link">
-          <img src={logoImg.src} alt="Web Anatomy Logo" className="header-logo" />
+          <img
+            src={logoImg.src}
+            alt="Web Anatomy Logo"
+            className="header-logo"
+          />
         </Link>
 
         {/* Hamburger Icon (acts as morphing close button when open) */}
@@ -138,7 +147,10 @@ export default function Header() {
                 <Link href="/services" className="menu-item-link">
                   Services
                 </Link>
-                <Link href="https://webanatomy.in/success-stories/" className="menu-item-link" target="_blank" rel="noopener noreferrer">
+                <Link
+                  href="/success-stories"
+                  className="menu-item-link"
+                >
                   Case Studies
                 </Link>
                 <Link href="/blogs" className="menu-item-link">
@@ -155,7 +167,7 @@ export default function Header() {
               {/* Right Column: Carousel + Styled Capsule Footer Box */}
               <div className="menu-right-panel">
                 <Carousel currentIndex={carouselIndex} />
-                
+
                 <div className="menu-footer-bar">
                   <div className="menu-socials">
                     <a
@@ -174,7 +186,7 @@ export default function Header() {
                     >
                       Instagram
                     </a>
-                  
+
                     <a
                       href="https://www.behance.net/webanatomys"
                       target="_blank"
@@ -183,10 +195,9 @@ export default function Header() {
                     >
                       Behance
                     </a>
-                  
                   </div>
 
-                  <Link href="/services" style={{ textDecoration: 'none' }}>
+                  <Link href="/services" style={{ textDecoration: "none" }}>
                     <WhiteButton text="View All Services" />
                   </Link>
                 </div>
