@@ -74,7 +74,7 @@
 
 .sticky-text-container {
   position: sticky;
-  top: 10px;
+  top: 90px;
   min-height: 60vh;
   display: flex;
   flex-direction: column;
