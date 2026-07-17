@@ -51,14 +51,14 @@ a{
 .big-head-text {
   font-family: var(--font-inter), sans-serif;
   color: var(--black);
-  font-size: 75px;
+  font-size: 65px;
   font-weight: 300;
   
 }
 .big-head-text-white {
   font-family: var(--font-inter), sans-serif;
   color: var(--white);
-  font-size: 75px;
+  font-size: 60px;
   font-weight: 300;
   
 }
@@ -73,6 +73,12 @@ a{
   font-family: var(--font-inter), sans-serif;
   color: var(--white);
   font-size: 50px;
+  font-weight: 300;
+}
+.head-text-white-2 {
+  font-family: var(--font-inter), sans-serif;
+  color: var(--white);
+  font-size: 40px;
   font-weight: 300;
 }
 
@@ -184,6 +190,9 @@ a{
     .head-text-white{
       font-size: 30px;
     }
+    .head-text-white-2{
+      font-size: 24px;
+    }
 
     .head-text{
       font-size: 30px;
@@ -214,5 +223,5 @@ a{
 .white-button:hover,
 .black-button:hover,
 .blue-button:hover {
-  cursor: none !important;
+  cursor: pointer !important;
 }

@@ -17,12 +17,13 @@ export default function TextFadeSection() {
   const containerRef = useRef(null);
   const countersRef = useRef(null);
   const triggerRef = useRef(null);
+  const clarityRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Counter animation scoped to the container
       const counters = gsap.utils.toArray(countersRef.current.querySelectorAll(".counter-val"));
-      
+
       gsap.fromTo(
         counters,
         {
@@ -40,6 +41,22 @@ export default function TextFadeSection() {
           },
         }
       );
+
+      // "Find clarity in chaos" is visible from the start (no entrance animation)
+      // and simply fades out in place as the counters below fade in.
+      gsap.set(clarityRef.current, { opacity: 1 });
+      gsap.set(countersRef.current, { opacity: 0 });
+
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: countersRef.current,
+          start: "top bottom",
+          end: "top 60%",
+          scrub: true,
+        },
+      })
+        .to(clarityRef.current, { opacity: 0, duration: 1 })
+        .to(countersRef.current, { opacity: 1, duration: 1 }, "<");
     }, containerRef);
 
     return () => {
@@ -50,35 +67,15 @@ export default function TextFadeSection() {
   return (
     <section className="text-fade-section-container">
       {/* 1st Container: Trusted By (Not Sticky) */}
-      <div className="trusted-by-container">
-        <div className="trusted-by-pill">
-          <div className="avatars" style={{ display: "flex", alignItems: "center", marginRight: "8px", marginLeft: "4px" }}>
-            <Image 
-              src={fobesImg} 
-              alt="Forbes" 
-              height={20} 
-              width={20}
-              style={{ 
-                height: "20px", 
-                width: "20px",
-                display: "block",
+      
 
-                objectFit: "contain"
-              }} 
-            />
-          </div>
-          <span className="trusted-text">Featured in Forbes </span>
-        </div>
-        <div className="about-label">
-          <PiSparkleFill size={14} color="#fff" style={{ marginRight: '6px' }} />
-          About Web Anatomy
-        </div>
-      </div>
-
-      {/* 2nd Container: Sticky Text Fade */}
+      {/* 2nd Container: Sticky Text Fade + Find Clarity heading, pinned together */}
       <div className="sticky-wrapper" ref={triggerRef}>
         <div className="sticky-text-container">
           <HomeTextFade triggerRef={triggerRef} />
+          <div className="clarity-heading" ref={clarityRef}>
+            <h2>Find clarity in chaos</h2>
+          </div>
         </div>
       </div>
 
@@ -93,7 +90,7 @@ export default function TextFadeSection() {
         <div className="counter-item">
           <div className="counter-number">
             <span className="counter-val" data-target="100" dangerouslySetInnerHTML={{ __html: "0" }}></span>+
-          </div>  
+          </div>
           <p className="counter-label">Projects Delivered</p>
         </div>
         <div className="counter-item">

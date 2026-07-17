@@ -1,4 +1,5 @@
-import React from 'react';
+"use client";
+import React, { useRef } from 'react';
 import '../css/OurServices.css';
 import { PiSparkleFill, PiStarFourFill, PiSquaresFourFill, PiSunFill, PiAsteriskFill } from 'react-icons/pi';
 
@@ -10,58 +11,83 @@ import s4 from '@/assets/images/Services/service-4.webp';
 const services = [
   {
     id: 1,
-    title: "Product Engineering",
-    description: "From complex SaaS platforms to consumer mobile applications built with the engineering depth that scales.",
-    tags: "Web • Mobile • SaaS Platforms",
-    img: s2,
-    Icon: PiSquaresFourFill,
-    number: "Service 1"
+    title: "Brand & Identity",
+    description: "Build recognition, consistency and credibility across every touchpoint.",
+    tags: "Brand Strategy • Identity • Messaging • Guidelines • Visual Systems • Content",
+    img: s1,
+    Icon: PiStarFourFill,
+    number: "Brand"
   },
   {
     id: 2,
     title: "Experience Design",
-    description: "Interfaces and experiences designed around the people who use them, not the people who build them.",
-    tags: "UI/UX • Design Systems • Research",
+    description: "Experiences that make people trust your business before they speak to you.",
+    tags: "UI/UX • Research • Branding • Design Systems • Prototyping",
     img: s3,
     Icon: PiSunFill,
-    number: "Service 2"
+    number: "Design"
   },
   {
     id: 3,
-    title: "Brand & Identity",
-    description: "Identities built to command attention and hold it across every platform, every medium, every room.",
-    tags: "Logo • Guidelines • Assets",
-    img: s1,
-    Icon: PiStarFourFill,
-    number: "Service 3"
+    title: "Product Engineering",
+    description: "Digital products engineered for businesses that are ready to scale.",
+    tags: "Websites • Web Apps • Mobile Apps • Customer Platforms • Digital Products • Automation • CRM • ERP • SaaS • AI Solutions",
+    img: s2,
+    Icon: PiSquaresFourFill,
+    number: "Build"
   },
   {
     id: 4,
     title: "Digital Marketing",
-    description: "Campaigns and content that find the right audience, earn their attention and convert it into growth.",
-    tags: "SEO • Performance • Social",
+    description: "Turn digital experiences into measurable business growth.",
+    tags: "SEO • Performance Marketing • Social • Content • Automation • Analytics",
     img: s4,
     Icon: PiAsteriskFill,
-    number: "Service 4"
+    number: "Scale"
   }
 ];
 
 export default function OurServices() {
+  const tagRefs = useRef({});
+  const scrollTimers = useRef({});
+
+  const startTagScroll = (id) => {
+    const el = tagRefs.current[id];
+    if (!el) return;
+    clearInterval(scrollTimers.current[id]);
+    scrollTimers.current[id] = setInterval(() => {
+      const maxScroll = el.scrollWidth - el.clientWidth;
+      if (maxScroll <= 0) return;
+      if (el.scrollLeft >= maxScroll) {
+        el.scrollLeft = 0;
+      } else {
+        el.scrollLeft += 1;
+      }
+    }, 25);
+  };
+
+  const stopTagScroll = (id) => {
+    clearInterval(scrollTimers.current[id]);
+  };
+
   return (
     <section className="os-section">
       <div className="os-header">
         <h2 className="head-text-white">Our Services</h2>
-        <div className="os-highlights">
-          <PiSparkleFill size={16} /> HighlightServices
-        </div>
+       
       </div>
-      
+
       <div className="os-grid">
         {services.map((svc) => (
-          <div key={svc.id} className="os-card">
+          <div
+            key={svc.id}
+            className="os-card"
+            onMouseEnter={() => startTagScroll(svc.id)}
+            onMouseLeave={() => stopTagScroll(svc.id)}
+          >
             {/* Background Image */}
             <img src={svc.img.src} alt={svc.title} className="os-card-bg" loading="lazy" />
-            
+
             {/* Gradient Overlay to ensure text readability */}
             <div className="os-card-overlay"></div>
 
@@ -75,7 +101,16 @@ export default function OurServices() {
                 <h3 className="os-card-title">{svc.title}</h3>
                 <p className="os-card-desc">{svc.description}</p>
               </div>
-              <div className="os-card-tags">{svc.tags}</div>
+              <div
+                className="os-card-tags"
+                ref={(el) => (tagRefs.current[svc.id] = el)}
+              >
+                {svc.tags.split('•').map((tag, i) => (
+                  <span key={i} className="os-card-tag">
+                    {tag.trim()}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         ))}
