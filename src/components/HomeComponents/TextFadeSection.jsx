@@ -23,6 +23,7 @@ export default function TextFadeSection() {
     const ctx = gsap.context(() => {
       // Counter animation scoped to the container
       const counters = gsap.utils.toArray(countersRef.current.querySelectorAll(".counter-val"));
+      const counterItems = gsap.utils.toArray(countersRef.current.querySelectorAll(".counter-item"));
 
       gsap.fromTo(
         counters,
@@ -34,6 +35,22 @@ export default function TextFadeSection() {
           duration: 2,
           ease: "power2.out",
           snap: { innerText: 1 },
+          stagger: 0.2,
+          scrollTrigger: {
+            trigger: countersRef.current,
+            start: "top 80%",
+          },
+        }
+      );
+
+      gsap.fromTo(
+        counterItems,
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
           stagger: 0.2,
           scrollTrigger: {
             trigger: countersRef.current,
