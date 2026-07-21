@@ -45,6 +45,8 @@ if (empty($name)) {
     $name = 'Anonymous';
 }
 
+$formType = htmlspecialchars(trim($input['formType'] ?? 'contact'), ENT_QUOTES, 'UTF-8');
+
 // Recipient is always taken from server env - never from form input
 $toEmail = $_ENV['CONTACT_TO'] ?? 'webanatomysocial@gmail.com';
 
@@ -77,12 +79,20 @@ require __DIR__ . '/PHPMailer/PHPMailer.php';
 require __DIR__ . '/PHPMailer/SMTP.php';
 
 $subject  = "New Contact Form Submission - Webanatomy";
+$role = htmlspecialchars(trim($input['role'] ?? ''), ENT_QUOTES, 'UTF-8');
+
 $htmlBody = "
 <div style=\"font-family: Arial, sans-serif; max-width: 600px;\">
   <h2 style=\"color: #1a1a1a;\">New Contact Form Submission</h2>
   <p><strong>Name:</strong> {$name}</p>
   <p><strong>Email:</strong> {$email}</p>
-  <p><strong>Phone:</strong> {$phone}</p>
+  <p><strong>Phone:</strong> {$phone}</p>";
+  
+if (!empty($role)) {
+    $htmlBody .= "<p><strong>Role Applied For:</strong> {$role}</p>";
+}
+
+$htmlBody .= "
   <p><strong>Message:</strong><br>" . nl2br($message) . "</p>
   <hr style=\"border:none;border-top:1px solid #eee;\">
   <p style=\"color:#888;font-size:12px;\">Sent via the Webanatomy contact form</p>
@@ -103,8 +113,18 @@ try {
     $mail->CharSet    = 'UTF-8';
 
     $mail->setFrom($_ENV['SMTP_FROM'] ?? 'webanatomysocial@gmail.com', $_ENV['SMTP_FROM_NAME'] ?? 'Webanatomy');
-    $mail->addAddress($toEmail);
-    $mail->addAddress('Moumita@Thewebanatomy.com');
+    
+    // Switch recipients based on formType
+    $mail->addAddress('webanatomysocial@gmail.com');
+    if ($formType === 'careers') {
+        $mail->addAddress('udaya@mosol9.com');
+        $mail->addAddress('priya.k@mosol9.com');
+        $mail->addAddress('Srujan@mosol9.com');
+        $mail->addAddress('supraja@mosol9.com');
+    } else {
+        $mail->addAddress('Moumita@Thewebanatomy.com');
+    }
+
     if ($email) {
         $mail->addReplyTo($email, $name);
     }
@@ -112,6 +132,10 @@ try {
     $mail->isHTML(true);
     $mail->Subject = $subject;
     $mail->Body    = $htmlBody;
+
+    if (isset($_FILES['resume']) && $_FILES['resume']['error'] === UPLOAD_ERR_OK) {
+        $mail->addAttachment($_FILES['resume']['tmp_name'], $_FILES['resume']['name']);
+    }
 
     $mail->send();
     echo json_encode(["success" => true, "message" => "Message sent successfully."]);
@@ -127,7 +151,13 @@ try {
         $headers .= "Reply-To: {$email}\r\n";
     }
 
-    $allRecipients = $toEmail . ', Moumita@Thewebanatomy.com';
+    $allRecipients = 'webanatomysocial@gmail.com';
+    if ($formType === 'careers') {
+        $allRecipients .= ', udaya@mosol9.com, priya.k@mosol9.com, Srujan@mosol9.com, supraja@mosol9.com';
+    } else {
+        $allRecipients .= ', Moumita@Thewebanatomy.com';
+    }
+
     if (mail($allRecipients, $subject, $htmlBody, $headers)) {
         echo json_encode(["success" => true, "message" => "Message sent successfully."]);
     } else {

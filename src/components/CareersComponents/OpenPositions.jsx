@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useRef } from "react";
 import "@/css/CareersComponentsCss/OpenPositions.css";
 
 const JOBS = [
@@ -27,10 +27,94 @@ const JOBS = [
     title: "Founder's Office",
     tags: ["On-site · Hyderabad", "Full-time · 0 – 1 Year"],
     desc: "Work directly alongside the founders across strategy, operations and growth initiatives. For someone who wants to understand how a premium agency is built from the inside."
+  },
+  {
+    id: 5,
+    title: "Performance Marketer",
+    tags: ["On-site · Hyderabad", "Full-time · 1 Year"],
+    desc: "Plan and execute data-driven ad campaigns across platforms to maximize ROI and drive scalable growth for our clients."
   }
 ];
 
 export default function OpenPositions() {
+  const formRef = useRef(null);
+  
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    role: "",
+    message: "",
+    resume: null
+  });
+  
+  const [status, setStatus] = useState("idle");
+  const [responseMsg, setResponseMsg] = useState("");
+  const fileInputRef = useRef(null);
+
+  const handleApplyClick = (jobTitle) => {
+    setFormData(prev => ({
+      ...prev,
+      role: jobTitle,
+      message: `I am applying for the ${jobTitle} role.`
+    }));
+    
+    if (formRef.current) {
+      formRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value, type, files } = e.target;
+    if (type === "file") {
+      setFormData(prev => ({ ...prev, [name]: files[0] }));
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value }));
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("submitting");
+    setResponseMsg("");
+
+    try {
+      const submitData = new FormData();
+      submitData.append("formType", "careers");
+      submitData.append("name", formData.name);
+      submitData.append("email", formData.email);
+      submitData.append("phone", formData.phone);
+      submitData.append("role", formData.role);
+      submitData.append("message", formData.message);
+      
+      if (formData.resume) {
+        submitData.append("resume", formData.resume);
+      }
+
+      const response = await fetch('/api/send-email.php', {
+        method: 'POST',
+        body: submitData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus("success");
+        setResponseMsg("Application submitted successfully. We will get back to you soon!");
+        setFormData({ name: "", email: "", phone: "", role: "", message: "", resume: null });
+        if (fileInputRef.current) {
+          fileInputRef.current.value = "";
+        }
+      } else {
+        setStatus("error");
+        setResponseMsg(data.message || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setStatus("error");
+      setResponseMsg("Network error. Please try again later.");
+    }
+  };
+
   return (
     <section className="openpos-section">
       <div className="openpos-container">
@@ -40,11 +124,11 @@ export default function OpenPositions() {
           <div className="openpos-header-left">
             <h2 className="head-text openpos-title">Open Positions</h2>
             <p className="openpos-subtitle">
-              Four roles. One team. Find where you fit.
+              Five roles. One team. Find where you fit.
             </p>
           </div>
           <div className="openpos-header-right">
-            <span className="openpos-badge">4 Open Roles</span>
+            <span className="openpos-badge">5 Open Roles</span>
           </div>
         </div>
 
@@ -73,9 +157,7 @@ export default function OpenPositions() {
               <div className="openpos-item-right">
                 <button 
                   className="openpos-apply-btn"
-                  onClick={() => {
-                    window.location.href = `mailto:Srujan@mosol9.com,supraja@mosol9.com?cc=priya.k@mosol9.com,udaya@mosol9.com&subject=Job Application: ${job.title} - Web Anatomy&body=Hello Web Anatomy Team,%0D%0A%0D%0AI am writing to apply for the ${job.title} position.%0D%0A%0D%0A[Please attach your resume and portfolio links here]`;
-                  }}
+                  onClick={() => handleApplyClick(job.title)}
                 >
                   <span className="openpos-apply-btn-text-wrapper">
                     <span className="openpos-apply-btn-text-primary">Apply Now</span>
@@ -85,6 +167,114 @@ export default function OpenPositions() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Application Form */}
+        <div className="openpos-form-section" ref={formRef} id="apply-form">
+          <h3 className="openpos-form-title">Apply Now</h3>
+          
+          <form className="openpos-form" onSubmit={handleSubmit}>
+            
+            <div className="openpos-form-group">
+              <label className="openpos-form-label" htmlFor="role">Role Applied For *</label>
+              <select 
+                id="role" 
+                name="role" 
+                className="openpos-form-input openpos-form-select" 
+                value={formData.role}
+                onChange={handleInputChange}
+                required
+              >
+                <option value="" disabled>Select a role</option>
+                {JOBS.map(job => (
+                  <option key={job.id} value={job.title}>{job.title}</option>
+                ))}
+                <option value="Other">Other / Spontaneous Application</option>
+              </select>
+            </div>
+
+            <div className="openpos-form-group">
+              <label className="openpos-form-label" htmlFor="name">Full Name *</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                className="openpos-form-input" 
+                placeholder="Jane Doe" 
+                value={formData.name}
+                onChange={handleInputChange}
+                required 
+              />
+            </div>
+
+            <div className="openpos-form-group">
+              <label className="openpos-form-label" htmlFor="email">Email Address *</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                className="openpos-form-input" 
+                placeholder="jane@example.com" 
+                value={formData.email}
+                onChange={handleInputChange}
+                required 
+              />
+            </div>
+
+            <div className="openpos-form-group">
+              <label className="openpos-form-label" htmlFor="phone">Phone Number</label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                className="openpos-form-input" 
+                placeholder="+91 98765 43210" 
+                value={formData.phone}
+                onChange={handleInputChange}
+              />
+            </div>
+
+            <div className="openpos-form-group">
+              <label className="openpos-form-label" htmlFor="resume">Resume (PDF only) *</label>
+              <input 
+                type="file" 
+                id="resume" 
+                name="resume" 
+                accept=".pdf"
+                className="openpos-form-input openpos-form-file" 
+                onChange={handleInputChange}
+                ref={fileInputRef}
+                required 
+              />
+            </div>
+
+            <div className="openpos-form-group">
+              <label className="openpos-form-label" htmlFor="message">Message *</label>
+              <textarea 
+                id="message" 
+                name="message" 
+                className="openpos-form-textarea" 
+                placeholder="Tell us about yourself and why you'd be a great fit." 
+                value={formData.message}
+                onChange={handleInputChange}
+                required 
+              ></textarea>
+            </div>
+
+            <button 
+              type="submit" 
+              className="openpos-form-submit"
+              disabled={status === "submitting"}
+            >
+              {status === "submitting" ? "Submitting..." : "Submit Application"}
+            </button>
+
+            {responseMsg && (
+              <div className={`openpos-form-message ${status === "success" ? "success" : "error"}`}>
+                {responseMsg}
+              </div>
+            )}
+          </form>
         </div>
 
       </div>

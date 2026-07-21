@@ -286,18 +286,19 @@ export default function Footer() {
                 Click the badge to verify{" "}
                 <span className="verify-check">✔</span>
               </div>
-              <a
-                href={zenithUrl}
-                target="_blank"
-                rel="noopener"
+              <div
+                onClick={() => window.open(zenithUrl, '_blank', 'noopener')}
                 className="netzero-popup-badge-btn"
+                role="button"
+                tabIndex={0}
+                style={{ cursor: "pointer", display: "inline-block" }}
               >
                 <Image
                   src={zeNetzeroBadge}
                   alt="Carbon Neutral Badge"
                   style={{ width: "160px", height: "auto" }}
                 />
-              </a>
+              </div>
             </div>
           </div>
         </div>

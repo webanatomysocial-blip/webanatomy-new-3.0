@@ -3,22 +3,50 @@
 import React, { useState } from "react";
 import "../../css/contact.css";
 import fullBg from "@/assets/images/contact-page.avif";
-import { FiMail, FiCopy, FiCheck } from "react-icons/fi";
 
 export default function ContactClient() {
-  const [copiedText, setCopiedText] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: ""
+  });
+  const [status, setStatus] = useState("idle");
+  const [responseMsg, setResponseMsg] = useState("");
 
-  const handleCopyEmail = (e, email) => {
-    e.stopPropagation();
-    navigator.clipboard.writeText(email);
-    setCopiedText(email);
-    setTimeout(() => {
-      setCopiedText("");
-    }, 2000);
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleEmailClick = (email) => {
-    window.location.href = `mailto:${email}?subject=Project Inquiry - Web Anatomy`;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("submitting");
+    setResponseMsg("");
+
+    try {
+      const response = await fetch('/api/send-email.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...formData, formType: "contact" }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus("success");
+        setResponseMsg("Message sent successfully. We will get back to you soon!");
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      } else {
+        setStatus("error");
+        setResponseMsg(data.message || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setStatus("error");
+      setResponseMsg("Network error. Please try again later.");
+    }
   };
 
   return (
@@ -62,95 +90,74 @@ export default function ContactClient() {
           </p>
         </div>
 
-        <div className="contact-email-container">
-          <p className="paragraph-text-white email-lead-text">
-            Skip the form. Connect with our team directly. Click the button below to draft an email to our leadership team.
-          </p>
+        <form className="contact-form" onSubmit={handleSubmit}>
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="name">Full Name</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                placeholder="Jane Doe" 
+                value={formData.name} 
+                onChange={handleInputChange} 
+                required 
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Email Address</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                placeholder="jane@example.com" 
+                value={formData.email} 
+                onChange={handleInputChange} 
+                required 
+              />
+            </div>
+          </div>
           
-          <a
-            href="mailto:Srujan@mosol9.com,Moumita@Thewebanatomy.com?subject=Project Inquiry - Web Anatomy&body=Hello Web Anatomy Team,%0D%0A%0D%0AI'm reaching out to discuss a project..."
-            className="white-bg-btn email-cta-btn"
-            style={{ textDecoration: "none" }}
-          >
-            <span>Send us an Email</span>
+          <div className="form-group">
+            <label htmlFor="phone">Phone Number</label>
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone" 
+              placeholder="+91 98765 43210" 
+              value={formData.phone} 
+              onChange={handleInputChange} 
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="message">Message</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              placeholder="Tell us about your project..." 
+              rows="4" 
+              value={formData.message} 
+              onChange={handleInputChange} 
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" className="white-bg-btn" disabled={status === "submitting"}>
+            <span>{status === "submitting" ? "Sending..." : "Send Message"}</span>
             <div className="icon-btn">
               <span className="icon-inside-btn-1">→</span>
               <span className="icon-inside-btn-2">→</span>
             </div>
-          </a>
+          </button>
 
-          <div className="email-divider">
-            <span className="divider-line"></span>
-            <span className="divider-text">OR REACH OUT INDIVIDUALLY</span>
-            <span className="divider-line"></span>
-          </div>
-
-          <div className="email-cards-grid">
-            <div className="email-card" onClick={() => handleEmailClick("Srujan@mosol9.com")}>
-              <div className="email-card-left">
-                <div className="email-icon-wrapper">
-                  <FiMail className="email-icon" size={20} />
-                </div>
-                <div className="email-card-info">
-                  <span className="email-card-label">Srujan</span>
-                  <span className="email-card-address">Srujan@mosol9.com</span>
-                </div>
-              </div>
-              <div className="email-card-action">
-                <button 
-                  className={`email-action-icon-btn ${copiedText === "Srujan@mosol9.com" ? "copied" : ""}`}
-                  onClick={(e) => handleCopyEmail(e, "Srujan@mosol9.com")}
-                  title="Copy email address"
-                >
-                  {copiedText === "Srujan@mosol9.com" ? (
-                    <>
-                      <FiCheck size={14} />
-                      <span>Copied</span>
-                    </>
-                  ) : (
-                    <>
-                      <FiCopy size={14} />
-                      <span>Copy</span>
-                    </>
-                  )}
-                </button>
-              </div>
+          {responseMsg && (
+            <div style={{ marginTop: '15px', color: status === 'success' ? '#2ed573' : '#ff4757', fontSize: '14px' }}>
+              {responseMsg}
             </div>
-
-            <div className="email-card" onClick={() => handleEmailClick("Moumita@Thewebanatomy.com")}>
-              <div className="email-card-left">
-                <div className="email-icon-wrapper">
-                  <FiMail className="email-icon" size={20} />
-                </div>
-                <div className="email-card-info">
-                  <span className="email-card-label">Moumita</span>
-                  <span className="email-card-address">Moumita@Thewebanatomy.com</span>
-                </div>
-              </div>
-              <div className="email-card-action">
-                <button 
-                  className={`email-action-icon-btn ${copiedText === "Moumita@Thewebanatomy.com" ? "copied" : ""}`}
-                  onClick={(e) => handleCopyEmail(e, "Moumita@Thewebanatomy.com")}
-                  title="Copy email address"
-                >
-                  {copiedText === "Moumita@Thewebanatomy.com" ? (
-                    <>
-                      <FiCheck size={14} />
-                      <span>Copied</span>
-                    </>
-                  ) : (
-                    <>
-                      <FiCopy size={14} />
-                      <span>Copy</span>
-                    </>
-                  )}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+          )}
+        </form>
       </div>
     </div>
   );
 }
-
