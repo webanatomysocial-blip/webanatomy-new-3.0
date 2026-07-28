@@ -78,16 +78,18 @@ require __DIR__ . '/PHPMailer/Exception.php';
 require __DIR__ . '/PHPMailer/PHPMailer.php';
 require __DIR__ . '/PHPMailer/SMTP.php';
 
-$subject  = "New Contact Form Submission - Webanatomy";
+$isCareers = $formType === 'careers';
+$subject   = $isCareers ? "New Career Application - Webanatomy" : "New Contact Form Submission - Webanatomy";
+$heading   = $isCareers ? "New Career Application" : "New Contact Form Submission";
 $role = htmlspecialchars(trim($input['role'] ?? ''), ENT_QUOTES, 'UTF-8');
 
 $htmlBody = "
 <div style=\"font-family: Arial, sans-serif; max-width: 600px;\">
-  <h2 style=\"color: #1a1a1a;\">New Contact Form Submission</h2>
+  <h2 style=\"color: #1a1a1a;\">{$heading}</h2>
   <p><strong>Name:</strong> {$name}</p>
   <p><strong>Email:</strong> {$email}</p>
   <p><strong>Phone:</strong> {$phone}</p>";
-  
+
 if (!empty($role)) {
     $htmlBody .= "<p><strong>Role Applied For:</strong> {$role}</p>";
 }
@@ -123,6 +125,7 @@ try {
         $mail->addAddress('supraja@mosol9.com');
     } else {
         $mail->addAddress('Moumita@Thewebanatomy.com');
+        $mail->addAddress('Srujan@mosol9.com');
     }
 
     if ($email) {
@@ -155,7 +158,7 @@ try {
     if ($formType === 'careers') {
         $allRecipients .= ', udaya@mosol9.com, priya.k@mosol9.com, Srujan@mosol9.com, supraja@mosol9.com';
     } else {
-        $allRecipients .= ', Moumita@Thewebanatomy.com';
+        $allRecipients .= ', Moumita@Thewebanatomy.com, Srujan@mosol9.com';
     }
 
     if (mail($allRecipients, $subject, $htmlBody, $headers)) {
