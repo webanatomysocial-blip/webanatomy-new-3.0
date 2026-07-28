@@ -6,6 +6,9 @@ import ShareButton from "./ShareButton";
 import Link from "next/link";
 
 const BlogLayout = ({ category = "BLOG", title, content, image, recentPosts }) => {
+  const isLearning = category === "LEARNING";
+  const sectionLabel = isLearning ? "Learnings" : "Blogs";
+  const sectionHref = isLearning ? "/learnings" : "/blogs";
   const progressBarRef = useRef(null);
   const headerRef = useRef(null);
   const [currentUrl, setCurrentUrl] = useState("");
@@ -53,7 +56,7 @@ const BlogLayout = ({ category = "BLOG", title, content, image, recentPosts }) =
             </Link>
             <h1 className="head-text" style={{ fontSize: "40px", marginTop: "10px", marginBottom: "10px" }}>{title}</h1>
             <div className="blog-breadcrumbs">
-              <Link href="/">Home</Link> <span className="breadcrumb-separator">/</span> <span>Blogs</span> <span className="breadcrumb-separator">/</span> <span className="breadcrumb-current">{title}</span>
+              <Link href="/">Home</Link> <span className="breadcrumb-separator">/</span> <Link href={sectionHref}>{sectionLabel}</Link> <span className="breadcrumb-separator">/</span> <span className="breadcrumb-current">{title}</span>
             </div>
           </div>
           <div className="pod-hero-img-container">
