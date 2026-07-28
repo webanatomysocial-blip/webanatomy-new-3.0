@@ -22,6 +22,9 @@ export const metadata = {
     type: "website",
     locale: "en_IN",
   },
+  verification: {
+    google: "google7a49d3c0962c59c7",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -29,6 +32,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={inter.variable}>
       <head>
         <link rel="icon" href="/fav.png" />
+        <meta name="google-site-verification" content="google7a49d3c0962c59c7" />
       </head>
       <body className={inter.className} suppressHydrationWarning>
         <LayoutShell>{children}</LayoutShell>
