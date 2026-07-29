@@ -217,7 +217,11 @@ export default function Footer() {
               <div
                 className="footer-badge-container"
                 onClick={() => setIsNetZeroPopupOpen(true)}
-                style={{ cursor: "pointer", maxWidth: "110px" }}
+                style={{
+                  cursor: "pointer",
+                  maxWidth: "110px",
+                  display: "none",
+                }}
               >
                 <Image
                   src={badgeZenith}
@@ -287,7 +291,7 @@ export default function Footer() {
                 <span className="verify-check">✔</span>
               </div>
               <div
-                onClick={() => window.open(zenithUrl, '_blank', 'noopener')}
+                onClick={() => window.open(zenithUrl, "_blank", "noopener")}
                 className="netzero-popup-badge-btn"
                 role="button"
                 tabIndex={0}
