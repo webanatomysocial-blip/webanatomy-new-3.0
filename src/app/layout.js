@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import Script from "next/script";
 import LayoutShell from "@/components/LayoutShell";
 import "@/app/globals.css";
 
@@ -35,6 +36,19 @@ export default function RootLayout({ children }) {
         <meta name="google-site-verification" content="google7a49d3c0962c59c7" />
       </head>
       <body className={inter.className} suppressHydrationWarning>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-209R22WPSQ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-209R22WPSQ');
+          `}
+        </Script>
         <LayoutShell>{children}</LayoutShell>
       </body>
     </html>
