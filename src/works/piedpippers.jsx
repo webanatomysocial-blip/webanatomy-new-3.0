@@ -68,7 +68,7 @@ export default function PiedPippers() {
         description="The cafeteria payment system was among the most technically distinctive elements of the entire build, and one of the most considered in terms of user experience. Rather than children handling cash at the point of purchase, each student is identified through a UV eye scan, and the payment is deducted automatically from a pre-loaded parent wallet, with the transaction logged and visible to parents in real time."
         description2="Integrating biometric hardware into a live web application required precise coordination across identity verification, wallet management, real-time synchronisation and parent notifications, all within a single seamless interaction. The result eliminated cash handling from the centre entirely, gave parents complete visibility and control over their child's spending, and made every cafeteria transaction faster and more reliable than anything a cash-based system could offer."
       />
-      <UpDownSticky />
+      {/* <UpDownSticky /> */}
 
       <JustHeading
         paddingTop={100}
@@ -83,7 +83,7 @@ export default function PiedPippers() {
         tittle="A Digital Platform That Elevated Every Part of the Business"
         description="The Pied Piper launched with a digital ecosystem that replaced manual operations entirely and set a new standard for how a premium activity centre presents and manages itself online."
         description2="Parents enrol and manage everything through a single platform, teachers run their classes with complete visibility over their students, administrators oversee the full operation through one dashboard, and every cafeteria transaction is processed biometrically accurately, instantly and without cash. The platform did not simply digitise an existing operation. It gave The Pied Piper the infrastructure to grow with confidence."
-        paddingBottom="0px"
+        paddingBottom="100px"
       />
 
       <WorkCta
