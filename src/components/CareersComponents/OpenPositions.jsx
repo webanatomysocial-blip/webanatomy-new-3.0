@@ -1,26 +1,27 @@
 "use client";
 
 import React, { useState, useRef } from "react";
+import { useRouter } from "next/navigation";
 import "@/css/CareersComponentsCss/OpenPositions.css";
 
 const JOBS = [
   {
     id: 1,
     title: "SEO Executive",
-    tags: ["On-site · Hyderabad", "Full-time · 6 Months – 1 Year"],
+    tags: ["On-site · Hyderabad", "Full-time · 1 – 2 Years"],
     desc: "Drive organic growth for Web Anatomy and our clients through smart keyword strategy, on-page optimisation and measurable performance."
   },
   {
     id: 2,
-    title: "Account Manager",
-    tags: ["On-site · Hyderabad", "Full-time · 6 Months – 1 Year"],
-    desc: "Be the bridge between our clients and our team, managing relationships, timelines and expectations with clarity and confidence."
-  },
-  {
-    id: 3,
     title: "Content Creator",
     tags: ["On-site · Hyderabad", "Full-time · 0 – 1 Year"],
     desc: "Write and create content that is sharp, purposeful and built for the right audience, across social media, campaigns and brand communication."
+  },
+  {
+    id: 3,
+    title: "Account Manager",
+    tags: ["On-site · Hyderabad", "Full-time · 0 – 1.5 Years"],
+    desc: "Be the bridge between our clients and our team, managing relationships, timelines and expectations with clarity and confidence."
   },
   {
     id: 4,
@@ -31,14 +32,15 @@ const JOBS = [
   {
     id: 5,
     title: "Performance Marketer",
-    tags: ["On-site · Hyderabad", "Full-time · 1 Year"],
+    tags: ["On-site · Hyderabad", "Full-time · 1 – 2 Years"],
     desc: "Plan and execute data-driven ad campaigns across platforms to maximize ROI and drive scalable growth for our clients."
   }
 ];
 
 export default function OpenPositions() {
   const formRef = useRef(null);
-  
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -100,11 +102,11 @@ export default function OpenPositions() {
 
       if (data.success) {
         setStatus("success");
-        setResponseMsg("Application submitted successfully. We will get back to you soon!");
         setFormData({ name: "", email: "", phone: "", role: "", message: "", resume: null });
         if (fileInputRef.current) {
           fileInputRef.current.value = "";
         }
+        router.push("/careers/thank-you");
       } else {
         setStatus("error");
         setResponseMsg(data.message || "Something went wrong. Please try again.");

@@ -1,0 +1,51 @@
+.careers-ty {
+  min-height: 80vh;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 6rem 2rem;
+}
+
+.careers-ty__check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 28px;
+  margin-bottom: 2rem;
+}
+
+.careers-ty__heading {
+  margin-bottom: 1rem;
+}
+
+.careers-ty__text {
+  color: #ccc;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+}
+
+.careers-ty__actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.careers-ty__home-link {
+  color: #fff;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
