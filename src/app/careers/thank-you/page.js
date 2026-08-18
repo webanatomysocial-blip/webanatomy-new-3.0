@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { PiSparkleFill } from "react-icons/pi";
+import { PiSparkleFill, PiCheckCircleFill } from "react-icons/pi";
 import WhiteButton from "@/components/WhiteButton";
 import "@/css/careers-thank-you.css";
 
@@ -22,17 +21,17 @@ export default function CareersThankYou() {
       </div>
 
       <div className="careers-ty__check-ring">
-        <span className="careers-ty__check">✔</span>
+        <PiCheckCircleFill className="careers-ty__check" />
       </div>
 
-      <h1 className="careers-ty__heading">You're on our radar.</h1>
+      <h1 className="careers-ty__heading">🎉 Thank You for Applying!</h1>
       <p className="careers-ty__text">
-        Thanks for applying to Web Anatomy — our team will review your application and get back to you soon.
+        Thank you for your interest in joining our team. We've received your application successfully.
+        Our team will review your profile, and if your experience matches the role, we'll get in touch with you regarding the next steps.
       </p>
 
       <div className="careers-ty__actions">
-        <WhiteButton text="Back to Careers" href="/careers" />
-        <Link href="/" className="careers-ty__home-link">Back to Home</Link>
+        <WhiteButton text="Visit Our Website" href="/" />
       </div>
 
       <div className="careers-ty__steps">
