@@ -2,7 +2,16 @@ import React from "react";
 import LearningPostClient from "./LearningPostClient";
 
 export async function generateStaticParams() {
-  return [{ slug: "default" }];
+  try {
+    const res = await fetch(`${process.env.API_URL}/api/posts.php?type=learning`, {
+      signal: AbortSignal.timeout(5000),
+    });
+    const data = await res.json();
+    if (data.status === "success" && Array.isArray(data.data)) {
+      return data.data.map((post) => ({ slug: post.slug }));
+    }
+  } catch {}
+  return [];
 }
 
 async function fetchPost(slug) {
