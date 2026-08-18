@@ -1,6 +1,10 @@
 import React from "react";
 import LearningPostClient from "./LearningPostClient";
 
+export async function generateStaticParams() {
+  return [{ slug: "default" }];
+}
+
 async function fetchPost(slug) {
   try {
     const res = await fetch(
