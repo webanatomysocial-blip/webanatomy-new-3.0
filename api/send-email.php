@@ -112,6 +112,7 @@ try {
     $mail->Password   = $_ENV['SMTP_PASS'] ?? '';
     $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port       = (int)($_ENV['SMTP_PORT'] ?? 465);
+    $mail->Timeout    = 15;
     $mail->CharSet    = 'UTF-8';
 
     $mail->setFrom($_ENV['SMTP_FROM'] ?? 'webanatomysocial@gmail.com', $_ENV['SMTP_FROM_NAME'] ?? 'Webanatomy');
