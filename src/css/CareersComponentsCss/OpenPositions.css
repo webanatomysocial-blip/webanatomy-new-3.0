@@ -273,6 +273,24 @@
   color: #333;
 }
 
+.openpos-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.openpos-word-count {
+  font-size: 12px;
+  color: #777777;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+.openpos-word-count.limit-reached {
+  color: #d97706;
+  font-weight: 600;
+}
+
 .openpos-form-input,
 .openpos-form-textarea {
   width: 100%;

@@ -37,6 +37,32 @@ const JOBS = [
   }
 ];
 
+const MAX_WORDS = 100;
+
+const countWords = (text) => {
+  if (!text || !text.trim()) return 0;
+  return text.trim().split(/\s+/).filter(Boolean).length;
+};
+
+const limitToMaxWords = (text, maxWords = MAX_WORDS) => {
+  if (!text) return "";
+  const words = text.trim().split(/\s+/).filter(Boolean);
+  if (words.length <= maxWords) return text;
+
+  let count = 0;
+  let cutIndex = 0;
+  const regex = /\S+/g;
+  let match;
+  while ((match = regex.exec(text)) !== null) {
+    count++;
+    if (count === maxWords) {
+      cutIndex = match.index + match[0].length;
+      break;
+    }
+  }
+  return text.substring(0, cutIndex);
+};
+
 export default function OpenPositions() {
   const formRef = useRef(null);
   const router = useRouter();
@@ -57,8 +83,7 @@ export default function OpenPositions() {
   const handleApplyClick = (jobTitle) => {
     setFormData(prev => ({
       ...prev,
-      role: jobTitle,
-      message: `I am applying for the ${jobTitle} role.`
+      role: jobTitle
     }));
     
     if (formRef.current) {
@@ -70,6 +95,9 @@ export default function OpenPositions() {
     const { name, value, type, files } = e.target;
     if (type === "file") {
       setFormData(prev => ({ ...prev, [name]: files[0] }));
+    } else if (name === "message") {
+      const limitedValue = limitToMaxWords(value, MAX_WORDS);
+      setFormData(prev => ({ ...prev, [name]: limitedValue }));
     } else {
       setFormData(prev => ({ ...prev, [name]: value }));
     }
@@ -115,6 +143,15 @@ export default function OpenPositions() {
       setStatus("error");
       setResponseMsg("Network error. Please try again later.");
     }
+  };
+
+  const messageWordCount = countWords(formData.message);
+
+  const getMessagePlaceholder = () => {
+    if (formData.role && formData.role !== "Other") {
+      return `Describe yourself and why do you fit to this ${formData.role} role`;
+    }
+    return "Describe yourself and why do you fit to this role";
   };
 
   return (
@@ -251,12 +288,17 @@ export default function OpenPositions() {
             </div>
 
             <div className="openpos-form-group">
-              <label className="openpos-form-label" htmlFor="message">Message *</label>
+              <div className="openpos-label-row">
+                <label className="openpos-form-label" htmlFor="message">Message *</label>
+                <span className={`openpos-word-count ${messageWordCount >= MAX_WORDS ? "limit-reached" : ""}`}>
+                  {messageWordCount} / {MAX_WORDS} words
+                </span>
+              </div>
               <textarea 
                 id="message" 
                 name="message" 
                 className="openpos-form-textarea" 
-                placeholder="Tell us about yourself and why you'd be a great fit." 
+                placeholder={getMessagePlaceholder()} 
                 value={formData.message}
                 onChange={handleInputChange}
                 required 
