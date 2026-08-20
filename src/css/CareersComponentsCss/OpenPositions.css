@@ -286,9 +286,14 @@
   transition: color 0.2s ease;
 }
 
-.openpos-word-count.limit-reached {
-  color: #d97706;
-  font-weight: 600;
+.openpos-word-count.limit-warning {
+  color: #dc2626;
+  font-weight: 500;
+}
+
+.openpos-word-count.limit-valid {
+  color: #16a34a;
+  font-weight: 500;
 }
 
 .openpos-form-input,

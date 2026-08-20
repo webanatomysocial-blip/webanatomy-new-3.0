@@ -37,30 +37,11 @@ const JOBS = [
   }
 ];
 
-const MAX_WORDS = 100;
+const MIN_WORDS = 20;
 
 const countWords = (text) => {
   if (!text || !text.trim()) return 0;
   return text.trim().split(/\s+/).filter(Boolean).length;
-};
-
-const limitToMaxWords = (text, maxWords = MAX_WORDS) => {
-  if (!text) return "";
-  const words = text.trim().split(/\s+/).filter(Boolean);
-  if (words.length <= maxWords) return text;
-
-  let count = 0;
-  let cutIndex = 0;
-  const regex = /\S+/g;
-  let match;
-  while ((match = regex.exec(text)) !== null) {
-    count++;
-    if (count === maxWords) {
-      cutIndex = match.index + match[0].length;
-      break;
-    }
-  }
-  return text.substring(0, cutIndex);
 };
 
 export default function OpenPositions() {
@@ -95,9 +76,6 @@ export default function OpenPositions() {
     const { name, value, type, files } = e.target;
     if (type === "file") {
       setFormData(prev => ({ ...prev, [name]: files[0] }));
-    } else if (name === "message") {
-      const limitedValue = limitToMaxWords(value, MAX_WORDS);
-      setFormData(prev => ({ ...prev, [name]: limitedValue }));
     } else {
       setFormData(prev => ({ ...prev, [name]: value }));
     }
@@ -105,8 +83,17 @@ export default function OpenPositions() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus("submitting");
     setResponseMsg("");
+
+    const wordCount = countWords(formData.message);
+
+    if (wordCount < MIN_WORDS) {
+      setStatus("error");
+      setResponseMsg(`Please enter at least ${MIN_WORDS} words in your message (currently ${wordCount} words).`);
+      return;
+    }
+
+    setStatus("submitting");
 
     try {
       const submitData = new FormData();
@@ -146,6 +133,7 @@ export default function OpenPositions() {
   };
 
   const messageWordCount = countWords(formData.message);
+  const isInvalidWordCount = messageWordCount > 0 && messageWordCount < MIN_WORDS;
 
   const getMessagePlaceholder = () => {
     if (formData.role && formData.role !== "Other") {
@@ -290,8 +278,8 @@ export default function OpenPositions() {
             <div className="openpos-form-group">
               <div className="openpos-label-row">
                 <label className="openpos-form-label" htmlFor="message">Message *</label>
-                <span className={`openpos-word-count ${messageWordCount >= MAX_WORDS ? "limit-reached" : ""}`}>
-                  {messageWordCount} / {MAX_WORDS} words
+                <span className={`openpos-word-count ${isInvalidWordCount ? "limit-warning" : messageWordCount >= MIN_WORDS ? "limit-valid" : ""}`}>
+                  {messageWordCount} words (min {MIN_WORDS})
                 </span>
               </div>
               <textarea 
