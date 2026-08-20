@@ -72,7 +72,7 @@
 /* Responsive adjustment */
 @media (max-width: 768px) {
     .about-banner-content {
-        top: 50%;
+        top: 60%;
         bottom: auto;
         transform: translateY(-50%);
         flex-direction: column;
