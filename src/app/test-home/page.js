@@ -2,6 +2,7 @@ export const metadata = {
   title: "Best Digital Marketing company in Hyderabad | Web Anatomy",
   description:
     "Web Anatomy is a leading B2B digital marketing & transformation company in India. We help startups, IT & SaaS companies with SEO, UI/UX, rebranding & app development",
+  robots: { index: false, follow: false },
 };
 
 import HomeBannerTest from "@/components/HomeComponents/HomeBannerTest";
