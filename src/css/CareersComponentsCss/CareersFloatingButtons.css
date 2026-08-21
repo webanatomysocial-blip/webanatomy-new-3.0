@@ -15,18 +15,17 @@
   justify-content: center;
   width: 52px;
   height: 52px;
-  background-color: #000;
-  color: #fff;
+  background-color: #ffffff;
+  color: #000000;
   border: none;
   border-radius: 50%;
   cursor: pointer;
   text-decoration: none;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  transition: transform 0.25s ease, background-color 0.25s ease;
+  transition: transform 0.25s ease;
 }
 
 .careers-floating-btn:hover {
-  background-color: #222;
   transform: translateY(-2px);
 }
 
