@@ -15,7 +15,6 @@
   justify-content: center;
   width: 52px;
   height: 52px;
-  background-color: #ffffff;
   color: #000000;
   border: none;
   border-radius: 50%;
@@ -27,6 +26,14 @@
 
 .careers-floating-btn:hover {
   transform: translateY(-2px);
+}
+
+.careers-floating-btn--white {
+  background-color: #ffffff;
+}
+
+.careers-floating-btn--accent {
+  background-color: #ffdd00;
 }
 
 @media (max-width: 768px) {

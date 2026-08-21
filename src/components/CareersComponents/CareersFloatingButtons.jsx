@@ -22,7 +22,7 @@ export default function CareersFloatingButtons() {
     <div className="careers-floating-buttons">
       <a
         href={`mailto:${CAREERS_MAIL_TO}?subject=${encodeURIComponent("Career Inquiry")}`}
-        className="careers-floating-btn"
+        className="careers-floating-btn careers-floating-btn--white"
         aria-label="Mail"
         title="Mail"
       >
@@ -30,7 +30,7 @@ export default function CareersFloatingButtons() {
       </a>
       <button
         type="button"
-        className="careers-floating-btn"
+        className="careers-floating-btn careers-floating-btn--accent"
         onClick={scrollToOpenPositions}
         aria-label="Open Positions"
         title="Open Positions"
