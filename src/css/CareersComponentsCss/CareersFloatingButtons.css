@@ -1,31 +1,26 @@
 .careers-floating-buttons {
   position: fixed;
   right: 24px;
-  bottom: 24px;
+  bottom: 100px;
   z-index: 999;
   display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 6px;
-  border-radius: 9999px;
-  background: rgba(20, 20, 20, 0.55);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
 }
 
 .careers-floating-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   flex-shrink: 0;
   background-color: #ffffff;
   color: #000000;
   border-radius: 50%;
   text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   transition: transform 0.25s ease;
 }
 
@@ -36,18 +31,20 @@
 .careers-floating-cta {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 0 20px;
-  height: 44px;
+  gap: 10px;
+  padding: 0 24px;
+  height: 48px;
   background-color: #ffdd00;
   color: #000000;
   border: none;
   border-radius: 9999px;
   font-family: var(--font-inter), sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 400;
+  letter-spacing: -0.01em;
   white-space: nowrap;
   cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   transition: transform 0.25s ease;
 }
 
@@ -57,16 +54,22 @@
 
 @media (max-width: 768px) {
   .careers-floating-buttons {
+    flex-direction: row;
+    left: 16px;
     right: 16px;
     bottom: 16px;
+    width: auto;
+    gap: 10px;
   }
   .careers-floating-icon {
-    width: 40px;
-    height: 40px;
+    width: 46px;
+    height: 46px;
   }
   .careers-floating-cta {
-    height: 40px;
+    flex: 1;
+    justify-content: center;
+    height: 46px;
     padding: 0 16px;
-    font-size: 13px;
+    font-size: 14px;
   }
 }
