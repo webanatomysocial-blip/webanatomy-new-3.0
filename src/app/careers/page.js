@@ -19,7 +19,7 @@ export default function CareersPage() {
             <CompetitivePros />
             <OpenPositions />
             <CareersCarousel />
-            <MultiImagesCTA />
+            <MultiImagesCTA aiPrompt="What can you tell me about the career options at Web Anatomy?" />
             <CareersFloatingButtons />
         </>
     );

@@ -21,7 +21,9 @@ import cta8 from "@/assets/images/cta/WhatsApp Image 2026-06-06 at 10.32.39 AM (
 
 import { SiOpenai, SiAnthropic } from "react-icons/si";
 
-export default function MultiImagesCTA() {
+const DEFAULT_AI_PROMPT = `I'm evaluating Web Anatomy as a long-term marketing and technology partner for our business. Explain what makes Web Anatomy different from a traditional agency, how their philosophy of "Find Clarity in Chaos" and "Design. Build. Scale." shapes the way they work, and how their proprietary operating system, LOOPED, improves collaboration, accountability and project delivery. Also highlight their expertise across branding, digital products, marketing and growth, along with industry recognitions and overall approach to solving business problems. Summarise the key insights from their website: https://webanatomy.in`;
+
+export default function MultiImagesCTA({ aiPrompt = DEFAULT_AI_PROMPT }) {
   const router = useRouter();
   const containerRef = useRef(null);
   const imagesRef = useRef([]);
@@ -217,7 +219,7 @@ export default function MultiImagesCTA() {
         <div className="micta-ask-buttons">
           <a
             className="micta-btn micta-btn--claude"
-            href={`https://claude.ai/new?q=${encodeURIComponent(`I'm evaluating Web Anatomy as a long-term marketing and technology partner for our business. Explain what makes Web Anatomy different from a traditional agency, how their philosophy of "Find Clarity in Chaos" and "Design. Build. Scale." shapes the way they work, and how their proprietary operating system, LOOPED, improves collaboration, accountability and project delivery. Also highlight their expertise across branding, digital products, marketing and growth, along with industry recognitions and overall approach to solving business problems. Summarise the key insights from their website: https://webanatomy.in`)}`}
+            href={`https://claude.ai/new?q=${encodeURIComponent(aiPrompt)}`}
             target="_blank"
             rel="noopener noreferrer"
             style={{ textDecoration: "none" }}
@@ -227,7 +229,7 @@ export default function MultiImagesCTA() {
           </a>
           <a
             className="micta-btn micta-btn--chatgpt"
-            href={`https://chatgpt.com/?q=${encodeURIComponent(`I'm evaluating Web Anatomy as a long-term marketing and technology partner for our business. Explain what makes Web Anatomy different from a traditional agency, how their philosophy of "Find Clarity in Chaos" and "Design. Build. Scale." shapes the way they work, and how their proprietary operating system, LOOPED, improves collaboration, accountability and project delivery. Also highlight their expertise across branding, digital products, marketing and growth, along with industry recognitions and overall approach to solving business problems. Summarise the key insights from their website: https://webanatomy.in`)}`}
+            href={`https://chatgpt.com/?q=${encodeURIComponent(aiPrompt)}`}
             target="_blank"
             rel="noopener noreferrer"
             style={{ textDecoration: "none" }}
