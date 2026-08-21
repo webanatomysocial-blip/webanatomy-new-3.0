@@ -23,17 +23,19 @@ export default function CareersFloatingButtons() {
       <a
         href={`mailto:${CAREERS_MAIL_TO}?subject=${encodeURIComponent("Career Inquiry")}`}
         className="careers-floating-btn"
+        aria-label="Mail"
+        title="Mail"
       >
-        <PiEnvelopeSimpleFill size={18} />
-        Mail
+        <PiEnvelopeSimpleFill size={20} />
       </a>
       <button
         type="button"
         className="careers-floating-btn"
         onClick={scrollToOpenPositions}
+        aria-label="Open Positions"
+        title="Open Positions"
       >
-        <PiBriefcaseFill size={18} />
-        Open Positions
+        <PiBriefcaseFill size={20} />
       </button>
     </div>
   );
