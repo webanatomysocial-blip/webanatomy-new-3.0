@@ -8,6 +8,7 @@ import CareersBanner from "@/components/CareersComponents/CareersBanner";
 import CompetitivePros from "@/components/CareersComponents/CompetitivePros";
 import CareersCarousel from "@/components/CareersComponents/CareersCarousel";
 import OpenPositions from "@/components/CareersComponents/OpenPositions";
+import CareersFloatingButtons from "@/components/CareersComponents/CareersFloatingButtons";
 import GloballyConnected from "@/components/AboutComponents/GloballyConnected";
 import MultiImagesCTA from "@/components/MultiImagesCTA";
 
@@ -19,6 +20,7 @@ export default function CareersPage() {
             <OpenPositions />
             <CareersCarousel />
             <MultiImagesCTA />
+            <CareersFloatingButtons />
         </>
     );
 }
