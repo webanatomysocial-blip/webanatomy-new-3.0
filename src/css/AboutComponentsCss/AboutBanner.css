@@ -117,4 +117,7 @@
     .about-banner-bottom-right button {
         width: 100%;
     }
+    .about-banner-container{
+        height: 60vh;
+    }
 }
