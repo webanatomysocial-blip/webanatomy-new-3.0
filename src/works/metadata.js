@@ -11,7 +11,7 @@ import prugensBanner from "../WorkImages/prugens/1.webp";
 export const worksMetadata = [
   {
     id: "ToggleNow",
-    title: "ToggleNow - Transforming Project Management",
+    title: "ToggleNow - Transforming ToggleNow’s Enterprise Digital Presence",
     category: "UI/UX",
     description: "ToggleNow is a comprehensive SaaS platform designed to streamline project management, team collaboration, and business automation.",
     image: case3,
