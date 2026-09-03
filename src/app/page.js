@@ -25,7 +25,10 @@ import ClientsRecognition from "@/components/AboutComponents/ClientsRecognition"
 
 export default function Home() {
   // Reverse the array to get descending order and take only the first 4
-  const recentWorks = [...worksMetadata].reverse().slice(0, 4);
+  const recentWorks = [...worksMetadata]
+    .filter((work) => !work.hideInPortfolio)
+    .reverse()
+    .slice(0, 4);
 
   return (
     <>
