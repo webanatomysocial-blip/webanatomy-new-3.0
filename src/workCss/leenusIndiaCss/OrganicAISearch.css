@@ -1,0 +1,91 @@
+.leenus-organic-section {
+  padding: 120px 100px;
+}
+
+.leenus-stats-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  background: #ede9fe;
+  color: #000;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.leenus-stats-badge span {
+  color: #6d4bff;
+  margin-left: 4px;
+}
+
+.leenus-organic-desc {
+  max-width: 700px;
+  margin-top: 20px;
+  color: #666;
+}
+
+.leenus-organic-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px 60px;
+  margin-top: 50px;
+}
+
+.leenus-organic-stat h3 {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #3b5bfd;
+  margin: 0 0 8px;
+}
+
+.leenus-organic-stat p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #666;
+  margin: 0;
+  max-width: 220px;
+}
+
+.leenus-organic-stat--solo {
+  margin-top: 40px;
+}
+
+.leenus-stats-note {
+  margin-top: 12px;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  font-style: italic;
+  color: #888;
+  max-width: 750px;
+}
+
+.leenus-organic-section .leenus-screenshot-row {
+  margin-top: 50px;
+}
+
+.leenus-organic-section .leenus-keyword-table-wrap {
+  margin-top: 50px;
+}
+
+.leenus-organic-final-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px 60px;
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px solid #eee;
+}
+
+@media (max-width: 768px) {
+  .leenus-organic-section {
+    padding: 60px 20px;
+  }
+  .leenus-organic-stats,
+  .leenus-organic-final-stats {
+    gap: 30px;
+  }
+}

@@ -1,0 +1,44 @@
+.leenus-before-after {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 100px;
+}
+
+.leenus-ba-col {
+  padding: 40px;
+}
+
+.leenus-ba-before {
+  background: #bfdaf2;
+}
+
+.leenus-ba-after {
+  background: #e7e2d9;
+}
+
+.leenus-ba-label {
+  display: block;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.leenus-ba-col p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111;
+  margin: 0;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .leenus-before-after {
+    grid-template-columns: 1fr;
+    margin: 0 20px;
+  }
+}

@@ -10,6 +10,7 @@ import TheSase from '@/works/TheSase';
 import Eryntis from '@/works/erynits';
 import Mudra from '@/works/mudra';
 import Prugens from '@/works/prugens';
+import LeenusIndia from '@/works/leenusIndia';
 
 export default function WorkPageClient({ id }) {
   if (!id) {
@@ -49,6 +50,9 @@ export default function WorkPageClient({ id }) {
   }
   if (workIdLower === 'prugens-consulting-crafting-distinctive-brand-stories') {
     return <Prugens />;
+  }
+  if (workIdLower === 'leenus-india') {
+    return <LeenusIndia />;
   }
 
   return (

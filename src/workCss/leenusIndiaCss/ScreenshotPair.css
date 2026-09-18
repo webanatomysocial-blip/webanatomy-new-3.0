@@ -1,0 +1,30 @@
+.leenus-screenshot-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.leenus-screenshot-item {
+  margin: 0;
+}
+
+.leenus-screenshot-item img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.leenus-screenshot-item figcaption {
+  margin-top: 12px;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .leenus-screenshot-row {
+    grid-template-columns: 1fr;
+  }
+}

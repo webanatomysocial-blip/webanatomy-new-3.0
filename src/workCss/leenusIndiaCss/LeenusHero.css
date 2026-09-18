@@ -1,0 +1,46 @@
+.leenus-hero {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  background: linear-gradient(160deg, #2a1a0a 0%, #100a05 55%, #000 100%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 100px;
+}
+
+.leenus-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 120px 120px;
+  mask-image: radial-gradient(circle at 70% 30%, black 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle at 70% 30%, black 0%, transparent 70%);
+}
+
+.leenus-hero-title {
+  position: relative;
+  max-width: 900px;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.leenus-hero-tags {
+  position: relative;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+@media (max-width: 768px) {
+  .leenus-hero {
+    padding: 24px;
+    padding-bottom: 60px;
+    min-height: 60vh;
+  }
+}

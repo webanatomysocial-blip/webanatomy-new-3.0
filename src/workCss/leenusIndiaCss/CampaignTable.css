@@ -1,0 +1,97 @@
+.leenus-campaign-section {
+  padding: 120px 100px;
+}
+
+.leenus-campaign-desc {
+  max-width: 700px;
+  margin-top: 24px;
+  color: #666;
+}
+
+.leenus-campaign-table-wrap {
+  margin-top: 60px;
+  overflow-x: auto;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+.leenus-campaign-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1100px;
+  font-family: var(--font-inter), sans-serif;
+}
+
+.leenus-campaign-table thead th {
+  text-align: left;
+  padding: 16px 20px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #888;
+  background: #faf9f6;
+  border-bottom: 1px solid #eee;
+  white-space: nowrap;
+}
+
+.leenus-campaign-table tbody td {
+  padding: 16px 20px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #222;
+  border-bottom: 1px solid #f0efec;
+  vertical-align: top;
+}
+
+.leenus-campaign-table tbody tr:nth-child(even) {
+  background: #faf9f6;
+}
+
+.leenus-campaign-results {
+  color: #3b5bfd;
+  font-weight: 500;
+}
+
+.leenus-campaign-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px solid #eee;
+}
+
+.leenus-campaign-summary-item h3 {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #3b5bfd;
+  margin: 0 0 6px;
+}
+
+.leenus-campaign-summary-item p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #666;
+  margin: 0;
+}
+
+.leenus-campaign-note {
+  margin-top: 24px;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  font-style: italic;
+  color: #888;
+  max-width: 850px;
+}
+
+@media (max-width: 768px) {
+  .leenus-campaign-section {
+    padding: 60px 20px;
+  }
+  .leenus-campaign-summary {
+    gap: 30px;
+  }
+}

@@ -1,0 +1,24 @@
+.leenus-cited-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.leenus-cited-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  border: 1px solid #ddd;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+}
+
+.leenus-cited-pill strong {
+  color: #6d4bff;
+  font-weight: 600;
+}
