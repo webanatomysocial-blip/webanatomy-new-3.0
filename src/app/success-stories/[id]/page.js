@@ -16,6 +16,7 @@ const DRAFT_WORK_IDS = new Set([
   'eryntis-tech-forward-identity-with-a-minimal-touch',
   'mudra-yoga-crafting-a-yoga-studio-identity',
   'prugens-consulting-crafting-distinctive-brand-stories',
+  'leenus-india',
 ]);
 
 export async function generateMetadata({ params }) {
