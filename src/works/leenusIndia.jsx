@@ -16,20 +16,31 @@ import supply from "../WorkImages/leenus-india/Supply.jpeg";
 import brandedMaterial from "../WorkImages/leenus-india/Branded-Material.jpeg";
 import finalTesting from "../WorkImages/leenus-india/Final-Testing.jpeg";
 import organicSearchShot from "../WorkImages/leenus-india/Organic.jpeg";
-import aiSearchShot from "../WorkImages/leenus-india/AI-Search.jpeg";
+import aiSearchShot from "../WorkImages/leenus-india/AI-Search.png";
 import localPackShot from "../WorkImages/leenus-india/Local-pack.jpeg";
-import googleBusinessShot from "../WorkImages/leenus-india/Google-Business.jpeg";
+import googleBusinessShot from "../WorkImages/leenus-india/Google-Business.png";
 
 export default function LeenusIndia() {
   return (
     <>
       <LeenusHero
         title="The Ad Spend Was ₹47K. The Pipeline Was ₹54 Crore+."
-        tags={["Paid Search", "SEO", "Creative Production", "Conversion Tracking"]}
+        tags={[
+          "Paid Search",
+          "SEO",
+          "Creative Production",
+          "Conversion Tracking",
+        ]}
       />
 
       <ServicesSecondSec
-        services={["Paid Search", "Campaign Strategy", "Conversion Tracking", "SEO", "Creative Production"]}
+        services={[
+          "Paid Search",
+          "Campaign Strategy",
+          "Conversion Tracking",
+          "SEO",
+          "Creative Production",
+        ]}
         title="Turning a Small, Disciplined Ad Budget Into ₹54 Crore+ in Business Opportunity"
         description="Leenus India has been solving infrastructure problems since 2015 — underground drainage, water supply, stormwater systems, water storage, surveying, design and installation. Their reputation was built the hard way, through relationships and results on the ground. Web Anatomy was engaged to build a paid search engine that could do the same thing at scale — backed by organic search visibility and bilingual creative that carried the same message across every channel."
         stats={[
@@ -50,7 +61,7 @@ export default function LeenusIndia() {
       <JustHeading
         paddingTop={0}
         tittle={
-          ' "The question wasn\'t how do we get more clicks. It was how do we make sure every click is a buyer who\'s already close to a decision." '
+          " \"The question wasn't how do we get more clicks. It was how do we make sure every click is a buyer who's already close to a decision.\" "
         }
       />
 
