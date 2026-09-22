@@ -26,7 +26,7 @@ export default function LeenusIndia() {
       <LeenusHero
         title="The Ad Spend Was ₹47K. The Pipeline Was ₹54 Crore+."
         tags={[
-          "Paid Search",
+          "Paid Social",
           "SEO",
           "Creative Production",
           "Conversion Tracking",
@@ -35,18 +35,18 @@ export default function LeenusIndia() {
 
       <ServicesSecondSec
         services={[
-          "Paid Search",
+          "Paid Social",
           "Campaign Strategy",
           "Conversion Tracking",
           "SEO",
           "Creative Production",
         ]}
         title="Turning a Small, Disciplined Ad Budget Into ₹54 Crore+ in Business Opportunity"
-        description="Leenus India has been solving infrastructure problems since 2015 — underground drainage, water supply, stormwater systems, water storage, surveying, design and installation. Their reputation was built the hard way, through relationships and results on the ground. Web Anatomy was engaged to build a paid search engine that could do the same thing at scale — backed by organic search visibility and bilingual creative that carried the same message across every channel."
+        description="Leenus India has been solving infrastructure problems since 2015 — underground drainage, water supply, stormwater systems, water storage, surveying, design and installation. Their reputation was built the hard way, through relationships and results on the ground. Web Anatomy was engaged to build a paid social engine that could do the same thing at scale — backed by organic search visibility and bilingual creative that carried the same message across every channel."
         stats={[
           { label: "Platform", value: "Meta Ads (Lead Form Campaigns)" },
           { label: "Campaigns Analyzed", value: "10" },
-          { label: "Focus", value: "Paid Search · Lead Generation" },
+          { label: "Focus", value: "Paid Social · Lead Generation" },
         ]}
         liveLink="https://leenusindia.com"
       />
@@ -95,7 +95,7 @@ export default function LeenusIndia() {
         badgePrefix="Overall"
         badgeHighlight="Paid Results"
         title="The Result"
-        description="Beyond the individual campaign data above, paid search — across the full 10-month engagement — was reported to have delivered the following business outcomes."
+        description="Beyond the individual campaign data above, paid social — across the full 10-month engagement — was reported to have delivered the following business outcomes."
         stats={[
           { value: "400+", label: "Qualified Leads (10 Months)" },
           { value: "30%+", label: "Lead-to-Opportunity Conversion" },

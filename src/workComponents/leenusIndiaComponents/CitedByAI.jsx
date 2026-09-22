@@ -1,6 +1,6 @@
 import "../../workCss/leenusIndiaCss/CitedByAI.css";
 
-const ENGINES = ["ChatGPT", "Google AI Overview", "AI Mode", "Gemini"];
+const ENGINES = ["ChatGPT", "Google AI Overview", "Gemini"];
 
 export default function CitedByAI() {
   return (

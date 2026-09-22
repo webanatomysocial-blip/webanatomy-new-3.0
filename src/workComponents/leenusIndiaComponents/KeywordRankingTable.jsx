@@ -36,8 +36,7 @@ export default function KeywordRankingTable() {
         </tbody>
       </table>
       <p className="leenus-keyword-note">
-        A selection of the 214 ranked keywords, reproduced as reported (data from
-        Semrush).
+        A selection of the 214 ranked keywords, reproduced as reported.
         <br />
         Every keyword related to layout development ranks in the top 5.
       </p>
