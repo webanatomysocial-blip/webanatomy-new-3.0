@@ -118,13 +118,11 @@ try {
     $mail->setFrom($_ENV['SMTP_FROM'] ?? 'webanatomysocial@gmail.com', $_ENV['SMTP_FROM_NAME'] ?? 'Webanatomy');
     
     // Switch recipients based on formType
-    $mail->addAddress('webanatomysocial@gmail.com');
     if ($formType === 'careers') {
-        $mail->addAddress('udaya@mosol9.com');
-        $mail->addAddress('priya.k@mosol9.com');
         $mail->addAddress('Srujan@mosol9.com');
         $mail->addAddress('supraja@mosol9.com');
     } else {
+        $mail->addAddress('webanatomysocial@gmail.com');
         $mail->addAddress('Moumita@Thewebanatomy.com');
         $mail->addAddress('Srujan@mosol9.com');
     }
@@ -155,11 +153,10 @@ try {
         $headers .= "Reply-To: {$email}\r\n";
     }
 
-    $allRecipients = 'webanatomysocial@gmail.com';
     if ($formType === 'careers') {
-        $allRecipients .= ', udaya@mosol9.com, priya.k@mosol9.com, Srujan@mosol9.com, supraja@mosol9.com';
+        $allRecipients = 'Srujan@mosol9.com, supraja@mosol9.com';
     } else {
-        $allRecipients .= ', Moumita@Thewebanatomy.com, Srujan@mosol9.com';
+        $allRecipients = 'webanatomysocial@gmail.com, Moumita@Thewebanatomy.com, Srujan@mosol9.com';
     }
 
     if (mail($allRecipients, $subject, $htmlBody, $headers)) {
