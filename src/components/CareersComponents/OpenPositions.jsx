@@ -38,6 +38,7 @@ const JOBS = [
 ];
 
 const MIN_WORDS = 20;
+const MAX_WORDS = 1000;
 
 const countWords = (text) => {
   if (!text || !text.trim()) return 0;
@@ -76,6 +77,8 @@ export default function OpenPositions() {
     const { name, value, type, files } = e.target;
     if (type === "file") {
       setFormData(prev => ({ ...prev, [name]: files[0] }));
+    } else if (name === "message" && countWords(value) > MAX_WORDS) {
+      return;
     } else {
       setFormData(prev => ({ ...prev, [name]: value }));
     }
@@ -279,7 +282,7 @@ export default function OpenPositions() {
               <div className="openpos-label-row">
                 <label className="openpos-form-label" htmlFor="message">Message *</label>
                 <span className={`openpos-word-count ${isInvalidWordCount ? "limit-warning" : messageWordCount >= MIN_WORDS ? "limit-valid" : ""}`}>
-                  {messageWordCount} words (min {MIN_WORDS})
+                  {messageWordCount} words (min {MIN_WORDS}, max {MAX_WORDS})
                 </span>
               </div>
               <textarea 
