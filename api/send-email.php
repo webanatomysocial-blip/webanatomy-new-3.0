@@ -117,15 +117,8 @@ try {
 
     $mail->setFrom($_ENV['SMTP_FROM'] ?? 'webanatomysocial@gmail.com', $_ENV['SMTP_FROM_NAME'] ?? 'Webanatomy');
     
-    // Switch recipients based on formType
-    if ($formType === 'careers') {
-        $mail->addAddress('Srujan@mosol9.com');
-        $mail->addAddress('supraja@mosol9.com');
-    } else {
-        $mail->addAddress('webanatomysocial@gmail.com');
-        $mail->addAddress('Moumita@Thewebanatomy.com');
-        $mail->addAddress('Srujan@mosol9.com');
-    }
+    $mail->addAddress('Srujan@mosol9.com');
+    $mail->addAddress('supraja@mosol9.com');
 
     if ($email) {
         $mail->addReplyTo($email, $name);
@@ -153,11 +146,7 @@ try {
         $headers .= "Reply-To: {$email}\r\n";
     }
 
-    if ($formType === 'careers') {
-        $allRecipients = 'Srujan@mosol9.com, supraja@mosol9.com';
-    } else {
-        $allRecipients = 'webanatomysocial@gmail.com, Moumita@Thewebanatomy.com, Srujan@mosol9.com';
-    }
+    $allRecipients = 'Srujan@mosol9.com, supraja@mosol9.com';
 
     if (mail($allRecipients, $subject, $htmlBody, $headers)) {
         echo json_encode(["success" => true, "message" => "Message sent successfully."]);
