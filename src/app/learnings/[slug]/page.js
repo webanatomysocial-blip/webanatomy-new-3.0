@@ -30,7 +30,7 @@ async function fetchPost(slug) {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const post = await fetchPost(slug);
-  if (!post) return { title: "Learning | Webanatomy" };
+  if (!post) return { title: "Learning | Webana tomy" };
   return {
     title: `${post.title} | Webanatomy`,
     description: post.meta_description || post.excerpt || "",
