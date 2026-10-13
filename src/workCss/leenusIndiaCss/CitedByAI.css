@@ -1,24 +1,79 @@
+.leenus-cited-container {
+  margin-top: 0;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 .leenus-cited-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 30px;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
 }
 
+/* Soft rounded lavender/lilac tinted pill capsules matching screenshot */
 .leenus-cited-pill {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 10px 20px;
+  gap: 8px;
+  padding: 8px 22px;
   border-radius: 9999px;
-  border: 1px solid #ddd;
-  font-family: var(--font-inter), sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #000;
+  background-color: #ede9fe;
+  border: 1px solid rgba(138, 116, 255, 0.2);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14.5px;
+  color: #1e1b2e;
+  box-shadow: 0 1px 4px rgba(109, 75, 255, 0.04);
+  transition: all 0.2s ease;
 }
 
-.leenus-cited-pill strong {
+.leenus-cited-pill:hover {
+  background-color: #ebe4ff;
+  transform: translateY(-1px);
+}
+
+.leenus-cited-name {
+  font-weight: 500;
+  color: #171520;
+}
+
+.leenus-cited-divider {
   color: #6d4bff;
-  font-weight: 600;
+  font-weight: 400;
+}
+
+.leenus-cited-status {
+  color: #6d4bff;
+  font-weight: 500;
+}
+
+/* Italicized description text centered below the 4 pills */
+.leenus-cited-note {
+  margin-top: 28px;
+  margin-bottom: 32px;
+  text-align: center;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #171520;
+  font-style: italic;
+  font-weight: 500;
+  max-width: 840px;
+}
+
+@media (max-width: 768px) {
+  .leenus-cited-row {
+    gap: 10px;
+  }
+  .leenus-cited-pill {
+    padding: 8px 16px;
+    font-size: 13.5px;
+  }
+  .leenus-cited-note {
+    font-size: 13.5px;
+  }
 }

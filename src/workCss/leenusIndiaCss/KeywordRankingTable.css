@@ -1,46 +1,87 @@
 .leenus-keyword-table-wrap {
-  margin-top: 20px;
+  margin-top: 28px;
+  width: 100%;
+  overflow-x: auto;
 }
 
 .leenus-keyword-table {
   width: 100%;
   border-collapse: collapse;
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 .leenus-keyword-table thead th {
   text-align: left;
-  padding: 14px 20px;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
+  padding: 12px 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #888;
+  color: #999999;
   background: #faf9f6;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #ebe8e2;
+  white-space: nowrap;
 }
 
 .leenus-keyword-table tbody td {
-  padding: 14px 20px;
-  font-size: 14px;
-  color: #222;
-  border-bottom: 1px solid #f0efec;
+  padding: 11px 20px;
+  font-size: 13.5px;
+  color: #222222;
+  border-bottom: 1px solid #f2f0ec;
 }
 
 .leenus-keyword-table tbody tr:nth-child(even) {
   background: #faf9f6;
 }
 
-.leenus-keyword-rank,
-.leenus-keyword-yes {
-  color: #3b5bfd;
+.leenus-keyword-name {
+  color: #222222;
+  font-weight: 400;
+}
+
+.leenus-keyword-rank {
+  color: #171520;
   font-weight: 500;
 }
 
-.leenus-keyword-note {
-  margin-top: 16px;
-  font-family: var(--font-inter), sans-serif;
-  font-size: 14px;
+.leenus-keyword-yes {
+  color: #222222;
+  font-weight: 400;
+}
+
+/* Subnote directly below table, left-aligned */
+.leenus-keyword-subnote {
+  margin-top: 14px;
+  margin-bottom: 0;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
   font-style: italic;
-  color: #888;
+  color: #666666;
+  text-align: left;
+}
+
+/* Footnote centered below matching the design screenshot */
+.leenus-keyword-note {
+  margin-top: 48px;
+  margin-bottom: 10px;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14.5px;
+  line-height: 1.5;
+  font-style: italic;
+  font-weight: 500;
+  color: #1a1a1a;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .leenus-keyword-table thead th,
+  .leenus-keyword-table tbody td {
+    padding: 10px 14px;
+    font-size: 12.5px;
+  }
+  .leenus-keyword-note {
+    font-size: 13.5px;
+    margin-top: 36px;
+  }
 }

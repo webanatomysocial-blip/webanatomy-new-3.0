@@ -1,30 +1,58 @@
 .leenus-screenshot-row {
+  width: 100%;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+.leenus-screenshot-inner {
+  padding: 20px 100px 30px 100px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-top: 20px;
+  gap: 48px;
+  box-sizing: border-box;
 }
 
 .leenus-screenshot-item {
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .leenus-screenshot-item img {
   width: 100%;
+  height: auto;
   display: block;
-  border-radius: 8px;
-  border: 1px solid #eee;
+  border: none;
+  background: transparent;
+  flex-shrink: 0;
 }
 
 .leenus-screenshot-item figcaption {
-  margin-top: 12px;
-  font-family: var(--font-inter), sans-serif;
-  font-size: 14px;
-  color: #666;
+  margin-top: 18px;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #222222;
+  font-weight: 400;
+  text-align: left;
+}
+
+@media (max-width: 1024px) {
+  .leenus-screenshot-inner {
+    padding: 20px 40px 30px 40px;
+    gap: 36px;
+  }
 }
 
 @media (max-width: 768px) {
-  .leenus-screenshot-row {
+  .leenus-screenshot-inner {
     grid-template-columns: 1fr;
+    padding: 10px 20px 20px 20px;
+    gap: 36px;
+  }
+  .leenus-screenshot-item figcaption {
+    font-size: 13px;
+    margin-top: 12px;
   }
 }

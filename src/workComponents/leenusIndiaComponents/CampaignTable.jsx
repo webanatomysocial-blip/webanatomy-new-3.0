@@ -1,3 +1,8 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import wavesForeground from "../../WorkImages/leenus-india/waves-foreground-retina.png";
 import "../../workCss/leenusIndiaCss/CampaignTable.css";
 
 const CAMPAIGNS = [
@@ -20,6 +25,42 @@ const SUMMARY = [
 ];
 
 export default function CampaignTable() {
+  const containerRef = useRef(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (containerRef.current) {
+            const rect = containerRef.current.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            // Start reveal when the top of the container enters from bottom: rect.top <= windowHeight
+            // Complete reveal when container is well inside viewport: rect.top <= windowHeight * 0.35
+            const startY = windowHeight;
+            const endY = windowHeight * 0.25;
+
+            const progress = (startY - rect.top) / (startY - endY);
+            const clamped = Math.max(0, Math.min(1, progress));
+            setScrollProgress(clamped);
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Initial check
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <section className="leenus-campaign-section">
       <h2 className="head-text">
@@ -65,20 +106,45 @@ export default function CampaignTable() {
         </table>
       </div>
 
-      <div className="leenus-campaign-summary">
-        {SUMMARY.map((s, i) => (
-          <div key={i} className="leenus-campaign-summary-item">
-            <h3>{s.value}</h3>
-            <p>{s.label}</p>
-          </div>
-        ))}
-      </div>
+      {/* Waves Landscape with Rising Blue Cards Driven Directly on Scroll */}
+      <div ref={containerRef} className="leenus-waves-stage">
+        <div className="leenus-waves-cards-track">
+          {SUMMARY.map((s, i) => {
+            // Card translateY moves from 220px (hidden deep behind waves) to 0px (fully revealed)
+            // Stagger slightly by index so the cards emerge dynamically
+            const staggeredProgress = Math.max(
+              0,
+              Math.min(1, (scrollProgress - i * 0.08) / (1 - 0.16))
+            );
+            const translateY = (1 - staggeredProgress) * 230;
+            const opacity = Math.min(1, staggeredProgress * 1.5);
 
-      <p className="leenus-campaign-note">
-        Figures reproduced exactly as reported in the Meta Ads campaign dashboard. This
-        table reflects Meta/Facebook lead-form campaigns only — figures may not
-        represent total paid spend across all platforms.
-      </p>
+            return (
+              <div
+                key={i}
+                className={`leenus-waves-card leenus-waves-card--${i + 1}`}
+                style={{
+                  "--translate-y": `${translateY}px`,
+                  "--card-opacity": opacity,
+                }}
+              >
+                <h3 className="leenus-waves-card-val">{s.value}</h3>
+                <p className="leenus-waves-card-lbl">{s.label}</p>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Foreground Monochrome Grassy Hills Waves */}
+        <div className="leenus-waves-foreground-wrap">
+          <Image
+            src={wavesForeground}
+            alt="Waves Landscape Foreground"
+            className="leenus-waves-foreground-img"
+            priority
+          />
+        </div>
+      </div>
     </section>
   );
 }

@@ -1,44 +1,245 @@
-.leenus-before-after {
+/* =========================================================
+   BEFORE / AFTER SECTION - LEENUS INDIA
+   Exact color: #131222 base, #625FFF atmospheric blur glows
+   ========================================================= */
+
+.leenus-ba-section {
+  position: relative;
+  width: 100%;
+  background: #131222;
+  padding: 85px 24px 95px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Atmospheric glow in the background as shown in the mockup */
+.leenus-ba-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Left side blue/purple ambient light */
+.leenus-ba-glow--left {
+  top: -80px;
+  left: -80px;
+  width: 550px;
+  height: 480px;
+  background: radial-gradient(circle, #625fff 0%, rgba(98, 95, 255, 0.4) 40%, transparent 70%);
+  filter: blur(120px);
+  -webkit-filter: blur(120px);
+  opacity: 0.6;
+}
+
+/* Right side ambient light */
+.leenus-ba-glow--right {
+  top: 10%;
+  right: -80px;
+  width: 500px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(98, 95, 255, 0.5) 0%, rgba(98, 95, 255, 0.25) 40%, transparent 70%);
+  filter: blur(120px);
+  -webkit-filter: blur(120px);
+  opacity: 0.5;
+}
+
+.leenus-ba-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 2-column layout */
+.leenus-ba-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin: 0 100px;
+  gap: 36px;
+  width: 100%;
 }
 
-.leenus-ba-col {
-  padding: 40px;
+.leenus-ba-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
-.leenus-ba-before {
-  background: #bfdaf2;
+/* Pill badges on top */
+.leenus-ba-badge-wrap {
+  margin-bottom: 14px;
 }
 
-.leenus-ba-after {
-  background: #e7e2d9;
-}
-
-.leenus-ba-label {
-  display: block;
-  font-family: var(--font-inter), sans-serif;
-  font-size: 12px;
+.leenus-ba-badge {
+  display: inline-block;
+  padding: 4px 16px;
+  border-radius: 6px;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #555;
-  margin-bottom: 12px;
-}
-
-.leenus-ba-col p {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  color: #111;
-  margin: 0;
   line-height: 1.4;
+  letter-spacing: 0.01em;
 }
 
-@media (max-width: 768px) {
-  .leenus-before-after {
+/* "Before" badge: soft baby-blue */
+.leenus-ba-badge--before {
+  background-color: #bdd4eb;
+  color: #172b4d;
+}
+
+/* "After" badge: warm light stone/cream */
+.leenus-ba-badge--after {
+  background-color: #ebe4d8;
+  color: #2b2518;
+}
+
+/* Pill capsule container */
+.leenus-ba-pill-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.leenus-ba-pill {
+  position: relative;
+  width: 100%;
+  min-height: 110px;
+  border-radius: 9999px;
+  /* Frosted glass capsule background matching the mockup */
+  background: rgba(255, 255, 255, 0.04);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* SVG overlay for border */
+.leenus-ba-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Subtle faint track outline matching the screenshot */
+.leenus-ba-svg-track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.15);
+  stroke-width: 1.5;
+}
+
+/* Progress border stroke animation */
+.leenus-ba-svg-progress {
+  fill: none;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 2.4s cubic-bezier(0.25, 1, 0.35, 1);
+}
+
+/* Soft, tasteful blurred bloom - gentle aura without harsh over-exposure */
+.leenus-ba-svg-progress--soft-glow {
+  stroke: rgba(255, 255, 255, 0.32);
+  stroke-width: 4px;
+  filter: blur(2.5px);
+}
+
+/* Clean, elegant white line */
+.leenus-ba-svg-progress--core {
+  stroke: #ffffff;
+  stroke-width: 1.5px;
+  filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.8));
+}
+
+/* Inner text content */
+.leenus-ba-pill-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 24px 44px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.leenus-ba-pill-content p {
+  margin: 0;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #f7f9fd;
+  letter-spacing: -0.01em;
+}
+
+/* Footnote / disclaimer note */
+.leenus-ba-note {
+  margin-top: 52px;
+  max-width: 860px;
+  text-align: center;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(240, 243, 255, 0.72);
+  font-style: italic;
+  font-weight: 300;
+  padding: 0 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .leenus-ba-grid {
     grid-template-columns: 1fr;
-    margin: 0 20px;
+    gap: 36px;
+    width: 100%;
+  }
+
+  .leenus-ba-pill {
+    min-height: 90px;
+    border-radius: 40px;
+  }
+
+  .leenus-ba-svg {
+    display: none;
+  }
+
+  .leenus-ba-pill-content {
+    padding: 22px 28px;
+  }
+
+  .leenus-ba-pill-content p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .leenus-ba-section {
+    padding: 50px 20px 60px;
+  }
+
+  .leenus-ba-pill {
+    border-radius: 28px;
+    min-height: auto;
+  }
+
+  .leenus-ba-pill-content {
+    padding: 22px 20px;
+  }
+
+  .leenus-ba-pill-content p {
+    font-size: 14.5px;
+    line-height: 1.45;
+  }
+
+  .leenus-ba-note {
+    font-size: 12px;
+    margin-top: 32px;
+    padding: 0;
   }
 }

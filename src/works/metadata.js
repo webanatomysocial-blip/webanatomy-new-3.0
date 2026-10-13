@@ -6,7 +6,7 @@ import { FiArrowUpRight, FiStar, FiActivity, FiBriefcase, FiHeart, FiTrendingUp 
 import erynitsBanner from "../WorkImages/eryntis/1.webp";
 import mudraBanner from "../WorkImages/mudra/1.webp";
 import prugensBanner from "../WorkImages/prugens/1.webp";
-import leenusIndiaBanner from "../WorkImages/leenus-india/img1.jpeg";
+import leenusIndiaCard from "../WorkImages/leenus-india/leenus-card-ipad.jpg";
 
 
 export const worksMetadata = [
@@ -85,13 +85,12 @@ export const worksMetadata = [
   },
   {
     id: "leenus-india",
-    title: "Leenus India - ₹47K Ad Spend, ₹54 Crore+ Pipeline",
-    category: "Performance Marketing",
+    title: "Leenus India – Generating ₹54 Cr+ Pipeline with ₹47K in Ad Spend",
+    category: "Ads",
     description: "Turning a small, disciplined ad budget into ₹54 Crore+ in business opportunity for an underground infrastructure company through category-split paid search, bilingual creative and organic/AI search visibility.",
-    image: leenusIndiaBanner,
+    image: leenusIndiaCard,
     slug: "leenus-india",
     icon: FiTrendingUp,
     logoImage: null,
-    hideInPortfolio: true,
   },
 ];

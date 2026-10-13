@@ -4,7 +4,7 @@
   align-items: start;
   justify-content: start;
   background-color: var(--white-color);
-  padding: 100px 350px;
+  padding: 0px 300px 100px 300px;
   flex-direction: column;
 }
 

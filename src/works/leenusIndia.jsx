@@ -8,21 +8,23 @@ import CampaignTable from "../workComponents/leenusIndiaComponents/CampaignTable
 import CreativeShowcase from "../workComponents/leenusIndiaComponents/CreativeShowcase";
 import StatsBlock from "../workComponents/leenusIndiaComponents/StatsBlock";
 import OrganicAISearch from "../workComponents/leenusIndiaComponents/OrganicAISearch";
+import OrganicStatsPill from "../workComponents/leenusIndiaComponents/OrganicStatsPill";
 
-import englishAd from "../WorkImages/leenus-india/img1.jpeg";
-import teluguAd from "../WorkImages/leenus-india/img2.jpeg";
-import excavation from "../WorkImages/leenus-india/Excavation.jpeg";
-import supply from "../WorkImages/leenus-india/Supply.jpeg";
-import brandedMaterial from "../WorkImages/leenus-india/Branded-Material.jpeg";
-import finalTesting from "../WorkImages/leenus-india/Final-Testing.jpeg";
-import organicSearchShot from "../WorkImages/leenus-india/Organic.jpeg";
-import aiSearchShot from "../WorkImages/leenus-india/AI-Search.png";
-import localPackShot from "../WorkImages/leenus-india/Local-pack.jpeg";
-import googleBusinessShot from "../WorkImages/leenus-india/Google-Business.png";
+import LeenusVideoBanner from "../workComponents/leenusIndiaComponents/LeenusVideoBanner";
+
+import semrushShot from "../WorkImages/leenus-india/semrush-domain-overview-laptop.png";
+import googleAiShot from "../WorkImages/leenus-india/google-ai-overview-laptop.png";
+import localPackShot from "../WorkImages/leenus-india/local-pack-laptop.png";
+import googleBusinessShot from "../WorkImages/leenus-india/google-business-profile-laptop.png";
+import ctaBackground from "../WorkImages/leenus-india/leenus-cta-pipes.jpg";
+import supremeLogo from "../WorkImages/leenus-india/supreme-logo-clean-trans.png";
+import leenusLogo from "../WorkImages/leenus-india/leenus-official-logo.png";
+import resultsBackground from "../WorkImages/leenus-india/the-result-bg.jpg";
+import heroBannerImage from "../WorkImages/leenus-india/leenus-hero-banner.jpg";
 
 export default function LeenusIndia() {
   return (
-    <>
+    <div className="leenus-case-study-page" style={{ width: "100%", overflowX: "clip" }}>
       <LeenusHero
         title="The Ad Spend Was ₹47K. The Pipeline Was ₹54 Crore+."
         tags={[
@@ -31,6 +33,7 @@ export default function LeenusIndia() {
           "Creative Production",
           "Conversion Tracking",
         ]}
+        backgroundImage={heroBannerImage}
       />
 
       <ServicesSecondSec
@@ -49,6 +52,12 @@ export default function LeenusIndia() {
           { label: "Focus", value: "Paid Social · Lead Generation" },
         ]}
         liveLink="https://leenusindia.com"
+      />
+
+      <LeenusVideoBanner
+        videoUrl="https://leenusindia.com/wp-content/uploads/2024/09/2157145_Industry_Machine_1920x1080.mp4"
+        subtitle="ONE STOP SOLUTION TO"
+        title="DRAINAGE SYSTEM"
       />
 
       <Context
@@ -73,18 +82,33 @@ export default function LeenusIndia() {
       <CampaignTable />
 
       <CreativeShowcase
-        englishAd={englishAd}
-        teluguAd={teluguAd}
-        galleryImages={[
-          { src: excavation, label: "Excavation" },
-          { src: supply, label: "Supply" },
-          { src: brandedMaterial, label: "Branded Material" },
-          { src: finalTesting, label: "Final Testing" },
+        videoUrl="/videos/work/leenus/leenus.mp4"
+        galleryItems={[
+          {
+            type: "video",
+            src: "/works/leenus/gallery/video1.mp4",
+            label: "Excavation",
+          },
+          {
+            type: "video",
+            src: "/works/leenus/gallery/video2.mp4",
+            label: "Supply",
+          },
+          {
+            type: "image",
+            src: "/works/leenus/gallery/image1.jpeg",
+            label: "Branded Material",
+          },
+          {
+            type: "image",
+            src: "/works/leenus/gallery/image2.jpeg",
+            label: "Final Testing",
+          },
         ]}
       />
 
       <JustHeading
-        paddingTop={100}
+        paddingTop={0}
         tittle={
           ' "Web Anatomy didn\'t just run our ads. They understood which projects actually move our business and built every campaign around getting us in front of that exact buyer." '
         }
@@ -92,10 +116,10 @@ export default function LeenusIndia() {
       />
 
       <StatsBlock
-        badgePrefix="Overall"
-        badgeHighlight="Paid Results"
+        badgeText="Creative That Earned The Click"
         title="The Result"
-        description="Beyond the individual campaign data above, paid social — across the full 10-month engagement — was reported to have delivered the following business outcomes."
+        description="Beyond the individual campaign data above, paid search — across the full 10-month engagement — was reported to have delivered the following business outcomes."
+        backgroundImage={resultsBackground.src || resultsBackground}
         stats={[
           { value: "400+", label: "Qualified Leads (10 Months)" },
           { value: "30%+", label: "Lead-to-Opportunity Conversion" },
@@ -106,17 +130,23 @@ export default function LeenusIndia() {
       />
 
       <OrganicAISearch
-        organicSearchShot={organicSearchShot}
-        aiSearchShot={aiSearchShot}
+        semrushShot={semrushShot}
+        googleAiShot={googleAiShot}
         localPackShot={localPackShot}
         googleBusinessShot={googleBusinessShot}
       />
 
+      <OrganicStatsPill />
+
       <WorkCta
+        src={ctaBackground}
         heading="Have a business built on reputation that needs a pipeline to match?"
         sub="Let's talk about how we can make your ad spend accountable to real business outcomes, not just clicks."
         ctaText="Start a Conversation →"
+        supremeLogo={supremeLogo}
+        bottomLeftLogo={leenusLogo}
+        className="leenus-fullwidth-cta"
       />
-    </>
+    </div>
   );
 }
