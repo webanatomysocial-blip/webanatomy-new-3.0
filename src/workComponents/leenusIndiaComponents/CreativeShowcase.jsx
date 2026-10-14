@@ -91,7 +91,7 @@ export default function CreativeShowcase({
 
       <div className="leenus-creative-bottom-content">
         <p className="leenus-gallery-eyebrow">
-          Companion Video Ad — Real Site Footage, Not Stock
+          Campaign ad videos: Answering the Buyer’s Real Question Before They Ask It
         </p>
         <div className="leenus-gallery-row">
           {items.map((g, i) => {

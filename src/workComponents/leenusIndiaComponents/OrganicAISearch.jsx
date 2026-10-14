@@ -68,10 +68,6 @@ export default function OrganicAISearch({
             <p className="leenus-stats-pill-desc">Category Traffic Share (India)</p>
           </div>
         </div>
-
-        <p className="leenus-stats-pill-footnote">
-          Domain Authority Score: 12 (&quot;Fine&quot; tier) · Organic traffic: 333 sessions. Data via Semrush, leenusindia.com, September 2026.
-        </p>
       </div>
 
       {/* Block 1: Top Laptop Pair with design background */}

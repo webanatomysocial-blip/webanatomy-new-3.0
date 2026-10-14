@@ -3,7 +3,6 @@ import "../../workCss/leenusIndiaCss/CitedByAI.css";
 const ENGINES = [
   { name: "ChatGPT", status: "cited" },
   { name: "Google AI Overview", status: "cited" },
-  { name: "AI Mode", status: "cited" },
   { name: "Gemini", status: "cited" },
 ];
 
