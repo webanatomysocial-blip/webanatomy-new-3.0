@@ -1,3 +1,5 @@
+"use client";
+import { useEffect } from "react";
 import ServicesSecondSec from "../workComponents/ServicesSecondSec";
 import Context from "../workComponents/Context";
 import JustHeading from "../workComponents/JustHeading";
@@ -23,6 +25,10 @@ import resultsBackground from "../WorkImages/leenus-india/the-result-bg.jpg";
 import heroBannerImage from "../WorkImages/leenus-india/leenus-hero-banner.jpg";
 
 export default function LeenusIndia() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="leenus-case-study-page" style={{ width: "100%", overflowX: "clip" }}>
       <LeenusHero
@@ -45,7 +51,7 @@ export default function LeenusIndia() {
           "Creative Production",
         ]}
         title="Turning a Small, Disciplined Ad Budget Into ₹54 Crore+ in Business Opportunity"
-        description="Leenus India has been solving infrastructure problems since 2015 — underground drainage, water supply, stormwater systems, water storage, surveying, design and installation. Their reputation was built the hard way, through relationships and results on the ground. Web Anatomy was engaged to build a paid social engine that could do the same thing at scale — backed by organic search visibility and bilingual creative that carried the same message across every channel."
+        description="Leenus India has been solving infrastructure problems since 2015: underground drainage, water supply, stormwater systems, water storage, surveying, design and installation. Their reputation was built the hard way, through relationships and results on the ground. Web Anatomy was engaged to build a paid social engine that could do the same thing at scale, backed by organic search visibility and bilingual creative that carried the same message across every channel."
         stats={[
           { label: "Platform", value: "Meta Ads (Lead Form Campaigns)" },
           { label: "Campaigns Analyzed", value: "10" },
@@ -63,8 +69,8 @@ export default function LeenusIndia() {
       <Context
         subheading="Context"
         tittle="About Client"
-        description="Leenus operates in a category most ad accounts get wrong. Infrastructure buyers do not browse — they search for exactly the project they need: underground drainage contractors, stormwater system installation, water storage solutions. These are high-intent, high-value searches, and most of the traffic chasing them is generic, unqualified, or both."
-        description2="Leenus had never run paid campaigns against this kind of precision. There was no account structured around the specific, high-value work Leenus actually wins — Full Development contracts worth ₹1 crore and above, high-value category projects worth ₹40 lakh and above. Spend, when it happened, had no way of proving what it returned."
+        description="Leenus operates in a category most ad accounts get wrong. Infrastructure buyers do not browse. They search for exactly the project they need: underground drainage contractors, stormwater system installation, water storage solutions. These are high-intent, high-value searches, and most of the traffic chasing them is generic, unqualified, or both."
+        description2="Leenus had never run paid campaigns against this kind of precision. There was no account structured around the specific, high-value work Leenus actually wins: Full Development contracts worth ₹1 crore and above, high-value category projects worth ₹40 lakh and above. Spend, when it happened, had no way of proving what it returned."
       />
 
       <JustHeading
@@ -112,13 +118,13 @@ export default function LeenusIndia() {
         tittle={
           ' "Web Anatomy didn\'t just run our ads. They understood which projects actually move our business and built every campaign around getting us in front of that exact buyer." '
         }
-        subtitle="Leenus India Leadership — quote pending final confirmation"
+        subtitle="Leenus India Leadership, quote pending final confirmation"
       />
 
       <StatsBlock
         badgeText="Creative That Earned The Click"
         title="The Result"
-        description="Beyond the individual campaign data above, paid search — across the full 10-month engagement — was reported to have delivered the following business outcomes."
+        description="Beyond the individual campaign data above, paid search across the full 10-month engagement was reported to have delivered the following business outcomes."
         backgroundImage={resultsBackground.src || resultsBackground}
         stats={[
           { value: "400+", label: "Qualified Leads (10 Months)" },
