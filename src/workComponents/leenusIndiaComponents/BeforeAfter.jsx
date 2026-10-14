@@ -3,182 +3,100 @@
 import { useEffect, useRef, useState } from "react";
 import "../../workCss/leenusIndiaCss/BeforeAfter.css";
 
+function AnimatedPill({ text, badgeLabel, badgeClass }) {
+  const pillRef = useRef(null);
+  const rectRef = useRef(null);
+  const [dims, setDims] = useState(null);
+  const [inView, setInView] = useState(false);
+  const [perimeter, setPerimeter] = useState(1000);
+
+  useEffect(() => {
+    const measure = () => {
+      if (!pillRef.current) return;
+      const { offsetWidth: w, offsetHeight: h } = pillRef.current;
+      if (w > 0 && h > 0) setDims({ w, h });
+    };
+
+    measure();
+    const ro = new ResizeObserver(measure);
+    if (pillRef.current) ro.observe(pillRef.current);
+
+    const io = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setInView(true); },
+      { threshold: 0.2 }
+    );
+    if (pillRef.current) io.observe(pillRef.current);
+
+    return () => { ro.disconnect(); io.disconnect(); };
+  }, []);
+
+  useEffect(() => {
+    if (rectRef.current) {
+      const len = rectRef.current.getTotalLength();
+      if (len > 0) setPerimeter(len);
+    }
+  }, [dims]);
+
+  const rx = 52;
+  const pad = 1.5;
+  const rw = dims ? dims.w - pad * 2 : 0;
+  const rh = dims ? dims.h - pad * 2 : 0;
+
+  return (
+    <div className="leenus-ba-item">
+      <div className="leenus-ba-badge-wrap">
+        <span className={`leenus-ba-badge ${badgeClass}`}>{badgeLabel}</span>
+      </div>
+      <div className="leenus-ba-pill-wrapper">
+        <div className="leenus-ba-pill" ref={pillRef}>
+          {dims && (
+            <svg className="leenus-ba-svg" aria-hidden="true">
+              <rect
+                className="leenus-ba-svg-track"
+                x={pad} y={pad} width={rw} height={rh} rx={rx} ry={rx}
+              />
+              <rect
+                className="leenus-ba-svg-progress leenus-ba-svg-progress--soft-glow"
+                x={pad} y={pad} width={rw} height={rh} rx={rx} ry={rx}
+                style={{
+                  strokeDasharray: perimeter,
+                  strokeDashoffset: inView ? 0 : perimeter,
+                }}
+              />
+              <rect
+                ref={rectRef}
+                className="leenus-ba-svg-progress leenus-ba-svg-progress--core"
+                x={pad} y={pad} width={rw} height={rh} rx={rx} ry={rx}
+                style={{
+                  strokeDasharray: perimeter,
+                  strokeDashoffset: inView ? 0 : perimeter,
+                }}
+              />
+            </svg>
+          )}
+          <div className="leenus-ba-pill-content">
+            <p>{text}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function BeforeAfter({
   before = "Unstructured spend. No way to trace a lead back to a category, a campaign, or a return.",
   after = "Category-split campaigns, each accountable for its own cost-per-lead and its own pipeline.",
-  note = "Figures reproduced exactly as reported in the Meta Ads campaign dashboard. This table reflects Meta/Facebook lead-form campaigns only — figures may not represent total paid spend across all platforms.",
+  note = "What changed: spend that could be traced, compared and judged campaign by campaign.",
 }) {
-  const containerRef = useRef(null);
-  const beforeRectRef = useRef(null);
-  const afterRectRef = useRef(null);
-
-  const [inView, setInView] = useState(false);
-  const [beforePerimeter, setBeforePerimeter] = useState(0);
-  const [afterPerimeter, setAfterPerimeter] = useState(0);
-
-  const updatePerimeters = () => {
-    if (beforeRectRef.current) {
-      const len = beforeRectRef.current.getTotalLength();
-      if (len > 0) setBeforePerimeter(len);
-    }
-    if (afterRectRef.current) {
-      const len = afterRectRef.current.getTotalLength();
-      if (len > 0) setAfterPerimeter(len);
-    }
-  };
-
-  useEffect(() => {
-    updatePerimeters();
-    window.addEventListener("resize", updatePerimeters);
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setInView(true);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => {
-      window.removeEventListener("resize", updatePerimeters);
-      observer.disconnect();
-    };
-  }, []);
-
   return (
-    <section className="leenus-ba-section" ref={containerRef}>
-      {/* Soft atmospheric background glow */}
+    <section className="leenus-ba-section">
       <div className="leenus-ba-glow leenus-ba-glow--left" />
       <div className="leenus-ba-glow leenus-ba-glow--right" />
-
       <div className="leenus-ba-container">
         <div className="leenus-ba-grid">
-          {/* BEFORE CARD */}
-          <div className="leenus-ba-item">
-            <div className="leenus-ba-badge-wrap">
-              <span className="leenus-ba-badge leenus-ba-badge--before">Before</span>
-            </div>
-
-            <div className="leenus-ba-pill-wrapper">
-              <div className="leenus-ba-pill">
-                <svg className="leenus-ba-svg" aria-hidden="true">
-                  {/* Faint subtle base outline */}
-                  <rect
-                    className="leenus-ba-svg-track"
-                    x="1.5"
-                    y="1.5"
-                    width="calc(100% - 3px)"
-                    height="calc(100% - 3px)"
-                    rx="52"
-                    ry="52"
-                  />
-
-                  {/* Soft subtle blurred bloom behind line */}
-                  <rect
-                    className="leenus-ba-svg-progress leenus-ba-svg-progress--soft-glow"
-                    x="1.5"
-                    y="1.5"
-                    width="calc(100% - 3px)"
-                    height="calc(100% - 3px)"
-                    rx="52"
-                    ry="52"
-                    style={{
-                      strokeDasharray: beforePerimeter || 1000,
-                      strokeDashoffset: inView ? 0 : beforePerimeter || 1000,
-                    }}
-                  />
-
-                  {/* Clean, elegant white progress stroke */}
-                  <rect
-                    ref={beforeRectRef}
-                    className="leenus-ba-svg-progress leenus-ba-svg-progress--core"
-                    x="1.5"
-                    y="1.5"
-                    width="calc(100% - 3px)"
-                    height="calc(100% - 3px)"
-                    rx="52"
-                    ry="52"
-                    style={{
-                      strokeDasharray: beforePerimeter || 1000,
-                      strokeDashoffset: inView ? 0 : beforePerimeter || 1000,
-                    }}
-                  />
-                </svg>
-
-                <div className="leenus-ba-pill-content">
-                  <p>{before}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* AFTER CARD */}
-          <div className="leenus-ba-item">
-            <div className="leenus-ba-badge-wrap">
-              <span className="leenus-ba-badge leenus-ba-badge--after">After</span>
-            </div>
-
-            <div className="leenus-ba-pill-wrapper">
-              <div className="leenus-ba-pill">
-                <svg className="leenus-ba-svg" aria-hidden="true">
-                  {/* Faint subtle base outline */}
-                  <rect
-                    className="leenus-ba-svg-track"
-                    x="1.5"
-                    y="1.5"
-                    width="calc(100% - 3px)"
-                    height="calc(100% - 3px)"
-                    rx="52"
-                    ry="52"
-                  />
-
-                  {/* Soft subtle blurred bloom behind line */}
-                  <rect
-                    className="leenus-ba-svg-progress leenus-ba-svg-progress--soft-glow"
-                    x="1.5"
-                    y="1.5"
-                    width="calc(100% - 3px)"
-                    height="calc(100% - 3px)"
-                    rx="52"
-                    ry="52"
-                    style={{
-                      strokeDasharray: afterPerimeter || 1000,
-                      strokeDashoffset: inView ? 0 : afterPerimeter || 1000,
-                    }}
-                  />
-
-                  {/* Clean, elegant white progress stroke */}
-                  <rect
-                    ref={afterRectRef}
-                    className="leenus-ba-svg-progress leenus-ba-svg-progress--core"
-                    x="1.5"
-                    y="1.5"
-                    width="calc(100% - 3px)"
-                    height="calc(100% - 3px)"
-                    rx="52"
-                    ry="52"
-                    style={{
-                      strokeDasharray: afterPerimeter || 1000,
-                      strokeDashoffset: inView ? 0 : afterPerimeter || 1000,
-                    }}
-                  />
-                </svg>
-
-                <div className="leenus-ba-pill-content">
-                  <p>{after}</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <AnimatedPill text={before} badgeLabel="Before" badgeClass="leenus-ba-badge--before" />
+          <AnimatedPill text={after} badgeLabel="After" badgeClass="leenus-ba-badge--after" />
         </div>
-
         {note && <p className="leenus-ba-note">{note}</p>}
       </div>
     </section>
