@@ -62,8 +62,7 @@ export default function LeenusIndia() {
 
       <LeenusVideoBanner
         videoUrl="https://leenusindia.com/wp-content/uploads/2024/09/2157145_Industry_Machine_1920x1080.mp4"
-        subtitle="ONE STOP SOLUTION TO"
-        title="DRAINAGE SYSTEM"
+        title="Turning Ad Spend Into Pipeline"
       />
 
       <Context
@@ -76,7 +75,7 @@ export default function LeenusIndia() {
       <JustHeading
         paddingTop={0}
         tittle={
-          " \"The question wasn't how do we get more clicks. It was how do we make sure every click is a buyer who's already close to a decision.\" "
+          "The question wasn’t how do we get more clicks. It was how do we make sure every click is a buyer who’s already close to a decision."
         }
       />
 
@@ -118,11 +117,11 @@ export default function LeenusIndia() {
         tittle={
           ' "Web Anatomy didn\'t just run our ads. They understood which projects actually move our business and built every campaign around getting us in front of that exact buyer." '
         }
-        subtitle="Leenus India Leadership, quote pending final confirmation"
+        subtitle="Leenus India Leadership"
       />
 
       <StatsBlock
-        badgeText="Creative That Earned The Click"
+        badgeText="SEARCH VISIBILITY"
         title="The Result"
         description="Beyond the individual campaign data above, paid search across the full 10-month engagement was reported to have delivered the following business outcomes."
         backgroundImage={resultsBackground.src || resultsBackground}
@@ -132,7 +131,7 @@ export default function LeenusIndia() {
           { value: "₹54 Cr+", label: "Minimum Business Opportunity Enabled" },
           { value: "69", label: "Leads From One Telangana Campaign" },
         ]}
-        note="Deal values reflect minimum project sizes as reported by Leenus and represent business opportunity enabled, not confirmed closed revenue. These headline figures are as previously reported and are shown separately from the Meta campaign-level table above, which may represent only part of total paid spend."
+        note="We built dedicated pages for each high-value service, matched to how buyers actually search, and strengthened the Google Business Profile alongside them. The ranking and the calls followed."
       />
 
       <OrganicAISearch
