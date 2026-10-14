@@ -3,8 +3,8 @@ import "../../workCss/leenusIndiaCss/LeenusVideoBanner.css";
 
 export default function LeenusVideoBanner({
   videoUrl = "https://leenusindia.com/wp-content/uploads/2024/09/2157145_Industry_Machine_1920x1080.mp4",
-  subtitle = "ONE STOP SOLUTION TO",
-  title = "DRAINAGE SYSTEM",
+  subtitle,
+  title = "Turning Ad Spend Into Pipeline",
 }) {
   return (
     <section className="leenus-video-banner">
