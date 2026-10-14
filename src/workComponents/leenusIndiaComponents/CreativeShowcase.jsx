@@ -67,7 +67,7 @@ export default function CreativeShowcase({
         </h2>
         <p className="paragraph-text leenus-creative-desc">
           Because the top-performing campaigns ran across Telangana and Andhra Pradesh,
-          every static ad shipped in English and Telugu — same headline logic
+          every static ad shipped in English and Telugu, same headline logic
           ("One Leakage Can Damage Your Entire Reputation"), same offer (a free project
           survey), localized language so it read as a warning worth acting on rather than
           a stock ad.
@@ -160,7 +160,7 @@ export default function CreativeShowcase({
           })}
         </div>
         <p className="leenus-creative-note">
-          Same edit, cut in English and Telugu, run alongside the static creative — real
+          Same edit, cut in English and Telugu, run alongside the static creative. Real
           on-ground footage (excavation → pipe supply → branded DWC/HDPE/PVC material →
           final testing) built to pre-answer the buyer's real objection: will this
           actually get installed properly.

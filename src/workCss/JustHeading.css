@@ -9,7 +9,9 @@
 }
 
 .JustHeading-section .head-text {
-  font-size: 35px;
+  font-size: 42px;
+  font-weight: 300;
+  line-height: 1.2;
 }
 
 @media (max-width: 768px) {

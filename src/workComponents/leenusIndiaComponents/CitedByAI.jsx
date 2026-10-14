@@ -20,9 +20,8 @@ export default function CitedByAI() {
       </div>
 
       <p className="leenus-cited-note">
-        leenusindia.com is being surfaced by name across all four tracked AI engines — 45 unique pages cited in total
-        <br />
-        — for the exact high-intent searches (&quot;piping network in hyderabad&quot;, &quot;underground drainage services&quot;, &quot;trusted
+        leenusindia.com is being surfaced by name across all four tracked AI engines. 45 unique pages cited in total,
+        for the exact high-intent searches (&quot;piping network in hyderabad&quot;, &quot;underground drainage services&quot;, &quot;trusted
         supreme pipe distributors&quot;) that used to be paid-only territory.
       </p>
     </div>

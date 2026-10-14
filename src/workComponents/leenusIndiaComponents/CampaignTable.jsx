@@ -67,8 +67,8 @@ export default function CampaignTable() {
         Structuring Spend Around the Projects That Actually Move the Business
       </h2>
       <p className="paragraph-text leenus-campaign-desc">
-        Campaigns were split by project category — underground drainage, electrical,
-        stormwater, pipe systems — so each could be managed against its own economics
+        Campaigns were split by project category: underground drainage, electrical,
+        stormwater, pipe systems. Each could be managed against its own economics
         instead of blending into one generic push. Below is the exact campaign-level
         performance data from the Meta Ads dashboard, reproduced as reported.
       </p>

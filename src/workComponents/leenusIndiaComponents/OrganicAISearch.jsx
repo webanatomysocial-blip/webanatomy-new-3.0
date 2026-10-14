@@ -26,8 +26,8 @@ export default function OrganicAISearch({
         </h2>
         <p className="paragraph-text leenus-organic-desc">
           Paid search wasn't carrying the account alone. Over the same engagement,
-          leenusindia.com was built out around the same high-value categories — layout
-          development, piping networks, underground drainage — so Leenus shows up
+          leenusindia.com was built out around the same high-value categories: layout
+          development, piping networks, underground drainage. Leenus shows up
           whether a buyer clicks an ad, searches organically, or asks an AI assistant.
         </p>
       </div>
@@ -44,7 +44,7 @@ export default function OrganicAISearch({
 
           <div className="leenus-stats-pill-col leenus-stats-pill-col--2">
             <div className="leenus-stats-pill-num">30</div>
-            <p className="leenus-stats-pill-desc">Keywords in the Top 5 — Every Layout-Development Term</p>
+            <p className="leenus-stats-pill-desc">Keywords in the Top 5, Every Layout-Development Term</p>
           </div>
 
           <div className="leenus-stats-pill-divider" aria-hidden="true" />
