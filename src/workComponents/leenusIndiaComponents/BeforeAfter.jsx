@@ -7,7 +7,7 @@ function AnimatedPill({ text, badgeLabel, badgeClass }) {
   const pillRef = useRef(null);
   const rectRef = useRef(null);
   const [dims, setDims] = useState(null);
-  const [inView, setInView] = useState(false);
+  const [hovered, setHovered] = useState(false);
   const [perimeter, setPerimeter] = useState(1000);
 
   useEffect(() => {
@@ -16,18 +16,10 @@ function AnimatedPill({ text, badgeLabel, badgeClass }) {
       const { offsetWidth: w, offsetHeight: h } = pillRef.current;
       if (w > 0 && h > 0) setDims({ w, h });
     };
-
     measure();
     const ro = new ResizeObserver(measure);
     if (pillRef.current) ro.observe(pillRef.current);
-
-    const io = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setInView(true); },
-      { threshold: 0.2 }
-    );
-    if (pillRef.current) io.observe(pillRef.current);
-
-    return () => { ro.disconnect(); io.disconnect(); };
+    return () => ro.disconnect();
   }, []);
 
   useEffect(() => {
@@ -48,7 +40,12 @@ function AnimatedPill({ text, badgeLabel, badgeClass }) {
         <span className={`leenus-ba-badge ${badgeClass}`}>{badgeLabel}</span>
       </div>
       <div className="leenus-ba-pill-wrapper">
-        <div className="leenus-ba-pill" ref={pillRef}>
+        <div
+          className="leenus-ba-pill"
+          ref={pillRef}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+        >
           {dims && (
             <svg className="leenus-ba-svg" aria-hidden="true">
               <rect
@@ -60,7 +57,7 @@ function AnimatedPill({ text, badgeLabel, badgeClass }) {
                 x={pad} y={pad} width={rw} height={rh} rx={rx} ry={rx}
                 style={{
                   strokeDasharray: perimeter,
-                  strokeDashoffset: inView ? 0 : perimeter,
+                  strokeDashoffset: hovered ? 0 : perimeter,
                 }}
               />
               <rect
@@ -69,7 +66,7 @@ function AnimatedPill({ text, badgeLabel, badgeClass }) {
                 x={pad} y={pad} width={rw} height={rh} rx={rx} ry={rx}
                 style={{
                   strokeDasharray: perimeter,
-                  strokeDashoffset: inView ? 0 : perimeter,
+                  strokeDashoffset: hovered ? 0 : perimeter,
                 }}
               />
             </svg>
