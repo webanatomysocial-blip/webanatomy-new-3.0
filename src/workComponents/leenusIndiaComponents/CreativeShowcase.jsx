@@ -60,17 +60,16 @@ export default function CreativeShowcase({
     <section className="leenus-creative-section">
       <div className="leenus-creative-header-content">
         <div className="leenus-creative-eyebrow">
-          Creative <span>That Earned The Click</span>
+          Creative <span>That Earned The Clicks</span>
         </div>
         <h2 className="head-text">
-          Two Languages, One Warning: Making The Ad Feel Like A Warning, Not A Pitch
+          Two Languages, One Warning
         </h2>
         <p className="paragraph-text leenus-creative-desc">
-          Because the top-performing campaigns ran across Telangana and Andhra Pradesh,
-          every static ad shipped in English and Telugu, same headline logic
-          ("One Leakage Can Damage Your Entire Reputation"), same offer (a free project
-          survey), localized language so it read as a warning worth acting on rather than
-          a stock ad.
+          Our strongest campaigns ran across Telangana and Andhra Pradesh, so every static
+          ad spoke in both English and Telugu. The line stayed the same: &quot;One Leakage Can
+          Damage Your Entire Reputation.&quot; The offer stayed the same too: a free project
+          survey. It read like a warning, not a pitch.
         </p>
       </div>
 
