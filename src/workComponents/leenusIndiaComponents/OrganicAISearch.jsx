@@ -50,14 +50,14 @@ export default function OrganicAISearch({
           <div className="leenus-stats-pill-divider" aria-hidden="true" />
 
           <div className="leenus-stats-pill-col leenus-stats-pill-col--3">
-            <div className="leenus-stats-pill-num">645</div>
+            <div className="leenus-stats-pill-num">939</div>
             <p className="leenus-stats-pill-desc">Referring Domains</p>
           </div>
 
           <div className="leenus-stats-pill-divider" aria-hidden="true" />
 
           <div className="leenus-stats-pill-col leenus-stats-pill-col--4">
-            <div className="leenus-stats-pill-num">98.1K</div>
+            <div className="leenus-stats-pill-num">76.2K</div>
             <p className="leenus-stats-pill-desc">Backlinks</p>
           </div>
 
@@ -77,7 +77,7 @@ export default function OrganicAISearch({
             {
               src: domainOverviewImage,
               caption:
-                "Domain overview: 214 organic keywords, 845 referring domains, 68.1K backlinks, 23% share of category traffic in India.",
+                "214 keywords ranking, 939 websites linking, 76.2K backlinks and a 23% share of category search traffic in India.",
             },
             {
               src: googleAiImage,

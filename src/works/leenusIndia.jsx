@@ -32,7 +32,7 @@ export default function LeenusIndia() {
   return (
     <div className="leenus-case-study-page" style={{ width: "100%", overflowX: "clip" }}>
       <LeenusHero
-        title="The Ad Spend Was ₹47K. The Pipeline Was ₹54 Crore+."
+        title="The Ad Spend Was ₹47K. The Business Opportunity Was ₹54 Crore+."
         tags={[
           "Paid Social",
           "SEO",
@@ -50,8 +50,8 @@ export default function LeenusIndia() {
           "SEO",
           "Creative Production",
         ]}
-        title="Turning a Small, Disciplined Ad Budget Into ₹54 Crore+ in Business Opportunity"
-        description="Leenus India has been solving infrastructure problems since 2015: underground drainage, water supply, stormwater systems, water storage, surveying, design and installation. Their reputation was built the hard way, through relationships and results on the ground. Web Anatomy was engaged to build a paid social engine that could do the same thing at scale, backed by organic search visibility and bilingual creative that carried the same message across every channel."
+        title="Small Budget. Sharp Targeting. ₹54 Crore+ in Business Opportunity."
+        description="Since 2015, Leenus India has been solving the problems that sit underground: drainage, water supply, stormwater and water storage, from surveying to design to installation. Their name was earned on site, one project and one relationship at a time. Our job was to carry that reputation online. We began with SEO to make Leenus easy to find on Google, then added Meta lead campaigns around the projects Leenus wants to win, backed by English and Telugu creatives. Now the right buyer reaches them whichever way they look."
         stats={[
           { label: "Platform", value: "Meta Ads (Lead Form Campaigns)" },
           { label: "Campaigns Analyzed", value: "10" },
@@ -68,20 +68,19 @@ export default function LeenusIndia() {
       <Context
         subheading="Context"
         tittle="About Client"
-        description="Leenus operates in a category most ad accounts get wrong. Infrastructure buyers do not browse. They search for exactly the project they need: underground drainage contractors, stormwater system installation, water storage solutions. These are high-intent, high-value searches, and most of the traffic chasing them is generic, unqualified, or both."
-        description2="Leenus had never run paid campaigns against this kind of precision. There was no account structured around the specific, high-value work Leenus actually wins: Full Development contracts worth ₹1 crore and above, high-value category projects worth ₹40 lakh and above. Spend, when it happened, had no way of proving what it returned."
+        description="Infrastructure buyers don’t browse. They search for the exact job they need: underground drainage contractors, stormwater installation, water storage. These are serious searches, and a click from the wrong person is money gone."
+        description2="Leenus wins big projects, including full development contracts of ₹1 crore and above and projects of ₹40 lakh and above. But their ads weren’t built around that work. Audiences and locations were mixed, and nobody could say which ad brought which lead, or what it cost."
       />
 
       <JustHeading
         paddingTop={0}
-        tittle={
-          "The question wasn’t how do we get more clicks. It was how do we make sure every click is a buyer who’s already close to a decision."
-        }
+        tittle="The question wasn’t how to get more clicks. It was how to make sure every click comes from a buyer who is already close to a decision."
       />
 
       <BeforeAfter
-        before="Unstructured spend. No way to trace a lead back to a category, a campaign, or a return."
-        after="Category-split campaigns, each accountable for its own cost-per-lead and its own pipeline."
+        before="Mixed audiences. Mixed locations. No way to trace a lead back to its campaign or its cost."
+        after="Separate campaigns by audience and location, each accountable for its own cost per lead."
+        note="What changed: every rupee of spend could now be traced, compared and judged, campaign by campaign."
       />
 
       <CampaignTable />
@@ -114,24 +113,22 @@ export default function LeenusIndia() {
 
       <JustHeading
         paddingTop={0}
-        tittle={
-          ' "Web Anatomy didn\'t just run our ads. They understood which projects actually move our business and built every campaign around getting us in front of that exact buyer." '
-        }
-        subtitle="Leenus India Leadership"
+        tittle='"Web Anatomy didn&apos;t just run our ads. They understood which projects actually move our business and built every campaign around getting us in front of that exact buyer."'
+        subtitle="Team Leenus India"
       />
 
       <StatsBlock
-        badgeText="SEARCH VISIBILITY"
+        badgeText="Creative That Earned The Clicks"
         title="The Result"
-        description="Beyond the individual campaign data above, paid search across the full 10-month engagement was reported to have delivered the following business outcomes."
+        description="400 total leads across 10 months from Meta ads, and 65 from organic search over 12 months. Below are the headline business outcomes."
         backgroundImage={resultsBackground.src || resultsBackground}
         stats={[
-          { value: "400+", label: "Qualified Leads (10 Months)" },
-          { value: "30%+", label: "Lead-to-Opportunity Conversion" },
-          { value: "₹54 Cr+", label: "Minimum Business Opportunity Enabled" },
+          { value: "400", label: "Total Leads (Meta + Organic)" },
+          { value: "~34", label: "Meta Leads Every Month on Average" },
+          { value: "₹54 Cr+", label: "Business Opportunity Created" },
           { value: "69", label: "Leads From One Telangana Campaign" },
         ]}
-        note="We built dedicated pages for each high-value service, matched to how buyers actually search, and strengthened the Google Business Profile alongside them. The ranking and the calls followed."
+        note="Business opportunity is the total worth of quotations sent to leads, not money received. The ₹47K is Meta ad spend only, and the leads include organic search."
       />
 
       <OrganicAISearch

@@ -13,7 +13,7 @@ export default function OrganicStatsPill() {
         <div className="leenus-stats-pill-divider" aria-hidden="true" />
 
         <div className="leenus-stats-pill-col">
-          <div className="leenus-stats-pill-num">63</div>
+          <div className="leenus-stats-pill-num">65</div>
           <p className="leenus-stats-pill-desc">Organic Leads Generated (12 Months)</p>
         </div>
 
