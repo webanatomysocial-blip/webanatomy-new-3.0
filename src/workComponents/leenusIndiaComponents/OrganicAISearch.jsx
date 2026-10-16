@@ -19,16 +19,16 @@ export default function OrganicAISearch({
     <section className="leenus-organic-section">
       <div className="leenus-organic-header-content">
         <div className="leenus-stats-badge">
-          Beyond Paid <span>Organic &amp; AI Search</span>
+          Beyond Paid <span>Found on Google. Found by AI. Found Without an Ad.</span>
         </div>
         <h2 className="head-text">
-          The Same Precision, Applied to Organic and AI Search
+          Found on Google. Found by AI. Found Without an Ad.
         </h2>
         <p className="paragraph-text leenus-organic-desc">
-          Paid search wasn't carrying the account alone. Over the same engagement,
-          leenusindia.com was built out around the same high-value categories: layout
-          development, piping networks, underground drainage. Leenus shows up
-          whether a buyer clicks an ad, searches organically, or asks an AI assistant.
+          We started with SEO and added Meta ads alongside it, so ads were never carrying
+          the account alone. We built the Leenus India website around the same high-value
+          work: layout development, piping networks and underground drainage. Now Leenus
+          turns up whether a buyer clicks an ad, searches Google or asks an AI tool.
         </p>
       </div>
 
@@ -37,35 +37,35 @@ export default function OrganicAISearch({
         <div className="leenus-stats-pill-banner leenus-stats-pill-banner--5col">
           <div className="leenus-stats-pill-col leenus-stats-pill-col--1">
             <div className="leenus-stats-pill-num">214</div>
-            <p className="leenus-stats-pill-desc">Organic Keywords Ranked (+4.4%)</p>
+            <p className="leenus-stats-pill-desc">Keywords Ranking on Google</p>
           </div>
 
           <div className="leenus-stats-pill-divider" aria-hidden="true" />
 
           <div className="leenus-stats-pill-col leenus-stats-pill-col--2">
             <div className="leenus-stats-pill-num">30</div>
-            <p className="leenus-stats-pill-desc">Keywords in the Top 5, Every Layout-Development Term</p>
+            <p className="leenus-stats-pill-desc">Keywords in the Top 5 on Google Page 1</p>
           </div>
 
           <div className="leenus-stats-pill-divider" aria-hidden="true" />
 
           <div className="leenus-stats-pill-col leenus-stats-pill-col--3">
             <div className="leenus-stats-pill-num">939</div>
-            <p className="leenus-stats-pill-desc">Referring Domains</p>
+            <p className="leenus-stats-pill-desc">Websites Linking to Leenus</p>
           </div>
 
           <div className="leenus-stats-pill-divider" aria-hidden="true" />
 
           <div className="leenus-stats-pill-col leenus-stats-pill-col--4">
             <div className="leenus-stats-pill-num">76.2K</div>
-            <p className="leenus-stats-pill-desc">Backlinks</p>
+            <p className="leenus-stats-pill-desc">Total Backlinks</p>
           </div>
 
           <div className="leenus-stats-pill-divider" aria-hidden="true" />
 
           <div className="leenus-stats-pill-col leenus-stats-pill-col--5">
             <div className="leenus-stats-pill-num">23%</div>
-            <p className="leenus-stats-pill-desc">Category Traffic Share (India)</p>
+            <p className="leenus-stats-pill-desc">Share of Category Search Traffic (India)</p>
           </div>
         </div>
       </div>
