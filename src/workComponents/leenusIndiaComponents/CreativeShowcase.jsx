@@ -13,7 +13,7 @@ export default function CreativeShowcase({
 
   const items = galleryItems || galleryImages || [
     { type: "video", src: "/works/leenus/gallery/video1.mp4", label: "Excavation" },
-    { type: "video", src: "/works/leenus/gallery/video2.mp4", label: "Supply" },
+    { type: "video", src: "/works/leenus/gallery/video2.mp4", label: "Pipe Supply" },
     { type: "image", src: "/works/leenus/gallery/image1.jpeg", label: "Branded Material" },
     { type: "image", src: "/works/leenus/gallery/image2.jpeg", label: "Final Testing" },
   ];
@@ -90,7 +90,7 @@ export default function CreativeShowcase({
 
       <div className="leenus-creative-bottom-content">
         <p className="leenus-gallery-eyebrow">
-          Campaign ad videos: Answering the Buyer’s Real Question Before They Ask It
+          Campaign Ad Videos: Answering the Question Before It&apos;s Asked
         </p>
         <div className="leenus-gallery-row">
           {items.map((g, i) => {
@@ -159,10 +159,9 @@ export default function CreativeShowcase({
           })}
         </div>
         <p className="leenus-creative-note">
-          Same edit, cut in English and Telugu, run alongside the static creative. Real
-          on-ground footage (excavation → pipe supply → branded DWC/HDPE/PVC material →
-          final testing) built to pre-answer the buyer's real objection: will this
-          actually get installed properly.
+          Every buyer wonders the same thing: will this actually be installed properly? So
+          we showed them. Real footage from the site, cut in English and Telugu, from the
+          first dig to the final test, with branded DWC, HDPE and PVC material in between.
         </p>
       </div>
 
