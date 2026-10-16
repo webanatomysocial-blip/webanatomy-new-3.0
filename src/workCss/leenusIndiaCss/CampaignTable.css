@@ -226,3 +226,33 @@
     opacity: 0.85;
   }
 }
+
+.leenus-campaign-footnote {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 32px 0 60px 0;
+  padding: 16px 20px;
+  background: rgba(37, 99, 235, 0.06);
+  border-left: 3px solid rgba(37, 99, 235, 0.5);
+  border-radius: 0 8px 8px 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #444;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+.leenus-campaign-footnote::before {
+  content: "Note";
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(37, 99, 235, 0.8);
+  background: rgba(37, 99, 235, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-top: 2px;
+}
