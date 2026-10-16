@@ -17,6 +17,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
+  cursor: pointer;
 }
 
 .leenus-screenshot-item img {
@@ -26,6 +28,33 @@
   border: none;
   background: transparent;
   flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.leenus-screenshot-item:hover img {
+  transform: scale(1.015);
+}
+
+.leenus-screenshot-zoom-hint {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.leenus-screenshot-item:hover .leenus-screenshot-zoom-hint {
+  opacity: 1;
 }
 
 .leenus-screenshot-item figcaption {
