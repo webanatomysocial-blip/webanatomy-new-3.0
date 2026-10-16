@@ -85,3 +85,24 @@
     margin-top: 12px;
   }
 }
+
+.leenus-lightbox-overlay--white {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.leenus-lightbox-overlay--white .leenus-lightbox-close,
+.leenus-lightbox-overlay--white .leenus-lightbox-nav {
+  background: rgba(0, 0, 0, 0.08);
+  color: #111;
+}
+
+.leenus-lightbox-overlay--white .leenus-lightbox-close:hover,
+.leenus-lightbox-overlay--white .leenus-lightbox-nav:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.leenus-lightbox-overlay--white .leenus-lightbox-caption {
+  color: #333;
+}

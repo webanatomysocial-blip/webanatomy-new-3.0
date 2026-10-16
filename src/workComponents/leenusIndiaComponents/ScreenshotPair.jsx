@@ -53,7 +53,7 @@ export default function ScreenshotPair({ items = [], className = "", style = {} 
 
       {lightboxIndex !== null && items[lightboxIndex] && (
         <div
-          className="leenus-lightbox-overlay"
+          className="leenus-lightbox-overlay leenus-lightbox-overlay--white"
           onClick={() => setLightboxIndex(null)}
           role="dialog"
           aria-modal="true"
