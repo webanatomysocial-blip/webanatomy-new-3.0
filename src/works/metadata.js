@@ -92,6 +92,5 @@ export const worksMetadata = [
     slug: "leenus-india",
     icon: FiTrendingUp,
     logoImage: null,
-    hideInPortfolio: true,
   },
 ];
