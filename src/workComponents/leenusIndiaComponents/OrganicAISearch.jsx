@@ -37,35 +37,35 @@ export default function OrganicAISearch({
         <div className="leenus-stats-pill-banner leenus-stats-pill-banner--5col">
           <div className="leenus-stats-pill-col leenus-stats-pill-col--1">
             <div className="leenus-stats-pill-num">214</div>
-            <p className="leenus-stats-pill-desc">Keywords Ranking on Google</p>
+            <p className="leenus-stats-pill-desc">Keywords Ranking<br />on Google</p>
           </div>
 
           <div className="leenus-stats-pill-divider" aria-hidden="true" />
 
           <div className="leenus-stats-pill-col leenus-stats-pill-col--2">
             <div className="leenus-stats-pill-num">30</div>
-            <p className="leenus-stats-pill-desc">Keywords in the Top 5 on Google Page 1</p>
+            <p className="leenus-stats-pill-desc">Keywords in the Top 5<br />on Google Page 1</p>
           </div>
 
           <div className="leenus-stats-pill-divider" aria-hidden="true" />
 
           <div className="leenus-stats-pill-col leenus-stats-pill-col--3">
             <div className="leenus-stats-pill-num">939</div>
-            <p className="leenus-stats-pill-desc">Referring Domains</p>
+            <p className="leenus-stats-pill-desc">Referring<br />Domains</p>
           </div>
 
           <div className="leenus-stats-pill-divider" aria-hidden="true" />
 
           <div className="leenus-stats-pill-col leenus-stats-pill-col--4">
             <div className="leenus-stats-pill-num">76.2K</div>
-            <p className="leenus-stats-pill-desc">Total Backlinks</p>
+            <p className="leenus-stats-pill-desc">Total<br />Backlinks</p>
           </div>
 
           <div className="leenus-stats-pill-divider" aria-hidden="true" />
 
           <div className="leenus-stats-pill-col leenus-stats-pill-col--5">
             <div className="leenus-stats-pill-num">23%</div>
-            <p className="leenus-stats-pill-desc">Share of Category Search Traffic (India)</p>
+            <p className="leenus-stats-pill-desc">Share of Category Search<br />Traffic (India)</p>
           </div>
         </div>
       </div>
