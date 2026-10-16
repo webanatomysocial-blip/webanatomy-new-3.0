@@ -120,13 +120,13 @@ export default function LeenusIndia() {
       <StatsBlock
         badgeText="Creative That Earned The Clicks"
         title="The Result"
-        description="400 total leads across 10 months from Meta ads, and 65 from organic search over 12 months. Below are the headline business outcomes."
+        description="400 total leads, 335 from Meta ads over 10 months and 65 from organic search over 12 months. Below are the headline business outcomes."
         backgroundImage={resultsBackground.src || resultsBackground}
         stats={[
-          { value: "400", label: "Total Leads (Meta + Organic)" },
-          { value: "~34", label: "Meta Leads Every Month on Average" },
-          { value: "₹54 Cr+", label: "Business Opportunity Created" },
-          { value: "69", label: "Leads From One Telangana Campaign" },
+          { value: "400", label: "Total Leads (335 from Meta ads over 10 months, 65 from organic search over 12 months)" },
+          { value: "~34", label: "Meta Leads Every Month, on Average (335 leads over 10 months)" },
+          { value: "₹54 Cr+", label: "Business Opportunity Created (total worth of quotations sent)" },
+          { value: "69", label: "Leads From One Telangana Campaign (14 to 29 May 2026)" },
         ]}
         note="Business opportunity is the total worth of quotations sent to leads, not money received. The ₹47K is Meta ad spend only, and the leads include organic search."
       />
