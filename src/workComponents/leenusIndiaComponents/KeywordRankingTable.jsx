@@ -35,7 +35,7 @@ export default function KeywordRankingTable() {
         </tbody>
       </table>
       <p className="leenus-keyword-subnote">
-        A selection of the 214 ranking keywords. Every layout development keyword sits in the top 3, and 30 important keywords sit in the top 5 on page 1.
+        A selection of the 214 ranking keywords. All tracked layout development keywords rank in the top 3, and 30 tracked keywords sit in the top 5 on Google page 1.
       </p>
     </div>
   );

@@ -32,7 +32,7 @@ export default function LeenusIndia() {
   return (
     <div className="leenus-case-study-page" style={{ width: "100%", overflowX: "clip" }}>
       <LeenusHero
-        title="The Ad Spend Was ₹47K. The Business Opportunity Was ₹54 Crore+."
+        title="₹47K in Meta Ad Spend. ₹54 Cr+ in Quoted Business Opportunities."
         tags={[
           "Paid Social",
           "SEO",
@@ -51,7 +51,7 @@ export default function LeenusIndia() {
           "Creative Production",
         ]}
         title="Small Budget. Sharp Targeting. ₹54 Crore+ in Business Opportunity."
-        description="Since 2015, Leenus India has been solving the problems that sit underground: drainage, water supply, stormwater and water storage, from surveying to design to installation. Their name was earned on site, one project and one relationship at a time. Our job was to carry that reputation online. We began with SEO to make Leenus easy to find on Google, then added Meta lead campaigns around the projects Leenus wants to win, backed by English and Telugu creatives. Now the right buyer reaches them whichever way they look."
+        description="Since 2015, Leenus India has been solving the problems that sit underground: drainage, water supply, stormwater and water storage, from surveying to design to installation. Their name was earned on site, one project and one relationship at a time. Our job was to carry that reputation online. We began with SEO to make Leenus easy to find on Google, then added Meta lead campaigns around the projects Leenus wants to win, backed by English and Telugu creatives. Now Leenus can be discovered wherever high-intent buyers are looking."
         stats={[
           { label: "Platform", value: "Meta Ads (Lead Form Campaigns)" },
           { label: "Campaigns Analyzed", value: "10" },
@@ -68,19 +68,19 @@ export default function LeenusIndia() {
       <Context
         subheading="Context"
         tittle="About Client"
-        description="Infrastructure buyers don’t browse. They search for the exact job they need: underground drainage contractors, stormwater installation, water storage. These are serious searches, and a click from the wrong person is money gone."
+        description="Infrastructure buyers don’t browse. They search for the exact job they need: underground drainage contractors, stormwater installation, water storage. These are high-intent searches, where a click from the wrong audience can quickly waste the budget."
         description2="Leenus wins big projects, including full development contracts of ₹1 crore and above and projects of ₹40 lakh and above. But their ads weren’t built around that work. Audiences and locations were mixed, and nobody could say which ad brought which lead, or what it cost."
       />
 
       <JustHeading
         paddingTop={0}
-        tittle="The question wasn’t how to get more clicks. It was how to make sure every click comes from a buyer who is already close to a decision."
+        tittle="The question wasn't how to get more clicks. It was how to attract clicks from buyers who were already closer to a decision."
       />
 
       <BeforeAfter
         before="Mixed audiences. Mixed locations. No way to trace a lead back to its campaign or its cost."
         after="Separate campaigns by audience and location, each accountable for its own cost per lead."
-        note="What changed: every rupee of spend could now be traced, compared and judged, campaign by campaign."
+        note="What changed: every rupee of spend could now be traced, compared and evaluated, campaign by campaign."
       />
 
       <CampaignTable />

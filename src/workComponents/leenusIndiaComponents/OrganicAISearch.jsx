@@ -77,7 +77,7 @@ export default function OrganicAISearch({
             {
               src: domainOverviewImage,
               caption:
-                "214 keywords ranking, 939 websites linking, 76.2K backlinks and a 23% share of category search traffic in India.",
+                "214 keywords ranking, 939 referring domains, 76.2K backlinks and an estimated 23% share of category organic traffic in India.",
             },
             {
               src: googleAiImage,

@@ -159,7 +159,7 @@ export default function CreativeShowcase({
           })}
         </div>
         <p className="leenus-creative-note">
-          Every buyer wonders the same thing: will this actually be installed properly? So
+          Every buyer has the same concern: &quot;Will this actually be installed properly?&quot; So
           we showed them. Real footage from the site, cut in English and Telugu, from the
           first dig to the final test, with branded DWC, HDPE and PVC material in between.
         </p>
