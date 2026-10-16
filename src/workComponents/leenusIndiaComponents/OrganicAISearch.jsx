@@ -19,7 +19,7 @@ export default function OrganicAISearch({
     <section className="leenus-organic-section">
       <div className="leenus-organic-header-content">
         <div className="leenus-stats-badge">
-          Beyond Paid <span>Found on Google. Found by AI. Found Without an Ad.</span>
+          Beyond Paid <span>Organic Search &amp; AI Citations</span>
         </div>
         <h2 className="head-text">
           Found on Google. Found by AI. Found Without an Ad.
@@ -51,7 +51,7 @@ export default function OrganicAISearch({
 
           <div className="leenus-stats-pill-col leenus-stats-pill-col--3">
             <div className="leenus-stats-pill-num">939</div>
-            <p className="leenus-stats-pill-desc">Websites Linking to Leenus</p>
+            <p className="leenus-stats-pill-desc">Referring Domains</p>
           </div>
 
           <div className="leenus-stats-pill-divider" aria-hidden="true" />
