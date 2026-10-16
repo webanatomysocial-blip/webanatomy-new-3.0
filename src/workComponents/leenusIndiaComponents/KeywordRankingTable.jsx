@@ -11,7 +11,6 @@ const KEYWORDS = [
   { keyword: "underground drainage contractors", rank: "#2" },
   { keyword: "underground drainage services", rank: "#2" },
   { keyword: "layout development contractors in hyderabad", rank: "#2" },
-  { keyword: "shaft drainage system", rank: "#2" },
 ];
 
 export default function KeywordRankingTable() {
@@ -22,7 +21,7 @@ export default function KeywordRankingTable() {
           <tr>
             <th>KEYWORD</th>
             <th>RANKING</th>
-            <th>APPEARS IN AI OVERVIEW</th>
+            <th>APPEARS IN GOOGLE&apos;S AI ANSWER</th>
           </tr>
         </thead>
         <tbody>

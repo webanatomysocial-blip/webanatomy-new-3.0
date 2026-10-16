@@ -1,9 +1,9 @@
 import "../../workCss/leenusIndiaCss/CitedByAI.css";
 
 const ENGINES = [
-  { name: "ChatGPT", status: "cited" },
-  { name: "Google AI Overview", status: "cited" },
-  { name: "Gemini", status: "cited" },
+  { name: "ChatGPT", status: "AI Cited" },
+  { name: "Google AI Answers", status: "AI Cited" },
+  { name: "Gemini", status: "AI Cited" },
 ];
 
 export default function CitedByAI() {
@@ -20,9 +20,9 @@ export default function CitedByAI() {
       </div>
 
       <p className="leenus-cited-note">
-        leenusindia.com is being surfaced by name across all four tracked AI engines. 45 unique pages cited in total,
-        for the exact high-intent searches (&quot;piping network in hyderabad&quot;, &quot;underground drainage services&quot;, &quot;trusted
-        supreme pipe distributors&quot;) that used to be paid-only territory.
+        The Leenus India website is mentioned by name across the AI tools, with 45 different pages picked up. These
+        are the same high-intent searches, like &quot;piping network in hyderabad&quot;, &quot;underground drainage services&quot; and
+        &quot;trusted supreme pipe distributors&quot;.
       </p>
     </div>
   );
