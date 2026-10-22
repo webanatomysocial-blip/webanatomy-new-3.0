@@ -67,7 +67,7 @@ export default function LeenusIndia() {
 
       <Context
         subheading="Context"
-        tittle="About Client"
+        tittle="About The Client"
         description="Infrastructure buyers don’t browse. They search for the exact job they need: underground drainage contractors, stormwater installation, water storage. These are high-intent searches, where a click from the wrong audience can quickly waste the budget."
         description2="Leenus wins big projects, including full development contracts of ₹1 crore and above and projects of ₹40 lakh and above. But their ads weren’t built around that work. Audiences and locations were mixed, and nobody could say which ad brought which lead, or what it cost."
       />
@@ -118,7 +118,6 @@ export default function LeenusIndia() {
       />
 
       <StatsBlock
-        badgeText="Creative That Earned The Clicks"
         title="The Result"
         description="400 total leads, 335 from Meta ads over 10 months and 65 from organic search over 12 months. Below are the headline business outcomes."
         backgroundImage={resultsBackground.src || resultsBackground}
