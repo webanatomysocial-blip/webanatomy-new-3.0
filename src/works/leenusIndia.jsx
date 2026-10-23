@@ -50,7 +50,7 @@ export default function LeenusIndia() {
           "SEO",
           "Creative Production",
         ]}
-        title="Carrying an on-site reputation online"
+        title="Focused spend. Sharp Targeting. ₹54 Crore+ in Business Opportunity."
         description="Since 2015, Leenus India has been solving the problems that sit underground: drainage, water supply, stormwater and water storage, from surveying to design to installation. Their name was earned on site, one project and one relationship at a time. Our job was to carry that reputation online. We began with SEO to make Leenus easy to find on Google, then added Meta lead campaigns around the projects Leenus wants to win, backed by English and Telugu creatives. Now Leenus can be discovered wherever high-intent buyers are looking."
         stats={[
           { label: "Platform", value: "Meta Ads (Lead Form Campaigns)" },
@@ -78,7 +78,7 @@ export default function LeenusIndia() {
       />
 
       <BeforeAfter
-        before="Mixed audiences. Mixed locations. No way to trace a lead back to its campaign or its cost."
+        before="Mixed audiences and locations, with no way to trace a lead back to its campaign or its cost."
         after="Separate campaigns by audience and location, each accountable for its own cost per lead."
         note="What changed: every rupee of spend could now be traced, compared and evaluated, campaign by campaign."
       />

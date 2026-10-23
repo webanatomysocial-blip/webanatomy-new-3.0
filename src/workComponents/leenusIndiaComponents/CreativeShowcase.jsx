@@ -67,9 +67,9 @@ export default function CreativeShowcase({
         </h2>
         <p className="paragraph-text leenus-creative-desc">
           Our strongest campaigns ran across Telangana and Andhra Pradesh, so every static
-          ad spoke in both English and Telugu. The line stayed the same: &quot;One Leakage Can
-          Damage Your Entire Reputation.&quot; The offer stayed the same too: a free project
-          survey. It read like a warning, not a pitch.
+          ad ran in both English and Telugu. The message stayed the same in both: &quot;One Leakage Can
+          Damage Your Entire Reputation.&quot; So did the offer: a free project survey.
+          It was written to read as a warning worth acting on, not as a pitch.
         </p>
       </div>
 
