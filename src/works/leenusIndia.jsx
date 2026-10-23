@@ -50,7 +50,7 @@ export default function LeenusIndia() {
           "SEO",
           "Creative Production",
         ]}
-        title="Small Budget. Sharp Targeting. ₹54 Crore+ in Business Opportunity."
+        title="Carrying an on-site reputation online"
         description="Since 2015, Leenus India has been solving the problems that sit underground: drainage, water supply, stormwater and water storage, from surveying to design to installation. Their name was earned on site, one project and one relationship at a time. Our job was to carry that reputation online. We began with SEO to make Leenus easy to find on Google, then added Meta lead campaigns around the projects Leenus wants to win, backed by English and Telugu creatives. Now Leenus can be discovered wherever high-intent buyers are looking."
         stats={[
           { label: "Platform", value: "Meta Ads (Lead Form Campaigns)" },
@@ -62,12 +62,12 @@ export default function LeenusIndia() {
 
       <LeenusVideoBanner
         videoUrl="https://leenusindia.com/wp-content/uploads/2024/09/2157145_Industry_Machine_1920x1080.mp4"
-        title="Turning Ad Spend Into Pipeline"
+        title="Turning ad spend into pipeline"
       />
 
       <Context
         subheading="Context"
-        tittle="About The Client"
+        tittle="About Leenus India"
         description="Infrastructure buyers don’t browse. They search for the exact job they need: underground drainage contractors, stormwater installation, water storage. These are high-intent searches, where a click from the wrong audience can quickly waste the budget."
         description2="Leenus wins big projects, including full development contracts of ₹1 crore and above and projects of ₹40 lakh and above. But their ads weren’t built around that work. Audiences and locations were mixed, and nobody could say which ad brought which lead, or what it cost."
       />

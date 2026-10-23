@@ -22,7 +22,7 @@ export default function OrganicAISearch({
           Beyond Paid <span>Organic Search &amp; AI Citations</span>
         </div>
         <h2 className="head-text">
-          Found on Google. Found by AI. Found Without an Ad.
+          214 keywords on Google, 30 in the top 5, and cited by AI tools
         </h2>
         <p className="paragraph-text leenus-organic-desc">
           We started with SEO and added Meta ads alongside it, so ads were never carrying

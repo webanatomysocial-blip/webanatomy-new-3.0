@@ -63,7 +63,7 @@ export default function CreativeShowcase({
           Creative <span>That Earned The Clicks</span>
         </div>
         <h2 className="head-text">
-          Two Languages, One Warning
+          Ads in English and Telugu, built around one warning
         </h2>
         <p className="paragraph-text leenus-creative-desc">
           Our strongest campaigns ran across Telangana and Andhra Pradesh, so every static

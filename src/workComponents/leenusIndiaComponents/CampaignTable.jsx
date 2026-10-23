@@ -23,7 +23,7 @@ const SUMMARY = [
   { value: "335", label: "Total Form Leads Generated" },
   { value: "~₹138", label: "Average Cost Per Lead" },
 ];
-const SUMMARY_NOTE = "The ₹138 average leaves out the website-visit campaign (₹847), which was not a lead-form campaign.";
+const SUMMARY_NOTE = "*The ₹138 average excludes the website-visit campaign (₹847), which was not a lead-form campaign.";
 
 export default function CampaignTable() {
   const containerRef = useRef(null);
@@ -65,10 +65,10 @@ export default function CampaignTable() {
   return (
     <section className="leenus-campaign-section">
       <h2 className="head-text">
-        Structuring Spend Around the Projects That Actually Move the Business
+        Structuring spend around the projects that actually move the business
       </h2>
       <p className="paragraph-text leenus-campaign-desc">
-        We focused on layout development, with most of the budget going into underground drainage. Each campaign got its own audience and location, and we ran multiple ad sets and ads side by side, so the numbers told us what to keep and what to drop. Below is the campaign data exactly as it appears in Meta Ads Manager.
+        We focused on layout development, with most of the budget going into underground drainage. Each campaign got its own audience and location, and we ran multiple ad sets and ads side by side, so the numbers told us what to keep and what to drop. Below is the campaign data from Meta Ads Manager, with campaign names tidied for readability. TG = Telangana, AP = Andhra Pradesh.
       </p>
 
       <div className="leenus-campaign-table-wrap">
