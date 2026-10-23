@@ -44,10 +44,14 @@ export async function generateMetadata({ params }) {
       description: "Crafting Distinctive Brand Stories for Prugens Consulting.",
     };
   }
+  if (idLower === 'leenus-india') {
+    return {
+      title: "Leenus India Success Story | SEO & Lead Generation Results",
+      description: "Explore how Web Anatomy helped Leenus India generate 400 leads and ₹54 Cr+ in business opportunities through SEO, Meta Ads, and conversion tracking.",
+    };
+  }
 
 
-
-  
   return {
     title: "Work Case Study | Web Anatomy",
     description: "Explore Web Anatomy's portfolio of brand, design, and engineering work.",
