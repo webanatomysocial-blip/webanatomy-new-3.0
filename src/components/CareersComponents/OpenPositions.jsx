@@ -34,6 +34,12 @@ const JOBS = [
     title: "Performance Marketer",
     tags: ["On-site · Hyderabad", "Full-time · 1 – 2 Years"],
     desc: "Plan and execute data-driven ad campaigns across platforms to maximize ROI and drive scalable growth for our clients."
+  },
+  {
+    id: 6,
+    title: "Web Developer Intern",
+    tags: ["On-site · Hyderabad", "Internship · 0 – 1 Year"],
+    desc: "Build and maintain websites and web applications for Web Anatomy and our clients. You will work across frontend and backend, pick up real project experience, and ship work that is actually used."
   }
 ];
 
@@ -154,11 +160,11 @@ export default function OpenPositions() {
           <div className="openpos-header-left">
             <h2 className="head-text openpos-title">Open Positions</h2>
             <p className="openpos-subtitle">
-              Five roles. One team. Find where you fit.
+              Six roles. One team. Find where you fit.
             </p>
           </div>
           <div className="openpos-header-right">
-            <span className="openpos-badge">5 Open Roles</span>
+            <span className="openpos-badge">6 Open Roles</span>
           </div>
         </div>
 
