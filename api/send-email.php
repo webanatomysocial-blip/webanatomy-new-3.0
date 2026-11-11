@@ -117,7 +117,7 @@ try {
 
     $mail->setFrom($_ENV['SMTP_FROM'] ?? 'webanatomysocial@gmail.com', $_ENV['SMTP_FROM_NAME'] ?? 'Webanatomy');
     
-    $mail->addAddress('Srujan@mosol9.com');
+    $mail->addAddress('srujan@mosol9.com');
     $mail->addAddress('supraja@mosol9.com');
 
     if ($email) {
