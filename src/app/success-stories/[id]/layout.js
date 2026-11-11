@@ -46,8 +46,13 @@ export async function generateMetadata({ params }) {
   }
   if (idLower === 'leenus-india') {
     return {
-      title: "Leenus India Success Story | SEO & Lead Generation Results",
+      title: {
+        absolute: "Leenus India Success Story | SEO Growth & Leads",
+      },
       description: "Explore how Web Anatomy helped Leenus India generate 400 leads and ₹54 Cr+ in business opportunities through SEO, Meta Ads, and conversion tracking.",
+      alternates: {
+        canonical: "/success-stories/leenus-india",
+      },
     };
   }
 
@@ -55,6 +60,9 @@ export async function generateMetadata({ params }) {
   return {
     title: "Work Case Study | Web Anatomy",
     description: "Explore Web Anatomy's portfolio of brand, design, and engineering work.",
+    alternates: {
+      canonical: `/success-stories/${resolvedParams?.id || ''}`,
+    },
   };
 }
 
