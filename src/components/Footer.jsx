@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FiArrowUpRight, FiX } from "react-icons/fi";
-import { FaLinkedin, FaInstagram, FaBehance } from "react-icons/fa";
+import { FaLinkedin, FaInstagram, FaBehance, FaFacebookF } from "react-icons/fa";
 import "@/css/Footer.css";
 import badgeZenith from "@/assets/images/badge-zenith.png";
 import zeNetzeroBadge from "@/assets/ze-netzero-badge.png";
@@ -97,6 +97,14 @@ export default function Footer() {
 
           <div className="footer-social-icons">
             <a
+              href="https://www.facebook.com/p/Web-Anatomy-61560143882609/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-link"
+            >
+              <FaFacebookF size={24} />
+            </a>
+            <a
               href="https://www.linkedin.com/company/web-anatomy-in/"
               target="_blank"
               rel="noopener noreferrer"
@@ -120,6 +128,7 @@ export default function Footer() {
             >
               <FaBehance size={24} />
             </a>
+            
           </div>
         </div>
 
