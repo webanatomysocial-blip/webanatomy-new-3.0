@@ -1,5 +1,6 @@
 "use client";
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { LenisContext } from './LenisContext';
 import Lenis from "lenis";
 import { gsap } from "gsap";
@@ -8,6 +9,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 function LenisProvider({ children }) {
   const [lenis, setLenis] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const lenisRef = useRef(null);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    lenisRef.current?.scrollTo(0, { immediate: true, force: true });
+  }, [pathname]);
 
   useEffect(() => {
     const newLenis = new Lenis({
@@ -22,6 +29,7 @@ function LenisProvider({ children }) {
       infinite: false,
     });
 
+    lenisRef.current = newLenis;
     setLenis(newLenis);
     setIsLoading(false);
 
@@ -40,6 +48,7 @@ function LenisProvider({ children }) {
       newLenis.off('scroll', ScrollTrigger.update);
       gsap.ticker.remove(update);
       newLenis.destroy();
+      lenisRef.current = null;
       setLenis(null);
     };
   }, []);

@@ -11,6 +11,7 @@ import OurProcess from "@/components/HomeComponents/OurProcess";
 import OurPerspective from "@/components/HomeComponents/OurPerspective";
 import FeaturesSection from "@/components/HomeComponents/FeaturesSection";
 import WhatWeDo from "@/components/HomeComponents/WhatWeDo";
+import VideoTestimonials from "@/components/HomeComponents/VideoTestimonials";
 import IntegrationsSection from "@/components/HomeComponents/IntegrationsSection";
 import ClientsImg from "@/components/Clients-img";
 import OurServices from "@/components/OurServices";
@@ -64,6 +65,7 @@ export default function Home() {
       <OurPerspective />
       <FeaturesSection />
       <WhatWeDo />
+      <VideoTestimonials />
      
        <ClientsRecognition 
                     tag="✦ Clients & Recognition" 

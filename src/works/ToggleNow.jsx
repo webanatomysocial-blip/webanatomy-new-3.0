@@ -9,6 +9,7 @@ import ImageFadeCome from "../workComponents/ToggleNowComponent/ImageFadeCome";
 import ThreeImagesScroll from "../workComponents/ToggleNowComponent/ThreeImagesScroll";
 import TnowSeo from "../workComponents/ToggleNowComponent/TnowSeo";
 import TnowResults from "../workComponents/TnowResults";
+import TnowExperienceVideo from "../workComponents/TnowExperienceVideo";
 import WorkCta from "../workComponents/WorkCta";
 import BothImages from "../workComponents/threatsenseaicomponents/BothImages";
 
@@ -100,6 +101,8 @@ export default function ToggleNow() {
           { value: "2x", label: "Qualified Inbound Leads" },
         ]}
       />
+
+      <TnowExperienceVideo videoSrc="/videos/work/togglenow/Togglenow-experience-480p.mp4" />
 
       <WorkCta
         src={ctaimage}

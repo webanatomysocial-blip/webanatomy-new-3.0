@@ -13,6 +13,7 @@ import OrganicAISearch from "../workComponents/leenusIndiaComponents/OrganicAISe
 import OrganicStatsPill from "../workComponents/leenusIndiaComponents/OrganicStatsPill";
 
 import LeenusVideoBanner from "../workComponents/leenusIndiaComponents/LeenusVideoBanner";
+import QuoteVideo from "../workComponents/leenusIndiaComponents/QuoteVideo";
 
 import semrushShot from "../WorkImages/leenus-india/semrush-domain-overview-laptop.png";
 import googleAiShot from "../WorkImages/leenus-india/google-ai-overview-laptop.png";
@@ -111,10 +112,10 @@ export default function LeenusIndia() {
         ]}
       />
 
-      <JustHeading
-        paddingTop={0}
-        tittle='"Web Anatomy didn&apos;t just run our ads. They understood which projects actually move our business and built every campaign around getting us in front of that exact buyer."'
+      <QuoteVideo
+        quote='"Web Anatomy didn&apos;t just run our ads. They understood which projects actually move our business and built every campaign around getting us in front of that exact buyer."'
         subtitle="Team Leenus India"
+        videoSrc="/videos/work/leenus/Leenuns-Enhanced-480p.mp4"
       />
 
       <StatsBlock
