@@ -102,7 +102,10 @@ export default function ToggleNow() {
         ]}
       />
 
-      <TnowExperienceVideo videoSrc="/videos/work/togglenow/Togglenow-experience-480p.mp4" />
+      <TnowExperienceVideo
+        videoSrc="/videos/work/togglenow/Togglenow-experience-480p.mp4"
+        poster="/videos/posters/togglenow-thumb.jpg"
+      />
 
       <WorkCta
         src={ctaimage}

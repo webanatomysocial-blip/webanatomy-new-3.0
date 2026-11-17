@@ -116,6 +116,7 @@ export default function LeenusIndia() {
         quote='"Web Anatomy didn&apos;t just run our ads. They understood which projects actually move our business and built every campaign around getting us in front of that exact buyer."'
         subtitle="Team Leenus India"
         videoSrc="/videos/work/leenus/Leenuns-Enhanced-480p.mp4"
+        poster="/videos/posters/leenus-thumb.jpg"
       />
 
       <StatsBlock
