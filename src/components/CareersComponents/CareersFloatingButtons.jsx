@@ -9,7 +9,7 @@ const CAREERS_MAIL_TO = ["Srujan@mosol9.com", "supraja@mosol9.com"].join(",");
 
 export default function CareersFloatingButtons() {
   const scrollToOpenPositions = () => {
-    document.getElementById("apply-form")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("open-positions")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
