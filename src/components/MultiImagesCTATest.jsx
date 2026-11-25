@@ -1,0 +1,244 @@
+"use client";
+
+import React, { useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
+import gsap from "gsap";
+import "../css/MultiImagesCTATest.css";
+
+const MathUtils = {
+  lerp: (a, b, n) => (1 - n) * a + n * b,
+  distance: (x1, y1, x2, y2) => Math.hypot(x2 - x1, y2 - y1),
+};
+
+import cta1 from "@/assets/images/cta/WhatsApp Image 2026-06-06 at 10.32.39 AM.jpeg";
+import cta2 from "@/assets/images/cta/WhatsApp Image 2026-06-06 at 10.32.39 AM (1).jpeg";
+import cta3 from "@/assets/images/cta/WhatsApp Image 2026-06-06 at 10.32.39 AM (2).jpeg";
+import cta4 from "@/assets/images/cta/WhatsApp Image 2026-06-06 at 10.32.39 AM (3).jpeg";
+import cta5 from "@/assets/images/cta/WhatsApp Image 2026-06-06 at 10.32.39 AM (4).jpeg";
+import cta6 from "@/assets/images/cta/WhatsApp Image 2026-06-06 at 10.32.39 AM (5).jpeg";
+import cta7 from "@/assets/images/cta/WhatsApp Image 2026-06-06 at 10.32.39 AM (6).jpeg";
+import cta8 from "@/assets/images/cta/WhatsApp Image 2026-06-06 at 10.32.39 AM (7).jpeg";
+
+import { SiOpenai, SiAnthropic } from "react-icons/si";
+
+const DEFAULT_AI_PROMPT = `I'm evaluating Web Anatomy as a long-term marketing and technology partner for our business. Explain what makes Web Anatomy different from a traditional agency, how their philosophy of "Find Clarity in Chaos" and "Design. Build. Scale." shapes the way they work, and how their proprietary operating system, LOOPED, improves collaboration, accountability and project delivery. Also highlight their expertise across branding, digital products, marketing and growth, along with industry recognitions and overall approach to solving business problems. Summarise the key insights from their website: https://webanatomy.in`;
+
+export default function MultiImagesCTA({ aiPrompt = DEFAULT_AI_PROMPT }) {
+  const router = useRouter();
+  const containerRef = useRef(null);
+  const imagesRef = useRef([]);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    let screenMousePos = { x: -9999, y: -9999 };
+    let mousePos = { x: 0, y: 0 };
+    let lastMousePos = { x: 0, y: 0 };
+    let cacheMousePos = { x: 0, y: 0 };
+    let isHovering = false;
+    let wasHovering = false;
+
+    const handleMouseMove = (ev) => {
+      screenMousePos = { x: ev.clientX, y: ev.clientY };
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    let imgPosition = 0;
+    let zIndexVal = 1;
+    let threshold = 150;
+    let animationFrameId;
+
+    const render = () => {
+      if (screenMousePos.x !== -9999) {
+        const rect = container.getBoundingClientRect();
+        isHovering =
+          screenMousePos.x >= rect.left &&
+          screenMousePos.x <= rect.right &&
+          screenMousePos.y >= rect.top &&
+          screenMousePos.y <= rect.bottom;
+
+        if (isHovering) {
+          mousePos = {
+            x: screenMousePos.x - rect.left,
+            y: screenMousePos.y - rect.top,
+          };
+
+          if (!wasHovering) {
+            // Just entered the container, initialize positions to prevent huge initial distance jump
+            lastMousePos = { x: mousePos.x, y: mousePos.y };
+            cacheMousePos = { x: mousePos.x, y: mousePos.y };
+          }
+        }
+      }
+
+      wasHovering = isHovering;
+
+      let distance = MathUtils.distance(
+        mousePos.x,
+        mousePos.y,
+        lastMousePos.x,
+        lastMousePos.y,
+      );
+      cacheMousePos.x = MathUtils.lerp(
+        cacheMousePos.x || mousePos.x,
+        mousePos.x,
+        0.1,
+      );
+      cacheMousePos.y = MathUtils.lerp(
+        cacheMousePos.y || mousePos.y,
+        mousePos.y,
+        0.1,
+      );
+
+      if (distance > threshold && isHovering) {
+        showNextImage();
+        zIndexVal++;
+        imgPosition =
+          imgPosition < imagesRef.current.length - 1 ? imgPosition + 1 : 0;
+        lastMousePos = { ...mousePos };
+      }
+
+      let isIdle = true;
+      for (let img of imagesRef.current) {
+        if (!img) continue;
+        if (gsap.isTweening(img) || img.style.opacity != 0) {
+          isIdle = false;
+          break;
+        }
+      }
+      if (isIdle && zIndexVal !== 1) {
+        zIndexVal = 1;
+      }
+
+      animationFrameId = requestAnimationFrame(render);
+    };
+
+    const showNextImage = () => {
+      const img = imagesRef.current[imgPosition];
+      if (!img) return;
+
+      const imgWidth = img.offsetWidth || 400;
+      const imgHeight = img.offsetHeight || 200;
+
+      gsap.killTweensOf(img);
+
+      const tl = gsap.timeline();
+      tl.set(
+        img,
+        {
+          opacity: 1,
+          scale: 0.5,
+          filter: "blur(5px)",
+          zIndex: zIndexVal,
+          x: cacheMousePos.x - imgWidth / 2,
+          y: cacheMousePos.y - imgHeight / 2,
+        },
+        0,
+      )
+        .to(
+          img,
+          {
+            duration: 0.9,
+            ease: "expo.out",
+            scale: 1,
+            filter: "blur(0px)",
+            x: mousePos.x - imgWidth / 2,
+            y: mousePos.y - imgHeight / 2,
+          },
+          0,
+        )
+        .to(
+          img,
+          {
+            duration: 1,
+            ease: "power4.out",
+            opacity: 0,
+          },
+          0.4,
+        )
+        .to(
+          img,
+          {
+            duration: 1,
+            ease: "power4.out",
+            scale: 0.5,
+          },
+          0.4,
+        );
+    };
+
+    animationFrameId = requestAnimationFrame(render);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
+  const imageUrls = [
+    cta1.src,
+    cta2.src,
+    cta3.src,
+    cta4.src,
+    cta5.src,
+    cta6.src,
+    cta7.src,
+    cta8.src,
+  ];
+
+  return (
+    <>
+      <div
+        className="micta-content"
+        ref={containerRef}
+        onClick={() => router.push("/contact")}
+      >
+        {imageUrls.map((src, idx) => (
+          <img
+            key={idx}
+            className="micta-content__img"
+            src={src}
+            alt={`Trail ${idx}`}
+            ref={(el) => (imagesRef.current[idx] = el)}
+            loading="lazy"
+          />
+        ))}
+        <span
+          className="micta-content__title"
+          style={{ zIndex: 10000, pointerEvents: "none", color: "#000" }}
+        >
+          Let's Talk
+        </span>
+      </div>
+      <div className="micta-ask-section">
+        <h4 className="micta-ask-title">
+          Ask ChatGPT And Claude About Web Anatomy
+        </h4>
+        <div className="micta-ask-buttons">
+          <a
+            className="micta-btn micta-btn--claude"
+            href={`https://claude.ai/new?q=${encodeURIComponent(aiPrompt)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none" }}
+          >
+            <SiAnthropic size={30} className="claude-icon" />
+            <span>Claude</span>
+          </a>
+          <a
+            className="micta-btn micta-btn--chatgpt"
+            href={`https://chatgpt.com/?q=${encodeURIComponent(aiPrompt)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none" }}
+          >
+            <SiOpenai size={30} className="chatgpt-icon" />
+            <span>ChatGPT</span>
+          </a>
+        </div>
+      </div>
+    </>
+  );
+}

@@ -96,8 +96,8 @@
 }
 
 .cr-floating-img {
-  width: 135px;
-  height: 135px;
+  width: 175px;
+  height: 175px;
   object-fit: contain;
   border-radius: 5px;
   will-change: transform;
@@ -118,10 +118,7 @@
   margin: -0.5px;
   position: relative;
   z-index: 2;
-  transition:
-    background-color 0.3s ease,
-    border-color 0.3s ease,
-    transform 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
 }
 
 .cr-logo-card:hover {
@@ -156,7 +153,7 @@
   flex-direction: column;
 }
 .cr-logo-img {
-  width: 100px;
+  width: 150px;
   height: auto;
   object-fit: contain;
 }
@@ -278,4 +275,10 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+.cr-logo-img {
+  width: 150px;
+  height: auto;
+  object-fit: contain;
 }

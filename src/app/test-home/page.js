@@ -7,29 +7,29 @@ export const metadata = {
 
 import HomeBannerTest from "@/components/HomeComponents/HomeBannerTest";
 import VideoBanner from "@/components/HomeComponents/VideoBanner";
-import TextFadeSection from "@/components/HomeComponents/TextFadeSection";
-import OurProcess from "@/components/HomeComponents/OurProcess";
+import TextFadeSection from "@/components/HomeComponents/TextFadeSectionTest";
+import OurProcess from "@/components/HomeComponents/OurProcessTest";
 import OurPerspective from "@/components/HomeComponents/OurPerspective";
 import FeaturesSection from "@/components/HomeComponents/FeaturesSection";
 import WhatWeDo from "@/components/HomeComponents/WhatWeDo";
-import IntegrationsSection from "@/components/HomeComponents/IntegrationsSection";
+import IntegrationsSection from "@/components/HomeComponents/IntegrationsSectionTest";
 import ClientsImg from "@/components/Clients-img";
-import OurServices from "@/components/OurServices";
+import OurServices from "@/components/OurServicesTest";
 import CaseStudyCard from "@/components/CaseStudyCard";
-import MultiImagesCTA from "@/components/MultiImagesCTA";
+import MultiImagesCTA from "@/components/MultiImagesCTATest";
 import { worksMetadata } from "@/works/metadata";
 import { PiSparkleFill } from "react-icons/pi";
 import "@/css/CaseStudiesSection.css";  
 import BlogsSection from "@/components/BlogComponents/BlogsSection";
 
-import ClientsRecognition from "@/components/AboutComponents/ClientsRecognition";
+import ClientsRecognition from "@/components/AboutComponents/ClientsRecognitionTest";
 
 export default function Home() {
   // Reverse the array to get descending order and take only the first 4
   const recentWorks = [...worksMetadata].reverse().slice(0, 4);
 
   return (
-    <>
+    <div className="test-home">
       <HomeBannerTest />
       <VideoBanner />
       <TextFadeSection />
@@ -86,7 +86,7 @@ export default function Home() {
       <BlogsSection limit={3} />
       
       <MultiImagesCTA />
-    </>
+    </div>
   );
 }
 

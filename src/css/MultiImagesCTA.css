@@ -4,8 +4,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden !important;
+  overflow-x: hidden !important;
   background-color: #fff;
+  display: flex;
   flex-direction: column;
   cursor: crosshair; /* To give an artistic feel while trailing */
 }
@@ -17,9 +18,8 @@
   color: rgb(0, 0, 0);
   margin: 0;
   text-align: center;
-  font-size: clamp(60px, 15vw, 200px) !important;
+  font-size: 200px !important;
   font-weight: 700 !important;
-  white-space: nowrap;
 
 }
 

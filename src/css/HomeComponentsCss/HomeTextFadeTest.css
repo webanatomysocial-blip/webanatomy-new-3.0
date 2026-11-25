@@ -1,0 +1,59 @@
+.test-home .Text-Section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding: 0 clamp(1.25rem, 8vw, 8rem);
+  box-sizing: border-box;
+}
+
+.test-home .text-container {
+  font-family: var(--font-inter), sans-serif;
+  font-size: clamp(1rem, 2.4vw, 3rem);
+  line-height: 1.2;
+  font-weight: 300;
+  max-width: 100%;
+}
+
+.test-home .line {
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.test-home .char-span {
+  display: inline;
+  color: #444444; /* Initial dim color */
+}
+
+.test-home .space {
+  display: inline;
+}
+
+.test-home .gradient-char {
+  /* Provide a subtle gradient for the target text */
+  background: linear-gradient(90deg, #bbbbbb, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: #444444; 
+}
+
+.test-home .mobile-space {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .test-home .text-container {
+    font-size: 24px;
+  }
+  .test-home .line {
+    white-space: normal;
+    display: inline;
+  }
+  .test-home .desktop-br {
+    display: none;
+  }
+  .test-home .mobile-space {
+    display: inline;
+  }
+}

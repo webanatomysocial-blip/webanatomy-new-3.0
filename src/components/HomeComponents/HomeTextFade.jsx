@@ -15,21 +15,21 @@ const HomeTextFade = ({ triggerRef }) => {
         scrollTrigger: {
           trigger: triggerRef ? triggerRef.current : sectionRef.current,
           start: "top top", // Start when wrapper hits top
-          end: "top+=100 top", // End when wrapper hits bottom
-          scrub: 0.5,
+          end: "bottom bottom", // End when wrapper hits bottom
+          scrub: 0.1,
         },
       });
 
       // Animate normal chars to white
       tl.to(".char-span:not(.gradient-char)", {
         color: "white",
-        duration: 0.1,
-        stagger: 0.03,
+        duration: 1,
+        stagger: 0.1,
         ease: "power1.inOut",
       }).to(".gradient-char", {
         color: "white",
         duration: 1,
-        stagger: 0.03,
+        stagger: 0.1,
         ease: "power1.inOut",
       });
     }, sectionRef);
@@ -39,11 +39,10 @@ const HomeTextFade = ({ triggerRef }) => {
     };
   }, []);
 
-  const text = `The digital world doesn't need more websites, campaigns, or
-platforms. It needs better thinking. At Web Anatomy, we believe
-every successful project begins by understanding the problem,
-not by selling a solution. That's how we bring clarity to complexity
-and build digital experiences that truly matter.`;
+  const text = `At Web Anatomy, we believe that every business
+deserves a digital presence that is as ambitious
+as the vision behind it, and we have built
+our entire practice around making that a reality.`;
 
   const lines = text.split("\n");
   const targetPhrase = "making that a reality.";

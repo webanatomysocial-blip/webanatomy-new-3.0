@@ -26,21 +26,23 @@ const IntegrationsSection = () => {
   return (
     <section className="integrations-section">
       <div className="integrations-container">
+        
         {/* Left Side Content */}
         <div className="integrations-left">
           <div className="integrations-pill">
-            <span className="pill-icon">✦</span> Partner Network
+            <span className="pill-icon">✦</span> Integrations
           </div>
 
           <h2 className="head-text integrations-title">
-            Trusted by the platforms <br />
-            that power modern business.
+            Your Entire Marketing,
+            <br />
+            Managed From One Place
           </h2>
 
           <p className="integrations-subtitle">
-            Our partnerships with leading technology and marketing platforms
-            give us direct access to the latest tools, insights and best
-            practices—helping us deliver better solutions for every client.
+            We connect every channel your audience uses search, social,
+            email, and beyond into one strategy built around your goals
+            and refined by real results.
           </p>
 
           <BlackButton text="View All Services" href="/services" />
@@ -67,7 +69,10 @@ const IntegrationsSection = () => {
                     style={{ "--angle": `${angle}deg` }}
                   >
                     <div className="orbit-icon-counter-spin">
-                      <div className="orbit-icon" style={{ color: item.color }}>
+                      <div
+                        className="orbit-icon"
+                        style={{ color: item.color }}
+                      >
                         <item.Icon />
                       </div>
                     </div>
@@ -78,7 +83,9 @@ const IntegrationsSection = () => {
           </div>
 
           <p className="integrations-quote">
-            “Powered by the platforms <br /> businesses trust.”
+            “One strategy. Every platform.
+            <br />
+            Measurable growth at every step.”
           </p>
         </div>
       </div>
